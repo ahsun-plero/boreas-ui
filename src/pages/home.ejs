@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boreas - Investment Philosophy & ETF Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <!-- Header Section -->
+  <%- include('../components/header') %>
+
+  <!-- Hero Section -->
+  <%- include('../components/hero', {
+    title: 'True-to-Theme ETFs. High Conviction Tailwind Themes.',
+    subtitle: 'Boreas provides European institutional and retail investors access to high conviction themes of the next decade.',
+    ctaText: 'Explore Our Products',
+    ctaHref: '#etfs'
+  }) %>
+
+  <!-- OUR ETFs Section -->
+  <section id="etfs" class="bg-bg-light py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Title -->
+      <div class="mb-12">
+        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">Our ETFs</h2>
+      </div>
+
+      <!-- ETF Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <!-- LUXY ETF Card -->
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=350&fit=crop',
+          title: 'LUXY',
+          subtitle: 'S&P Absolute Luxury',
+          descriptionTitle: 'LUXURY\'S MARGIN MOAT',
+          description: 'Gain exposure to luxury brands with strong competitive advantages. This ETF focuses on companies with sustainable pricing power and brand loyalty.',
+          ctaText: 'Explore LUXY',
+          ctaHref: '#'
+        }) %>
+
+        <!-- OCEAN ETF Card -->
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop',
+          title: 'OCEAN',
+          subtitle: 'Sustainable Maritime',
+          descriptionTitle: 'OCEAN ECONOMY GROWTH',
+          description: 'Invest in the future of ocean-based industries. From sustainable shipping to marine technology, capture growth in the blue economy.',
+          ctaText: 'Explore OCEAN',
+          ctaHref: '#'
+        }) %>
+
+        <!-- TECH ETF Card -->
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=350&fit=crop',
+          title: 'TECH',
+          subtitle: 'Digital Innovation Fund',
+          descriptionTitle: 'INNOVATION AT SCALE',
+          description: 'Track leading technology companies driving digital transformation. Diversified exposure to software, hardware, and digital services.',
+          ctaText: 'Explore TECH',
+          ctaHref: '#'
+        }) %>
+      </div>
+
+      <!-- Explore Full Lineup CTA -->
+      <div class="flex justify-center mt-8 md:mt-8 lg:mt-12">
+        <a href="#" class="inline-flex items-center h-12 px-6 py-2.5 bg-gold text-signature text-btn rounded hover:opacity-90 transition-opacity">
+          Explore Full Lineup
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Boreas Way Section -->
+  <section id="boreas-way" class="bg-white py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Title -->
+      <div class="mb-12">
+        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">The Boreas Way</h2>
+      </div>
+
+      <!-- Boreas Way Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <!-- Active Design Card -->
+        <%- include('../components/boreas-way-card', {
+          image: 'images/frame.svg',
+          title: 'Active Design, Index Delivery',
+          description: 'Deliberately researched exposure, delivered through a rules-based index.'
+        }) %>
+
+        <!-- True to Theme Card -->
+        <%- include('../components/boreas-way-card', {
+          image: 'images/frame-1.svg',
+          title: 'True to Theme',
+          description: 'Real conviction — companies closely connected to the theme, not loosely associated with it.'
+        }) %>
+
+        <!-- Portfolio Fit Card -->
+        <%- include('../components/boreas-way-card', {
+          image: 'images/frame-2.svg',
+          title: 'Portfolio Fit',
+          description: 'A focused addition alongside your core holdings, built with overlap in mind.'
+        }) %>
+      </div>
+
+      <!-- TEST Framework Section -->
+      <div class="mt-10">
+        <p class="text-body text-charcoal mb-12 md:mb-12 lg:mb-16">
+          Built on our TEST framework - Technology, Energy, Security, Explore further in Our Approach
+        </p>
+
+        <!-- CTA Button -->
+        <div class="flex justify-center">
+          <a href="#" class="inline-flex items-center h-12 px-6 py-2.5 bg-white border-2 border-signature text-signature text-btn font-semibold hover:bg-signature hover:text-white transition-all duration-200" style="border-radius: 4px;">
+            Explore Our Approach
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build on Conviction Section -->
+  <%- include('../components/build-on-conviction', {
+    image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db1d?w=800&h=600&fit=crop',
+    title: 'Build on Conviction',
+    description: 'At Boreas, we believe that great investing begins with conviction. Our research-driven approach combines deep fundamental analysis with a commitment to sustainable, impactful investing. Each of our ETFs represents a carefully curated selection of companies that align with both rigorous investment criteria and our values-based philosophy.',
+    ctaText: 'Learn Our Story',
+    ctaHref: '#'
+  }) %>
+
+  <!-- Global Insights Section -->
+  <section class="bg-white py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Title -->
+      <div class="mb-12">
+        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">Global Insights</h2>
+      </div>
+
+      <!-- Global Insights Cards Grid -->
+      <!--
+        Grid Layout:
+        - Mobile: 1 column (all cards full width, stacked)
+        - Tablet: Featured card spans 2 cols (full width), then 2 cards in next row
+        - Desktop: Featured card spans 3 cols (full width), then 2 cards in next row
+        - Gap: 24px on md+
+      -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <!-- Featured Card: Market Updates -->
+        <div class="md:col-span-2 lg:col-span-3">
+          <%- include('../components/global-insights-card', {
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+            tagText: 'Market Updates',
+            title: 'Global Market Trends Q4 2026',
+            date: 'October 2, 2026',
+            description: 'Explore the latest developments in global financial markets. Our analysis covers key economic indicators, geopolitical shifts, and emerging investment opportunities that are shaping market performance in Q4 2026.',
+            ctaText: 'Read Full Analysis →',
+            ctaHref: '#'
+          }) %>
+        </div>
+
+        <!-- Card 2: Investment Strategy -->
+        <div>
+          <%- include('../components/global-insights-card', {
+            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=350&fit=crop',
+            tagText: 'Investment Strategy',
+            title: 'ESG Focus in Tech Sector',
+            date: 'September 28, 2026',
+            description: 'Discover how environmental, social, and governance considerations are transforming technology investments and creating new opportunities for sustainable growth.',
+            ctaText: 'Learn More →',
+            ctaHref: '#'
+          }) %>
+        </div>
+
+        <!-- Card 3: Portfolio News -->
+        <div>
+          <%- include('../components/global-insights-card', {
+            image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db1d?w=600&h=350&fit=crop',
+            tagText: 'Portfolio News',
+            title: 'Q3 Performance Review',
+            date: 'September 25, 2026',
+            description: 'Review the quarterly performance of our ETF portfolio and understand how conviction-based investing continues to deliver value through market cycles.',
+            ctaText: 'View Details →',
+            ctaHref: '#'
+          }) %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <%- include('../components/footer') %>
+</body>
+</html>

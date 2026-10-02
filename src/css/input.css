@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+/* Typography Component Utilities */
+@layer components {
+  .text-h1 {
+    @apply text-[72px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h2 {
+    @apply text-[60px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h3 {
+    @apply text-[48px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h4 {
+    @apply text-[32px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h5 {
+    @apply text-[24px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h6 {
+    @apply text-[16px] font-bold leading-none font-display text-charcoal;
+  }
+  .text-h7 {
+    @apply text-[16px] font-bold leading-none font-display text-charcoal uppercase tracking-wide;
+  }
+  .text-tag {
+    @apply text-[16px] font-normal leading-none font-display text-charcoal;
+  }
+  .text-caption-1 {
+    @apply text-[16px] font-bold leading-none font-display text-charcoal uppercase tracking-wide;
+  }
+  .text-caption-2 {
+    @apply text-[16px] font-medium leading-none font-body text-charcoal;
+  }
+  .text-caption-sm {
+    @apply text-[12px] font-medium leading-none font-body text-charcoal;
+  }
+  .text-subtitle {
+    @apply text-[20px] font-medium leading-none font-body text-charcoal;
+  }
+  .text-btn {
+    @apply text-[16px] font-bold leading-none font-body text-charcoal;
+  }
+  .text-body {
+    @apply text-[16px] font-normal leading-[1.5] font-body text-charcoal;
+  }
+  .text-body-sm {
+    @apply text-[14px] font-normal leading-[1.5] font-body text-charcoal;
+  }
+  .text-table-header {
+    @apply text-[14px] font-medium leading-none font-body text-charcoal uppercase tracking-wide;
+  }
+}
+
+@tailwind utilities;

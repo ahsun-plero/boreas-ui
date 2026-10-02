@@ -1,0 +1,51 @@
+<%
+  // Props with defaults
+  const image = locals.image || '';
+  const title = locals.title || 'Build on Conviction';
+  const description = locals.description || 'Your description here';
+  const ctaText = locals.ctaText || 'Learn More';
+  const ctaHref = locals.ctaHref || '#';
+%>
+
+<section class="bg-bg-light py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+  <div class="mx-auto max-w-7xl">
+    <!-- Container: mobile single-col, tablet/desktop two-col -->
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-8 lg:gap-12">
+      <!-- Text Column -->
+      <div class="flex flex-col justify-center space-y-6 order-last sm:order-first">
+        <h2 class="text-h2 font-bold text-charcoal">
+          <%= title %>
+        </h2>
+
+        <p class="text-body text-charcoal/80">
+          <%= description %>
+        </p>
+
+        <div>
+          <a
+            href="<%= ctaHref %>"
+            class="inline-flex h-12 px-6 items-center justify-center bg-white border-2 border-signature text-signature text-btn font-semibold hover:bg-signature hover:text-white transition-all duration-200"
+            style="border-radius: 4px;"
+          >
+            <%= ctaText %>
+          </a>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="flex items-center order-first sm:order-last">
+        <% if (image) { %>
+          <img
+            src="<%= image %>"
+            alt="<%= title %>"
+            class="w-full rounded-2xl object-cover h-60 sm:h-80 lg:h-96"
+          />
+        <% } else { %>
+          <div class="w-full rounded-lg bg-gray-200 h-60 sm:h-80 lg:h-96 flex items-center justify-center">
+            <p class="text-gray-400">Image placeholder</p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>

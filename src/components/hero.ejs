@@ -1,0 +1,33 @@
+<%
+  const title = locals.title || 'True-to-Theme ETFs. High Conviction Tailwind Themes.';
+  const subtitle = locals.subtitle || 'Boreas provides European institutional and retail investors access to high conviction themes of the next decade.';
+  const ctaText = locals.ctaText || 'Explore ETFs';
+  const ctaHref = locals.ctaHref || '#etfs';
+%>
+
+<section class="relative bg-gradient-to-r from-signature to-charcoal text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center">
+  <!-- Background image overlay effect -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 md:px-8 w-full">
+    <div class="max-w-2xl">
+      <!-- Title - H1 Style -->
+      <h1 class="text-h1 text-white font-bold leading-tight mb-6 md:mb-8">
+        <%= title %>
+      </h1>
+
+      <!-- Subtitle - Body Style -->
+      <p class="text-body text-white mb-10 md:mb-12">
+        <%= subtitle %>
+      </p>
+
+      <!-- CTA Button -->
+      <a
+        href="<%= ctaHref %>"
+        class="inline-block bg-gold text-signature px-8 py-3 text-btn font-semibold rounded-lg hover:bg-gold/90 transition-all duration-200"
+      >
+        <%= ctaText %>
+      </a>
+    </div>
+  </div>
+</section>

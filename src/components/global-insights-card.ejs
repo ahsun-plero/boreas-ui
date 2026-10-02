@@ -1,0 +1,56 @@
+<%
+  // Props with defaults
+  const image = locals.image || 'https://via.placeholder.com/600x400';
+  const tagText = locals.tagText || 'Market Updates';
+  const title = locals.title || 'Global Market Insights';
+  const date = locals.date || 'October 02, 2026';
+  const description = locals.description || 'Explore the latest trends and developments in global markets and investment opportunities.';
+  const ctaText = locals.ctaText || 'Read More →';
+  const ctaHref = locals.ctaHref || '#';
+%>
+
+<div class="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+  <!-- Image Section with Tag -->
+  <div class="relative overflow-hidden group">
+    <!-- Featured Image -->
+    <img
+      src="<%= image %>"
+      alt="<%= title %>"
+      class="w-full h-48 sm:h-60 md:h-72 object-cover group-hover:brightness-95 transition-all duration-300"
+    />
+
+    <!-- Tag Badge -->
+    <div class="absolute top-3 sm:top-4 md:top-5 left-3 sm:left-4 md:left-5">
+      <span class="inline-block px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 bg-tint-signature text-signature text-xs sm:text-sm md:text-base font-semibold rounded-full border border-tint-signature">
+        <%= tagText %>
+      </span>
+    </div>
+  </div>
+
+  <!-- Card Content Section -->
+  <div class="flex flex-col flex-1 p-3 sm:p-4 md:p-5">
+    <!-- Date -->
+    <time class="text-caption-sm text-charcoal/60 font-medium mb-2 sm:mb-3 md:mb-4 font-body">
+      <%= date %>
+    </time>
+
+    <!-- Title -->
+    <h3 class="text-h4 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
+      <%= title %>
+    </h3>
+
+    <!-- Description -->
+    <p class="text-body text-charcoal/75 mb-4 sm:mb-5 md:mb-6 flex-grow">
+      <%= description %>
+    </p>
+
+    <!-- CTA Link - Mint Accent -->
+    <a
+      href="<%= ctaHref %>"
+      class="inline-flex items-center text-mint hover:text-mint/80 font-semibold text-sm sm:text-base md:text-base hover:underline transition-colors duration-200"
+      aria-label="<%= ctaText %>"
+    >
+      <%= ctaText %>
+    </a>
+  </div>
+</div>

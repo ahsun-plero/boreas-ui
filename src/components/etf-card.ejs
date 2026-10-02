@@ -1,0 +1,58 @@
+<%
+  // Props with defaults
+  const image = locals.image || 'https://via.placeholder.com/600x350';
+  const title = locals.title || 'ETF';
+  const subtitle = locals.subtitle || 'Exchange Traded Fund';
+  const descriptionTitle = locals.descriptionTitle || 'Description';
+  const description = locals.description || 'Learn more about this investment product.';
+  const ctaText = locals.ctaText || 'Explore';
+  const ctaHref = locals.ctaHref || '#';
+%>
+
+<div class="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  <!-- Image Section with Overlay -->
+  <div class="relative overflow-hidden group">
+    <!-- Background Image -->
+    <img
+      src="<%= image %>"
+      alt="<%= title %>"
+      class="w-full h-64 sm:h-80 md:h-96 object-cover group-hover:brightness-110 transition-all duration-300"
+    />
+
+    <!-- Overlay Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+    <!-- Text Overlays (Bottom-left) -->
+    <div class="absolute bottom-0 left-0 p-4 sm:p-5 md:p-6">
+      <h2 class="text-h4 text-white font-bold leading-none mb-2">
+        <%= title %>
+      </h2>
+      <p class="text-subtitle text-white font-medium leading-none">
+        <%= subtitle %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="flex flex-col flex-1 p-4 sm:p-5 md:p-6">
+    <!-- Description Section -->
+    <div class="flex-1 mb-6">
+      <h3 class="text-caption-1 text-charcoal mb-3">
+        <%= descriptionTitle %>
+      </h3>
+      <p class="text-body text-charcoal/80">
+        <%= description %>
+      </p>
+    </div>
+
+    <!-- CTA Button - White with Signature Border -->
+    <a
+      href="<%= ctaHref %>"
+      class="inline-flex h-12 px-6 items-center justify-center bg-white border-2 border-signature text-signature text-btn font-semibold hover:bg-signature hover:text-white transition-all duration-200"
+      style="border-radius: 4px;"
+      aria-label="<%= ctaText %>"
+    >
+      <%= ctaText %>
+    </a>
+  </div>
+</div>

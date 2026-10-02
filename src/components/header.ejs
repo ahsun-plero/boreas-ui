@@ -1,0 +1,52 @@
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/0 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+    <!-- Logo/Branding -->
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-signature rounded flex items-center justify-center">
+        <span class="text-white font-bold text-sm">B</span>
+      </div>
+      <span class="text-xl font-bold text-white font-display">BOREAS</span>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Home</a>
+      <a href="#etfs" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Our ETFs</a>
+      <a href="#boreas-way" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Insights</a>
+      <a href="#" class="text-white/90 hover:text-white transition-colors text-sm font-medium">About Us</a>
+      <a href="#" class="text-white/90 hover:text-white transition-colors text-sm font-medium">Contact Us</a>
+    </nav>
+
+    <!-- CTA Button -->
+    <button class="bg-gold hover:bg-gold/90 text-signature px-6 py-2 rounded font-semibold text-sm transition-colors">
+      Subscribe
+    </button>
+  </div>
+</header>
+
+<script>
+  (function() {
+    const header = document.getElementById('header');
+    let scrollTimeout;
+
+    function updateHeaderOnScroll() {
+      const isScrolled = window.scrollY > 50;
+
+      if (isScrolled) {
+        header.classList.remove('bg-black/0');
+        header.classList.add('bg-signature/95', 'shadow-lg');
+      } else {
+        header.classList.add('bg-black/0');
+        header.classList.remove('bg-signature/95', 'shadow-lg');
+      }
+    }
+
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateHeaderOnScroll, 10);
+    }, { passive: true });
+
+    // Initial check
+    updateHeaderOnScroll();
+  })();
+</script>

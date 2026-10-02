@@ -1,0 +1,12 @@
+<%
+  const variant = locals.variant || 'primary';
+  const text = locals.text || 'Button';
+  const href = locals.href || '#';
+
+  const baseClass = 'btn';
+  const variantClass = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
+%>
+
+<a href="<%= href %>" class="<%= baseClass %> <%= variantClass %>">
+  <%= text %>
+</a>

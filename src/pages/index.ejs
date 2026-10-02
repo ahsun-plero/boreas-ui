@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boreas - WordPress Theme</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <%- include('../components/header') %>
+
+  <%- include('../components/hero', {
+    title: 'Welcome to Boreas',
+    subtitle: 'A modern WordPress theme built with reusable Tailwind CSS components',
+    ctaText: 'Explore Components',
+    ctaHref: '#features'
+  }) %>
+
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-title text-center">Features</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card">
+          <h3 class="text-xl font-bold text-boreas-600 mb-2">Reusable Components</h3>
+          <p class="text-gray-600">Build components once and use them everywhere. Easy to maintain and update.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-bold text-boreas-600 mb-2">Tailwind CSS</h3>
+          <p class="text-gray-600">Utility-first CSS framework for rapid UI development with consistent styling.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-bold text-boreas-600 mb-2">Easy Distribution</h3>
+          <p class="text-gray-600">Compile to static HTML files ready for WordPress or any web platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="etf-cards" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-title text-center mb-12">ETF Card Component</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&h=350&fit=crop',
+          title: 'LUXY',
+          subtitle: 'S&P Absolute Luxury',
+          descriptionTitle: 'LUXURY\'S MARGIN MOAT',
+          description: 'Gain exposure to luxury brands with strong competitive advantages. This ETF focuses on companies with sustainable pricing power and brand loyalty.',
+          ctaText: 'Explore LUXY',
+          ctaHref: '#'
+        }) %>
+
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop',
+          title: 'OCEAN',
+          subtitle: 'Sustainable Maritime',
+          descriptionTitle: 'OCEAN ECONOMY GROWTH',
+          description: 'Invest in the future of ocean-based industries. From sustainable shipping to marine technology, capture growth in the blue economy.',
+          ctaText: 'Explore OCEAN',
+          ctaHref: '#'
+        }) %>
+
+        <%- include('../components/etf-card', {
+          image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=350&fit=crop',
+          title: 'TECH',
+          subtitle: 'Digital Innovation Fund',
+          descriptionTitle: 'INNOVATION AT SCALE',
+          description: 'Track leading technology companies driving digital transformation. Diversified exposure to software, hardware, and digital services.',
+          ctaText: 'Explore TECH',
+          ctaHref: '#'
+        }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="section-title">Ready to build?</h2>
+      <p class="text-lg text-gray-600 mb-8">Start creating beautiful, reusable components for your WordPress site.</p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../components/footer') %>
+</body>
+</html>
