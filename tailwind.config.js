@@ -50,6 +50,18 @@ module.exports = {
       },
       spacing: {
         '15': '3.75rem',  // 60px for custom padding
+        '7xs': '0.5rem',  // 8px
+      },
+      inset: {
+        '7xs': '0.5rem',  // 8px
+        'header': '1.75rem',  // 28px for main header offset below top header
+        'mobile-menu': '4rem',  // Position mobile menu below both headers (64px)
+      },
+      borderRadius: {
+        'xs': '0.25rem',  // 4px
+      },
+      backgroundImage: {
+        'hero-gradient': `linear-gradient(256deg, rgba(49, 36, 84, 0.65) -6.6%, rgba(49, 36, 84, 0.65) 29.85%, rgba(49, 36, 84, 0.32) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%)`,
       },
       fontSize: {
         'h1': ['72px', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
@@ -71,5 +83,20 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    function({ addComponents }) {
+      addComponents({
+        '.bg-hero': {
+          backgroundImage: `linear-gradient(256deg, rgba(49, 36, 84, 0.65) -6.6%, rgba(49, 36, 84, 0.65) 29.85%, rgba(49, 36, 84, 0.32) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), url('images/hero-bg.jpg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+        },
+        '.leading-footer': {
+          lineHeight: '1.375rem',
+        },
+      });
+    }
+  ]
 }

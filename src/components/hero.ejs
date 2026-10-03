@@ -5,14 +5,15 @@
   const ctaHref = locals.ctaHref || '#etfs';
 %>
 
-<section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center" style="background: linear-gradient(256deg, rgba(49, 36, 84, 0.65) -6.6%, rgba(49, 36, 84, 0.65) 29.85%, rgba(49, 36, 84, 0.32) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), url('images/hero-bg.jpg') lightgray -209.538px -424.408px / 145.075% 193.032% no-repeat;">
+<section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center bg-hero">
   <!-- Background overlay applied via gradient -->
 
   <div class="relative max-w-7xl mx-auto px-4 md:px-8 w-full">
     <div class="max-w-2xl">
       <!-- Title - H1 Style -->
-      <h1 class="text-h1 text-white font-bold leading-tight mb-6 md:mb-8">
-        <%= title %>
+      <h1 class="text-h3 md:text-h2 lg:text-h1 text-white font-bold leading-tight mb-6 md:mb-8">
+        True-to-Theme ETFs.<br>
+        High Conviction Tailwind Themes.
       </h1>
 
       <!-- Subtitle - Body Style -->
@@ -23,7 +24,7 @@
       <!-- CTA Button -->
       <a
         href="<%= ctaHref %>"
-        class="inline-block bg-gold text-signature px-8 py-3 text-btn font-semibold rounded-lg hover:bg-gold/90 transition-all duration-200"
+        class="inline-flex items-center h-12 px-8 bg-gold text-signature text-btn font-semibold rounded-lg hover:bg-gold/90 transition-all duration-200"
       >
         <%= ctaText %>
       </a>

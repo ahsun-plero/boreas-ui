@@ -6,52 +6,52 @@
 /* Typography Component Utilities */
 @layer components {
   .text-h1 {
-    @apply text-[72px] font-bold leading-none font-display text-charcoal;
+    @apply text-[72px] font-bold leading-none font-display;
   }
   .text-h2 {
-    @apply text-[60px] font-bold leading-none font-display text-charcoal;
+    @apply text-[60px] font-bold leading-none font-display;
   }
   .text-h3 {
-    @apply text-[48px] font-bold leading-none font-display text-charcoal;
+    @apply text-[48px] font-bold leading-none font-display;
   }
   .text-h4 {
-    @apply text-[32px] font-bold leading-none font-display text-charcoal;
+    @apply text-[32px] font-bold leading-none font-display;
   }
   .text-h5 {
-    @apply text-[24px] font-bold leading-none font-display text-charcoal;
+    @apply text-[24px] font-bold leading-none font-display;
   }
   .text-h6 {
-    @apply text-[16px] font-bold leading-none font-display text-charcoal;
+    @apply text-[16px] font-bold leading-none font-display;
   }
   .text-h7 {
-    @apply text-[16px] font-bold leading-none font-display text-charcoal uppercase tracking-wide;
+    @apply text-[16px] font-bold leading-none font-display uppercase tracking-wide;
   }
   .text-tag {
-    @apply text-[16px] font-normal leading-none font-display text-charcoal;
+    @apply text-[16px] font-normal leading-none font-display;
   }
   .text-caption-1 {
-    @apply text-[16px] font-bold leading-none font-display text-charcoal uppercase tracking-wide;
+    @apply text-[16px] font-bold leading-none font-display uppercase tracking-wide;
   }
   .text-caption-2 {
-    @apply text-[16px] font-medium leading-none font-body text-charcoal;
+    @apply text-[16px] font-medium leading-none font-body;
   }
   .text-caption-sm {
-    @apply text-[12px] font-medium leading-none font-body text-charcoal;
+    @apply text-[12px] font-medium leading-none font-body;
   }
   .text-subtitle {
-    @apply text-[20px] font-medium leading-none font-body text-charcoal;
+    @apply text-[20px] font-medium leading-none font-body;
   }
   .text-btn {
-    @apply text-[16px] font-bold leading-none font-body text-charcoal;
+    @apply text-[16px] font-bold leading-none font-body;
   }
   .text-body {
-    @apply text-[16px] font-normal leading-[1.5] font-body text-charcoal;
+    @apply text-[16px] font-normal leading-[1.5] font-body;
   }
   .text-body-sm {
-    @apply text-[14px] font-normal leading-[1.5] font-body text-charcoal;
+    @apply text-[14px] font-normal leading-[1.5] font-body;
   }
   .text-table-header {
-    @apply text-[14px] font-medium leading-none font-body text-charcoal uppercase tracking-wide;
+    @apply text-[14px] font-medium leading-none font-body uppercase tracking-wide;
   }
 }
 

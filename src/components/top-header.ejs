@@ -1,13 +1,14 @@
 <!-- Top Header - Sticky Utility Bar -->
-<div id="top-header" class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 transition-all duration-300" style="height: 28px; background-color: rgba(255, 255, 255, 0.2);">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 flex items-center justify-between h-full py-1.5">
+<div id="top-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-7 bg-white/20">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-full">
     <!-- Left: Powered by Lunate -->
     <div class="flex items-center gap-2">
       <img src="images/lunate-logo.svg" alt="Lunate Logo" class="h-3 w-auto">
     </div>
 
     <!-- Right: Dropdown Menus -->
-    <div class="flex items-center gap-8">
+    <!-- Desktop Layout (LG+) -->
+    <div class="hidden lg:flex items-center gap-8">
       <!-- Global Dropdown -->
       <button class="flex items-center gap-2 text-body-sm leading-normal text-white text-center hover:text-mint transition-colors group" id="global-btn" data-open-modal="boreas-modal">
         <img src="images/global-icon.svg" alt="Global" class="w-4 h-4 group-hover:opacity-80">
@@ -21,6 +22,12 @@
         <img src="images/dropdown-arrow.svg" alt="Dropdown" class="w-4 h-4 group-hover:opacity-80">
       </button>
     </div>
+
+    <!-- Mobile Layout (SM/MD) -->
+    <button class="lg:hidden flex items-center gap-2 text-body-sm leading-normal text-white text-center hover:text-mint transition-colors group" id="mobile-selector-btn" data-open-modal="boreas-modal">
+      <span>Global / Institutional</span>
+      <img src="images/dropdown-arrow.svg" alt="Dropdown" class="w-4 h-4 group-hover:opacity-80">
+    </button>
   </div>
 </div>
 
@@ -33,13 +40,11 @@
       const isScrolled = window.scrollY > 50;
 
       if (isScrolled) {
-        topHeader.style.backgroundColor = 'rgba(49, 36, 84, 0.95)';
-        topHeader.style.backdropFilter = 'blur(10px)';
-        topHeader.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+        topHeader.classList.remove('bg-white/20');
+        topHeader.classList.add('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
       } else {
-        topHeader.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-        topHeader.style.backdropFilter = 'none';
-        topHeader.style.boxShadow = 'none';
+        topHeader.classList.remove('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
+        topHeader.classList.add('bg-white/20');
       }
     }
 
