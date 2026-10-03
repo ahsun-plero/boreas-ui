@@ -72,12 +72,12 @@
     const isScrolled = window.scrollY > 50;
 
     if (isScrolled) {
-      header.classList.remove('bg-signature/70');
+      header.classList.remove('bg-transparent');
       header.classList.add('bg-signature/95', 'shadow-lg');
     } else {
-      // Only change to lighter background if menu is not open
+      // Only change to transparent if menu is not open
       if (!isMenuOpen) {
-        header.classList.add('bg-signature/70');
+        header.classList.add('bg-transparent');
         header.classList.remove('bg-signature/95', 'shadow-lg');
       }
     }

@@ -10,6 +10,7 @@ const srcDir = path.join(__dirname, '../src');
 const componentDir = path.join(srcDir, 'components');
 const pagesDir = path.join(srcDir, 'pages');
 const imagesDir = path.join(srcDir, 'images');
+const jsDir = path.join(srcDir, 'js');
 const cssIn = path.join(srcDir, 'css/input.css');
 const cssOut = path.join(distDir, 'styles.css');
 const tailwindConfig = require(path.join(__dirname, '../tailwind.config.js'));
@@ -95,8 +96,23 @@ function copyAssets() {
         const distFile = path.join(distImagesDir, file);
         fs.copyFileSync(srcFile, distFile);
       }
-      console.log('✓ Assets copied successfully\n');
     }
+
+    if (fs.existsSync(jsDir)) {
+      const distJsDir = path.join(distDir, 'js');
+      if (!fs.existsSync(distJsDir)) {
+        fs.mkdirSync(distJsDir, { recursive: true });
+      }
+
+      const files = fs.readdirSync(jsDir);
+      for (const file of files) {
+        const srcFile = path.join(jsDir, file);
+        const distFile = path.join(distJsDir, file);
+        fs.copyFileSync(srcFile, distFile);
+      }
+    }
+
+    console.log('✓ Assets copied successfully\n');
   } catch (error) {
     console.error('Asset copy failed:', error);
     throw error;
