@@ -1,0 +1,13 @@
+<%
+  const label = locals.label || 'Label';
+  const variant = locals.variant || 'outline';
+  const isOutline = variant === 'outline';
+  const classes = [
+    'rounded-full px-3 py-1 text-body-sm inline-block',
+    isOutline
+      ? 'border border-outline text-charcoal bg-transparent'
+      : 'bg-tint-signature text-signature'
+  ].join(' ');
+%>
+
+<span class="<%= classes %>"><%= label %></span>

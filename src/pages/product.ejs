@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="POWR - Power to the People ETF. Invest in energy transition and renewable energy leaders with Boreas.">
+  <title>POWR ETF - Power to the People | Boreas</title>
+  <link rel="canonical" href="https://boreas.example.com/product.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
+  <meta property="og:title" content="POWR ETF - Power to the People | Boreas">
+  <meta property="og:description" content="Invest in energy transition and renewable energy leaders through our conviction-driven ETF.">
+  <meta property="og:image" content="https://boreas.example.com/images/og-image.jpg">
+  <meta property="og:url" content="https://boreas.example.com/product.html">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "InvestmentFund",
+    "name": "Power to the People ETF",
+    "ticker": "POWR",
+    "fundManager": "Boreas",
+    "description": "A conviction-driven ETF investing in energy transition and renewable energy leaders",
+    "url": "https://boreas.example.com/product.html"
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-signature focus:text-white">Skip to main content</a>
+
+  <!-- 1. Top Header - Powered by Lunate -->
+  <%- include('../components/top-header') %>
+
+  <!-- Modal Popup -->
+  <%- include('../components/modal', {
+    isOpen: false,
+    modalId: 'boreas-modal'
+  }) %>
+
+  <!-- 2. Header Section -->
+  <%- include('../components/header', {
+    activeItem: 'Our ETFs'
+  }) %>
+
+  <!-- 3. Product Hero Section -->
+  <%- include('../components/product-hero', {
+    breadcrumbs: [
+      {label: 'Home', href: '/'},
+      {label: 'Our ETFs', href: '/etfs'},
+      {label: 'POWR', href: '#'}
+    ],
+    ticker: 'POWR',
+    title: 'Power to the People ETF',
+    subtitle: 'Invest in energy transition and renewable energy leaders',
+    stats: [
+      {label: 'Expense Ratio', value: '0.49%'},
+      {label: 'Holdings', value: '25'},
+      {label: 'Inception', value: 'March 1, 2026'}
+    ],
+    downloadButtons: [
+      {label: 'Factsheet', icon: 'download', href: '#'},
+      {label: 'KIID', icon: 'download', href: '#'},
+      {label: '2-Pager', icon: 'download', href: '#'},
+      {label: 'Index Document', icon: 'download', href: '#'},
+      {label: 'Holdings', icon: 'download', href: '#'}
+    ],
+    priceCard: {
+      nav: '$162.84',
+      change: '+2.35',
+      changePercent: '+1.47%',
+      aum: '$850M',
+      ytdReturn: '+12.3%',
+      asOfDate: 'Oct 2, 2026'
+    },
+    ctaText: 'Speak To Our Team',
+    ctaHref: '#'
+  }) %>
+
+  <!-- 4. Sticky Sub-Navigation -->
+  <%- include('../components/sub-nav', {
+    tabs: [
+      {label: 'ETF Overview', href: '#overview', id: 'overview'},
+      {label: 'Holdings', href: '#holdings', id: 'holdings'},
+      {label: 'Performance', href: '#performance', id: 'performance'},
+      {label: 'Exchange Listings', href: '#exchanges', id: 'exchanges'},
+      {label: 'Literature', href: '#literature', id: 'literature'}
+    ]
+  }) %>
+
+  <main id="main-content">
+
+    <!-- 5. Investment Strategy Section -->
+    <section id="strategy" class="bg-bg-light py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">Investment Strategy</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+          <!-- Left Column: Investment Strategy Card -->
+          <%- include('../components/info-card', {
+            title: 'Investment Strategy',
+            variant: 'default',
+            content: [
+              {text: 'Research-driven stock selection focusing on energy transition leaders'},
+              {text: 'Deliberately researched exposure, delivered through a rules-based index'},
+              {text: 'Companies with competitive advantages in renewable energy and sustainability'},
+              {text: 'Concentrated portfolio of 25 high-conviction holdings'},
+              {text: 'Quarterly rebalancing based on proprietary research framework'}
+            ]
+          }) %>
+
+          <!-- Right Column: Why Invest Card + Risk Note -->
+          <div class="flex flex-col gap-6">
+            <%- include('../components/info-card', {
+              title: 'Why Invest?',
+              variant: 'tint',
+              content: [
+                {text: 'The global energy transition creates long-term growth opportunities for companies leading the shift to renewable energy.'},
+                {text: 'Investors gain exposure to established energy companies diversifying into renewables and pure-play renewable energy firms.'},
+                {text: 'The ETF is designed to capture the margin expansion and market share gains as the world transitions away from fossil fuels.'},
+                {text: 'True-to-theme approach ensures portfolio companies are genuinely connected to the energy transition narrative.'}
+              ]
+            }) %>
+
+            <!-- Risk Note (Optional) -->
+            <div class="bg-white border-l-4 border-signature p-6 rounded-lg shadow-sm">
+              <h4 class="text-h6 font-bold text-charcoal mb-3">Key Risk Factors</h4>
+              <ul class="space-y-2 text-body text-charcoal/80">
+                <li class="flex items-start gap-2">
+                  <span class="text-signature mt-1 flex-shrink-0">•</span>
+                  <span>Sector concentration risk in energy transition companies</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-signature mt-1 flex-shrink-0">•</span>
+                  <span>Government policy changes affecting renewable energy incentives</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-signature mt-1 flex-shrink-0">•</span>
+                  <span>Technology disruption and market adoption risks</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ETF Overview Section -->
+    <section id="overview" class="bg-white py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">ETF Overview</h2>
+        <!-- Section Header -->
+        <%- include('../components/section-header', {
+          title: 'ETF Overview'
+        }) %>
+
+        <!-- Two-Column Key-Value Lists -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mt-12">
+          <!-- Key Information -->
+          <div class="bg-gray-50 rounded-lg">
+            <%- include('../components/key-value-list', {
+              title: 'Key Information',
+              accentHeading: true,
+              rows: [
+                {label: 'ISIN', value: 'IE000ABC123XYZ'},
+                {label: 'Fund Size (AUM)', value: '$850,000,000'},
+                {label: 'Inception Date', value: 'March 1, 2026'},
+                {label: 'Expense Ratio', value: '0.49%'},
+                {label: 'Benchmark', value: 'Boreas Energy Transition Index'},
+                {label: 'Rebalancing Frequency', value: 'Quarterly'}
+              ]
+            }) %>
+          </div>
+
+          <!-- Investor Information -->
+          <div class="bg-gray-50 rounded-lg">
+            <%- include('../components/key-value-list', {
+              title: 'Investor Information',
+              accentHeading: true,
+              rows: [
+                {label: 'Fund Manager', value: 'Boreas Investment Management'},
+                {label: 'Custodian', value: 'Lunate Financial Services'},
+                {label: 'Number of Holdings', value: '25'},
+                {label: 'Base Currency', value: 'EUR'},
+                {label: 'Distribution Policy', value: 'Annual (December)'},
+                {label: 'Minimum Investment', value: 'No minimum'}
+              ]
+            }) %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Holdings Section -->
+    <section id="holdings" class="bg-bg-light py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">Holdings</h2>
+        <!-- Section Header with Action -->
+        <%- include('../components/section-header', {
+          title: 'Holdings',
+          action: {label: 'Download Holdings Data', icon: 'download', href: '#download-holdings'}
+        }) %>
+
+        <!-- Holdings Data Table -->
+        <div class="mt-12 bg-white rounded-lg overflow-hidden">
+          <%- include('../components/data-table', {
+            caption: 'POWR ETF Holdings - Company, Sector, Weight, and Country',
+            columns: [
+              {key: 'company', label: 'Company', align: 'left'},
+              {key: 'sector', label: 'Sector', align: 'left'},
+              {key: 'weight', label: 'Weight', align: 'right'},
+              {key: 'country', label: 'Country', align: 'left'}
+            ],
+            rows: [
+              {company: 'Tesla Inc.', sector: 'Automotive', weight: '5.2%', country: 'United States'},
+              {company: 'NextEra Energy', sector: 'Utilities', weight: '4.8%', country: 'United States'},
+              {company: 'Siemens Gamesa', sector: 'Wind Energy', weight: '4.5%', country: 'Spain'},
+              {company: 'Vestas Wind Systems', sector: 'Wind Energy', weight: '4.2%', country: 'Denmark'},
+              {company: 'Brookfield Renewable', sector: 'Renewable Power', weight: '3.9%', country: 'Canada'},
+              {company: 'Plug Power Inc.', sector: 'Hydrogen', weight: '3.7%', country: 'United States'},
+              {company: 'Orsted A/S', sector: 'Wind Energy', weight: '3.5%', country: 'Denmark'},
+              {company: 'EQT Corp', sector: 'Natural Gas', weight: '3.3%', country: 'United States'},
+              {company: 'Sunrun Inc.', sector: 'Solar', weight: '3.1%', country: 'United States'},
+              {company: 'Canadian Solar', sector: 'Solar', weight: '2.9%', country: 'Canada'}
+            ],
+            headerStyle: 'tint',
+            maxVisibleRows: 10,
+            footerAction: {label: 'View Full Holdings List', href: '#full-holdings'}
+          }) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Performance Section -->
+    <section id="performance" class="bg-white py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">Performance</h2>
+        <!-- Section Header -->
+        <%- include('../components/section-header', {
+          title: 'Performance'
+        }) %>
+
+        <!-- Performance Tabs -->
+        <div class="mt-12">
+          <!-- Tab Buttons -->
+          <div class="flex gap-3 mb-8 flex-wrap" role="tablist">
+            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-signature text-white" data-tab="avg-annual" aria-pressed="true" role="tab">Average Annual</button>
+            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-gray-100 text-charcoal hover:text-signature" data-tab="cumulative" aria-pressed="false" role="tab">Cumulative</button>
+            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-gray-100 text-charcoal hover:text-signature" data-tab="calendar" aria-pressed="false" role="tab">Calendar Year</button>
+          </div>
+
+          <!-- Average Annual Returns -->
+          <div id="avg-annual" class="tab-content">
+            <%- include('../components/data-table', {
+              caption: 'POWR ETF Average Annual Returns - Period, Fund Return, and Benchmark Return',
+              columns: [
+                {key: 'period', label: 'Period', align: 'left'},
+                {key: 'return', label: 'Return', align: 'right'},
+                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+              ],
+              rows: [
+                {period: 'Year-to-Date (2026)', return: '+12.3%', benchmark: '+8.5%'},
+                {period: '1 Year', return: '+12.3%', benchmark: '+8.5%'},
+                {period: 'Since Inception', return: '+15.2%', benchmark: '+10.1%'}
+              ],
+              headerStyle: 'tint'
+            }) %>
+          </div>
+
+          <!-- Cumulative Returns -->
+          <div id="cumulative" class="tab-content hidden">
+            <%- include('../components/data-table', {
+              caption: 'POWR ETF Cumulative Returns - Period, Fund Return, and Benchmark Return',
+              columns: [
+                {key: 'period', label: 'Period', align: 'left'},
+                {key: 'return', label: 'Return', align: 'right'},
+                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+              ],
+              rows: [
+                {period: '1 Month', return: '+2.1%', benchmark: '+1.8%'},
+                {period: '3 Months', return: '+5.4%', benchmark: '+3.9%'},
+                {period: '6 Months', return: '+8.7%', benchmark: '+6.2%'},
+                {period: '1 Year', return: '+12.3%', benchmark: '+8.5%'}
+              ],
+              headerStyle: 'tint'
+            }) %>
+          </div>
+
+          <!-- Calendar Year Returns -->
+          <div id="calendar" class="tab-content hidden">
+            <%- include('../components/data-table', {
+              caption: 'POWR ETF Calendar Year Returns - Year, Fund Return, and Benchmark Return',
+              columns: [
+                {key: 'year', label: 'Year', align: 'left'},
+                {key: 'return', label: 'Return', align: 'right'},
+                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+              ],
+              rows: [
+                {year: '2026 (YTD)', return: '+12.3%', benchmark: '+8.5%'},
+                {year: '2025', return: '+18.5%', benchmark: '+12.3%'},
+                {year: '2024', return: '+22.1%', benchmark: '+15.8%'}
+              ],
+              headerStyle: 'tint'
+            }) %>
+          </div>
+        </div>
+
+        <!-- Simple Tab Toggle Script -->
+        <script>
+          document.querySelectorAll('[data-tab]').forEach(btn => {
+            btn.addEventListener('click', function() {
+              const tabId = this.getAttribute('data-tab');
+              document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+              document.getElementById(tabId).classList.remove('hidden');
+              document.querySelectorAll('[data-tab]').forEach(b => {
+                b.classList.remove('bg-signature', 'text-white');
+                b.classList.add('bg-gray-100', 'text-charcoal');
+                b.setAttribute('aria-pressed', 'false');
+              });
+              this.classList.remove('bg-gray-100', 'text-charcoal');
+              this.classList.add('bg-signature', 'text-white');
+              this.setAttribute('aria-pressed', 'true');
+            });
+          });
+        </script>
+
+        <!-- Performance Chart -->
+        <div class="mt-12">
+          <%- include('../components/performance-chart', {
+            title: 'Growth of a Hypothetical $10,000',
+            ranges: [
+              {label: '1M', value: '1m'},
+              {label: '3M', value: '3m'},
+              {label: '6M', value: '6m'},
+              {label: '1Y', value: '1y'},
+              {label: 'Inception', value: 'inception'}
+            ],
+            data: {
+              labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+              datasets: [
+                {
+                  label: 'POWR',
+                  data: [10000, 10150, 10320, 10520, 10680, 10890, 11120, 11250],
+                  borderColor: '#312454',
+                  backgroundColor: 'rgba(49, 36, 84, 0.1)',
+                  fill: true,
+                  tension: 0.4
+                }
+              ]
+            },
+            legendItems: [{label: 'POWR', color: '#312454'}],
+            chartId: 'powrPerformanceChart'
+          }) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Exchange Listings Section -->
+    <section id="exchanges" class="bg-bg-light py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">Exchange Listings</h2>
+        <!-- Section Header -->
+        <%- include('../components/section-header', {
+          title: 'Exchange Listings'
+        }) %>
+
+        <!-- Exchange Data Table -->
+        <div class="mt-12 bg-white rounded-lg overflow-hidden">
+          <%- include('../components/data-table', {
+            caption: 'POWR ETF Exchange Listings - Exchange, Ticker, ISIN, and Status',
+            columns: [
+              {key: 'exchange', label: 'Exchange', align: 'left'},
+              {key: 'ticker', label: 'Ticker', align: 'left'},
+              {key: 'isin', label: 'ISIN', align: 'left'},
+              {key: 'status', label: 'Status', align: 'center'}
+            ],
+            rows: [
+              {exchange: 'Euronext Dublin', ticker: 'POWR ID', isin: 'IE000ABC123XYZ', status: 'Active'},
+              {exchange: 'Xetra (Germany)', ticker: 'POW GY', isin: 'IE000ABC123XYZ', status: 'Active'},
+              {exchange: 'SIX (Switzerland)', ticker: 'POWR SW', isin: 'IE000ABC123XYZ', status: 'Active'},
+              {exchange: 'Borsa Italiana (Italy)', ticker: 'POWR IM', isin: 'IE000ABC123XYZ', status: 'Active'},
+              {exchange: 'Euronext Paris', ticker: 'POWR FP', isin: 'IE000ABC123XYZ', status: 'Active'}
+            ],
+            headerStyle: 'tint'
+          }) %>
+        </div>
+
+        <!-- Available Countries -->
+        <div class="mt-12">
+          <h3 class="text-h5 font-bold text-charcoal mb-6">Available Countries</h3>
+          <div class="flex flex-wrap gap-3">
+            <%- include('../components/tag-chip', {label: 'Germany', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Ireland', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Italy', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'France', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Switzerland', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Spain', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Netherlands', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Belgium', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Luxembourg', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Austria', variant: 'outline'}) %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Literature Section -->
+    <section id="literature" class="bg-white py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="sr-only">Literature</h2>
+        <!-- Section Header -->
+        <%- include('../components/section-header', {
+          title: 'Literature'
+        }) %>
+
+        <!-- Document List: 3 Groups -->
+        <div class="mt-12">
+          <%- include('../components/document-list', {
+            groups: [
+              {
+                title: 'Regulatory Documents',
+                items: [
+                  {label: 'Prospectus (PDF)', href: '#'},
+                  {label: 'KIID (PDF)', href: '#'},
+                  {label: 'Annual Report (PDF)', href: '#'}
+                ]
+              },
+              {
+                title: 'Marketing Documents',
+                items: [
+                  {label: 'Factsheet (PDF)', href: '#'},
+                  {label: 'Product Overview (PDF)', href: '#'},
+                  {label: 'One-Pager (PDF)', href: '#'}
+                ]
+              },
+              {
+                title: 'Data & Research',
+                items: [
+                  {label: 'Holdings List (CSV)', href: '#'},
+                  {label: 'Index Methodology (PDF)', href: '#'},
+                  {label: 'Research Paper (PDF)', href: '#'}
+                ]
+              }
+            ]
+          }) %>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 11. Newsletter Subscription Section -->
+  <%- include('../components/newsletter', {
+    title: 'Stay Informed on Energy Transition',
+    subtitle: 'Get market insights, fund updates, and thematic research delivered to your inbox.',
+    inputPlaceholder: 'Enter Your Email Address',
+    buttonText: 'Subscribe',
+    disclaimer: 'By subscribing, you agree to receive market insights and product updates from Boreas. Unsubscribe anytime.'
+  }) %>
+
+  <!-- 12. Footer Section -->
+  <%- include('../components/footer') %>
+
+  <!-- 13. Disclaimer Section -->
+  <section class="bg-white py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="sr-only">Disclaimer</h2>
+      <%- include('../components/disclaimer', {
+        title: 'Important Disclaimer',
+        paragraphs: [
+          'Past performance is not indicative of future results. The value of investments and the income from them can go down as well as up. Investors may not get back the amount originally invested. Performance shown is for illustrative purposes only and should not be considered as a guarantee of future results.',
+          'This document is for informational purposes only and does not constitute an offer to sell or a solicitation to buy any securities or financial instruments. It is not intended to be investment advice or a recommendation to buy or sell any particular security. Before investing, please consult with a qualified financial advisor.',
+          'The POWR ETF is managed by Boreas Investment Management and is subject to the rules and regulations of the relevant regulatory authorities. This fund invests primarily in companies involved in the energy transition and renewable energy sectors, which involves specific risks including technology disruption, government policy changes, and sector concentration.',
+          'All data and performance figures presented are current as of the date specified and are subject to change. For the most current information, please visit www.boreas.example.com or contact our client services team. Boreas Investment Management is regulated by [relevant financial authority] and is committed to providing transparent, high-quality investment solutions.'
+        ]
+      }) %>
+    </div>
+  </section>
+
+</body>
+</html>

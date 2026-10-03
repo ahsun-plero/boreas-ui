@@ -1,0 +1,37 @@
+<%
+  // Props - accept either paragraphs array or content string
+  const title = locals.title || '';
+  const paragraphsArray = locals.paragraphs || [];
+  const contentString = locals.content || '';
+
+  // Determine which format to use
+  let paragraphs = [];
+  if (paragraphsArray && paragraphsArray.length > 0) {
+    // Use provided paragraphs array
+    paragraphs = paragraphsArray;
+  } else if (contentString) {
+    // Split content string by double newlines
+    paragraphs = contentString
+      .split('\n\n')
+      .filter(p => p.trim().length > 0)
+      .map(p => p.trim());
+  }
+%>
+
+<div class="bg-white w-full">
+  <div class="max-w-4xl mx-auto px-6 md:px-8 py-12 md:py-16">
+    <!-- Title -->
+    <% if (title) { %>
+      <h3 class="text-h5 font-bold text-charcoal mb-4">
+        <%= title %>
+      </h3>
+    <% } %>
+
+    <!-- Content -->
+    <div class="text-body-sm text-charcoal/70 leading-relaxed space-y-4">
+      <% paragraphs.forEach((paragraph) => { %>
+        <p><%= paragraph %></p>
+      <% }); %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%
+  // Props with defaults
+  const groups = locals.groups || [];
+%>
+
+<div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
+  <% groups.forEach((group) => { %>
+    <div class="bg-tint-signature p-6 rounded-lg">
+      <!-- Group Title -->
+      <h3 class="text-h6 font-bold text-signature mb-4">
+        <%= group.title %>
+      </h3>
+
+      <!-- Items List -->
+      <ul class="space-y-3">
+        <% if (group.items && group.items.length > 0) { %>
+          <% group.items.forEach((item) => { %>
+            <li>
+              <a
+                href="<%= item.href || '#' %>"
+                class="inline-flex items-center gap-2 text-body text-boreas-600 hover:underline transition-all duration-200"
+              >
+                <!-- Download Icon -->
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span><%= item.label %></span>
+              </a>
+            </li>
+          <% }); %>
+        <% } %>
+      </ul>
+    </div>
+  <% }); %>
+</div>

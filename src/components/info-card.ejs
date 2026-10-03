@@ -1,0 +1,43 @@
+<%
+  // Props with defaults
+  const title = locals.title || 'Card Title';
+  const variant = locals.variant || 'default';
+  const content = locals.content || [];
+
+  // Determine styling based on variant
+  const isDefaultVariant = variant === 'default';
+  const isTintVariant = variant === 'tint';
+
+  // Background and title color classes
+  const bgClass = isTintVariant ? 'bg-tint-signature' : 'bg-white';
+  const titleColorClass = isTintVariant ? 'text-signature' : 'text-charcoal';
+  const contentColorClass = isTintVariant ? 'text-charcoal' : 'text-charcoal';
+%>
+
+<div class="<%= bgClass %> rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+  <!-- Card Title -->
+  <h3 class="text-h5 font-bold <%= titleColorClass %> mb-4">
+    <%= title %>
+  </h3>
+
+  <!-- Content Section -->
+  <% if (isDefaultVariant) { %>
+    <!-- Bullet List for Default Variant -->
+    <ul class="list-disc ml-5 space-y-2">
+      <% content.forEach(function(item) { %>
+        <li class="text-body <%= contentColorClass %>">
+          <%= item.text %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else if (isTintVariant) { %>
+    <!-- Paragraphs for Tint Variant -->
+    <div class="space-y-4">
+      <% content.forEach(function(item) { %>
+        <p class="text-body <%= contentColorClass %>">
+          <%= item.text %>
+        </p>
+      <% }); %>
+    </div>
+  <% } %>
+</div>

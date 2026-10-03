@@ -1,0 +1,30 @@
+<%
+  // Props with defaults
+  const title = locals.title || 'Information';
+  const rows = locals.rows || [];
+  const accentHeading = locals.accentHeading !== undefined ? locals.accentHeading : false;
+%>
+
+<div class="p-4 md:p-6">
+  <!-- Title with optional accent border -->
+  <h3 class="text-h5 font-bold text-charcoal mb-4 md:mb-6 <%= accentHeading ? 'border-b-2 border-mint pb-4 md:pb-6' : '' %>">
+    <%= title %>
+  </h3>
+
+  <!-- Two-column grid: 1 column on SM/MD, 2 columns on LG -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+    <% rows.forEach((row, index) => { %>
+      <div class="pb-4 md:pb-6 border-b border-gray-200 last:border-b-0 lg:last:border-b-0">
+        <!-- Label -->
+        <p class="text-body text-charcoal/80 font-semibold mb-1 md:mb-2">
+          <%= row.label %>
+        </p>
+
+        <!-- Value -->
+        <p class="text-body text-charcoal">
+          <%= row.value %>
+        </p>
+      </div>
+    <% }); %>
+  </div>
+</div>

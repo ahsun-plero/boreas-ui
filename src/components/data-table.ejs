@@ -1,0 +1,109 @@
+<%
+  // Props with defaults
+  const columns = locals.columns || [];
+  const rows = locals.rows || [];
+  const headerStyle = locals.headerStyle || 'default'; // 'default' or 'tint'
+  const maxVisibleRows = locals.maxVisibleRows || null;
+  const footerAction = locals.footerAction || null;
+  const caption = locals.caption || null;
+
+  // Generate unique table ID for showing/hiding rows
+  const tableId = 'table-' + Math.random().toString(36).substr(2, 9);
+
+  // Determine visible rows
+  const showMore = maxVisibleRows && rows.length > maxVisibleRows;
+  const visibleRows = showMore ? rows.slice(0, maxVisibleRows) : rows;
+  const hiddenRows = showMore ? rows.slice(maxVisibleRows) : [];
+
+  // Helper to get alignment class
+  const getAlignClass = (align) => {
+    switch (align) {
+      case 'center':
+        return 'text-center';
+      case 'right':
+        return 'text-right';
+      case 'left':
+      default:
+        return 'text-left';
+    }
+  };
+%>
+
+<div class="overflow-x-auto">
+  <table class="w-full min-w-full" id="<%= tableId %>">
+    <% if (caption) { %>
+      <caption class="sr-only"><%= caption %></caption>
+    <% } %>
+    <!-- Table Header -->
+    <thead>
+      <tr class="<%= headerStyle === 'tint' ? 'bg-tint-signature' : 'bg-white' %> border-b border-gray-200">
+        <% columns.forEach((column) => { %>
+          <th class="px-4 py-3 text-table-header text-charcoal font-medium <%= getAlignClass(column.align) %>">
+            <%= column.label %>
+          </th>
+        <% }); %>
+      </tr>
+    </thead>
+
+    <!-- Table Body -->
+    <tbody>
+      <% visibleRows.forEach((row, index) => { %>
+        <tr class="<%= index % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <% columns.forEach((column) => { %>
+            <td class="px-4 py-3 text-body text-charcoal <%= getAlignClass(column.align) %>">
+              <%= row[column.key] %>
+            </td>
+          <% }); %>
+        </tr>
+      <% }); %>
+
+      <!-- Hidden rows (revealed by Show More button) -->
+      <% hiddenRows.forEach((row, index) => { %>
+        <tr class="hidden data-table-hidden <%= (index + maxVisibleRows) % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+          <% columns.forEach((column) => { %>
+            <td class="px-4 py-3 text-body text-charcoal <%= getAlignClass(column.align) %>">
+              <%= row[column.key] %>
+            </td>
+          <% }); %>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<!-- Show More Button or Footer Action -->
+<% if (showMore || footerAction) { %>
+  <div class="mt-6 flex justify-center">
+    <% if (showMore) { %>
+      <button
+        class="px-6 py-3 bg-signature text-white text-btn font-semibold rounded-xs hover:bg-charcoal transition-colors duration-200 data-table-show-more"
+        data-table-id="<%= tableId %>"
+      >
+        Show More
+      </button>
+    <% } else if (footerAction) { %>
+      <a
+        href="<%= footerAction.href %>"
+        class="px-6 py-3 bg-signature text-white text-btn font-semibold rounded-xs hover:bg-charcoal transition-colors duration-200 inline-block"
+      >
+        <%= footerAction.label %>
+      </a>
+    <% } %>
+  </div>
+
+  <% if (showMore) { %>
+    <script>
+      (function() {
+        const button = document.querySelector('[data-table-id="<%= tableId %>"]');
+        if (button) {
+          button.addEventListener('click', function() {
+            const table = document.getElementById('<%= tableId %>');
+            const hiddenRows = table.querySelectorAll('.data-table-hidden');
+            hiddenRows.forEach(row => row.classList.remove('hidden'));
+            button.style.display = 'none';
+          });
+        }
+      })();
+    </script>
+  <% } %>
+<% } %>

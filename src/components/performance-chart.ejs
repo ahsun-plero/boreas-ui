@@ -1,0 +1,79 @@
+<%
+  // Props with defaults
+  const title = locals.title || 'Growth of a Hypothetical $10,000';
+  const ranges = locals.ranges || [];
+  const data = locals.data || { labels: [], datasets: [] };
+  const legendItems = locals.legendItems || [];
+  const chartId = locals.chartId || 'performanceChart';
+%>
+
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <!-- Title -->
+  <h3 class="text-h5 font-bold text-charcoal mb-6">
+    <%= title %>
+  </h3>
+
+  <!-- Range Selector Pills -->
+  <div class="flex flex-wrap gap-3 mb-8">
+    <% ranges.forEach((range, index) => { %>
+      <button
+        class="range-pill text-body-sm font-medium px-4 py-2 rounded-full transition-all duration-200 <%= index === 0 ? 'bg-signature text-white' : 'bg-gray-100 text-charcoal hover:bg-gray-200' %>"
+        data-range="<%= range.value %>"
+        data-chart-id="<%= chartId %>"
+        aria-pressed="<%= index === 0 ? 'true' : 'false' %>"
+      >
+        <%= range.label %>
+      </button>
+    <% }); %>
+  </div>
+
+  <!-- Chart Container -->
+  <div class="relative mb-6">
+    <div class="h-48 sm:h-60 md:h-80 w-full" style="aspect-ratio: 16/9;">
+      <canvas id="<%= chartId %>" class="w-full"></canvas>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <% if (legendItems && legendItems.length > 0) { %>
+    <div class="flex flex-wrap gap-6 justify-center md:justify-start">
+      <% legendItems.forEach(item => { %>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-3 h-3 rounded-sm"
+            style="background-color: <%= item.color %>"
+            aria-hidden="true"
+          ></div>
+          <span class="text-body-sm text-charcoal">
+            <%= item.label %>
+          </span>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+</div>
+
+<!-- Chart.js Library from CDN (with defer for performance) -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+<!-- Component Data Setup -->
+<script>
+  // Embed chart data and configuration for this instance
+  (function() {
+    const chartId = '<%= chartId %>';
+    const chartsData = window.chartsData || {};
+
+    // Store chart configuration for this instance
+    chartsData['<%= chartId %>'] = {
+      title: '<%= title %>',
+      ranges: <%- JSON.stringify(ranges) %>,
+      data: <%- JSON.stringify(data) %>,
+      legendItems: <%- JSON.stringify(legendItems) %>
+    };
+
+    window.chartsData = chartsData;
+  })();
+</script>
+
+<!-- Performance Chart Component JavaScript -->
+<script defer src="js/performance-chart.js"></script>

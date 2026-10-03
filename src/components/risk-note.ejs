@@ -1,0 +1,24 @@
+<%
+  // Props with defaults
+  const risks = locals.risks || [];
+  const variant = locals.variant || 'default'; // 'default' (signature border) or 'warning' (red border)
+
+  // Determine border color based on variant
+  const borderColor = variant === 'warning' ? 'border-red-500' : 'border-signature';
+%>
+
+<div class="bg-white rounded-lg p-4 border-l-4 <%= borderColor %> shadow-sm">
+  <% if (risks && risks.length > 0) { %>
+    <ul class="list-disc ml-5 space-y-2">
+      <% risks.forEach((risk) => { %>
+        <li class="text-body text-charcoal">
+          <% if (risk.label && risk.description) { %>
+            <strong><%= risk.label %></strong>: <%= risk.description %>
+          <% } else if (risk.label) { %>
+            <%= risk.label %>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</div>

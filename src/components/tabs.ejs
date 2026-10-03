@@ -1,0 +1,194 @@
+<%
+  // Props with defaults
+  const tabs = locals.tabs || [];
+  const style = locals.style || 'underline';
+  const containerId = 'tabs-' + Math.random().toString(36).substr(2, 9);
+
+  // Determine base classes for tab buttons based on style
+  let getTabClass = (isActive) => {
+    let baseClass = 'tab-button text-body cursor-pointer transition-all duration-200 px-4 py-2 inline-block';
+
+    if (style === 'pill') {
+      if (isActive) {
+        return baseClass + ' bg-signature text-white rounded-full';
+      } else {
+        return baseClass + ' bg-gray-100 text-charcoal rounded-full hover:bg-gray-200';
+      }
+    } else {
+      // underline style
+      if (isActive) {
+        return baseClass + ' border-b-2 border-signature text-signature font-semibold';
+      } else {
+        return baseClass + ' border-b-2 border-transparent text-charcoal hover:text-signature';
+      }
+    }
+  };
+%>
+
+<!-- Tabs Container -->
+<div id="<%= containerId %>" class="tabs-container" data-tabs-style="<%= style %>">
+  <!-- Tab Buttons -->
+  <div role="tablist" class="flex flex-wrap gap-4 mb-6 border-b-2 border-gray-200" data-tabs-list="<%= containerId %>">
+    <% tabs.forEach((tab, index) => { %>
+      <button
+        id="tab-<%= tab.id %>"
+        role="tab"
+        aria-controls="panel-<%= tab.id %>"
+        aria-selected="<%= index === 0 ? 'true' : 'false' %>"
+        data-tab-id="<%= tab.id %>"
+        class="<%= getTabClass(index === 0) %>"
+        data-tab-index="<%= index %>"
+      >
+        <%= tab.label %>
+      </button>
+    <% }); %>
+  </div>
+
+  <!-- Tab Content Panels -->
+  <div class="tabs-content">
+    <% tabs.forEach((tab, index) => { %>
+      <div
+        id="panel-<%= tab.id %>"
+        role="tabpanel"
+        aria-labelledby="tab-<%= tab.id %>"
+        data-tab-id="<%= tab.id %>"
+        class="tab-content transition-opacity duration-200 fade-in <%= index === 0 ? 'opacity-100 block' : 'opacity-0 hidden' %>"
+      >
+        <%- tab.content %>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const containerId = '<%= containerId %>';
+    const style = '<%= style %>';
+    const container = document.getElementById(containerId);
+
+    if (!container) return;
+
+    const tabButtons = container.querySelectorAll('[role="tab"]');
+    const contentPanels = container.querySelectorAll('[role="tabpanel"]');
+
+    /**
+     * Activate a tab and show its content
+     */
+    function activateTab(tabId) {
+      // Find the button and panel for this tab
+      const tabButton = container.querySelector('[data-tab-id="' + tabId + '"][role="tab"]');
+      const tabPanel = container.querySelector('[data-tab-id="' + tabId + '"][role="tabpanel"]');
+
+      if (!tabButton || !tabPanel) return;
+
+      // Deactivate all tabs
+      tabButtons.forEach(btn => {
+        btn.setAttribute('aria-selected', 'false');
+        // Remove active styles
+        if (style === 'pill') {
+          btn.classList.remove('bg-signature', 'text-white');
+          btn.classList.add('bg-gray-100', 'text-charcoal', 'hover:bg-gray-200');
+        } else {
+          btn.classList.remove('border-signature', 'text-signature', 'font-semibold');
+          btn.classList.add('border-transparent', 'text-charcoal', 'hover:text-signature');
+        }
+      });
+
+      // Hide all panels with fade transition
+      contentPanels.forEach(panel => {
+        panel.classList.add('opacity-0', 'hidden');
+        panel.classList.remove('opacity-100', 'block');
+      });
+
+      // Activate the selected tab
+      tabButton.setAttribute('aria-selected', 'true');
+
+      // Apply active styles
+      if (style === 'pill') {
+        tabButton.classList.remove('bg-gray-100', 'text-charcoal', 'hover:bg-gray-200');
+        tabButton.classList.add('bg-signature', 'text-white');
+      } else {
+        tabButton.classList.remove('border-transparent', 'text-charcoal', 'hover:text-signature');
+        tabButton.classList.add('border-signature', 'text-signature', 'font-semibold');
+      }
+
+      // Show the panel with fade-in
+      tabPanel.classList.remove('opacity-0', 'hidden');
+      tabPanel.classList.add('opacity-100', 'block');
+
+      // Store active tab in data attribute
+      container.dataset.activeTab = tabId;
+    }
+
+    /**
+     * Initialize tabs
+     */
+    function initTabs() {
+      // Activate first tab by default
+      if (tabButtons.length > 0) {
+        const firstTabId = tabButtons[0].dataset.tabId;
+        activateTab(firstTabId);
+      }
+    }
+
+    /**
+     * Add click handlers to tabs
+     */
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tabId = this.dataset.tabId;
+        activateTab(tabId);
+      });
+
+      // Add keyboard navigation
+      btn.addEventListener('keydown', function(e) {
+        let nextIndex;
+        const currentIndex = parseInt(this.dataset.tabIndex);
+
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          nextIndex = (currentIndex + 1) % tabButtons.length;
+          tabButtons[nextIndex].focus();
+          const nextTabId = tabButtons[nextIndex].dataset.tabId;
+          activateTab(nextTabId);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          nextIndex = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+          tabButtons[nextIndex].focus();
+          const nextTabId = tabButtons[nextIndex].dataset.tabId;
+          activateTab(nextTabId);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          tabButtons[0].focus();
+          const firstTabId = tabButtons[0].dataset.tabId;
+          activateTab(firstTabId);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          const lastBtn = tabButtons[tabButtons.length - 1];
+          lastBtn.focus();
+          const lastTabId = lastBtn.dataset.tabId;
+          activateTab(lastTabId);
+        }
+      });
+    });
+
+    // Initialize on load
+    initTabs();
+  })();
+</script>
+
+<style>
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

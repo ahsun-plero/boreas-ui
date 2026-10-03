@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 
+/* Focus Indicator Fix - Replace transparent with visible mint color */
+@layer components {
+  :focus-visible {
+    @apply outline-2 outline-mint outline-offset-2;
+  }
+}
+
 /* Typography Component Utilities */
 @layer components {
   .text-h1 {

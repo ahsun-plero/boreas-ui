@@ -1,0 +1,46 @@
+<%
+  const tabs = locals.tabs || [];
+%>
+
+<nav
+  id="sub-nav"
+  class="sticky top-24 z-30 bg-white border-b border-gray-200 transition-shadow duration-300"
+  role="navigation"
+  aria-label="Page sections"
+>
+  <!-- SM: Horizontally scrollable pill-style tabs -->
+  <div class="sm:flex md:hidden overflow-x-auto">
+    <div class="flex gap-2 px-4 py-3 min-w-max">
+      <% tabs.forEach(tab => { %>
+        <a
+          href="<%= tab.href %>"
+          data-section-id="<%= tab.id %>"
+          class="sub-nav-tab sub-nav-tab-sm px-4 py-2 rounded-full text-body text-gray-600 bg-gray-100 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+          data-tab-id="<%= tab.id %>"
+        >
+          <%= tab.label %>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- MD/LG: Full-width underline-style tabs -->
+  <div class="hidden md:flex md:justify-center">
+    <div class="max-w-7xl w-full px-4 md:px-8 lg:px-15">
+      <div class="flex items-center justify-center gap-8 py-4">
+        <% tabs.forEach(tab => { %>
+          <a
+            href="<%= tab.href %>"
+            data-section-id="<%= tab.id %>"
+            class="sub-nav-tab sub-nav-tab-md text-body text-gray-600 hover:text-charcoal pb-4 border-b-2 border-transparent transition-all duration-200 whitespace-nowrap"
+            data-tab-id="<%= tab.id %>"
+          >
+            <%= tab.label %>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script defer src="js/sub-nav.js"></script>
