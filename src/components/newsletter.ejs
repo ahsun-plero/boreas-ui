@@ -22,14 +22,17 @@
 
     <!-- Newsletter Form -->
     <form action="<%= formAction %>" method="POST" class="flex flex-col sm:flex-col md:flex-row gap-4">
+      <!-- Email Input Label (Visually Hidden) -->
+      <label for="newsletter-email" class="sr-only">Email address</label>
+
       <!-- Email Input Field -->
       <input
+        id="newsletter-email"
         type="email"
         name="email"
         required
         placeholder="<%= inputPlaceholder %>"
         class="w-full sm:w-full md:flex-1 h-12 px-4 md:px-6 text-body text-charcoal placeholder-charcoal/70 bg-white border border-outline rounded-lg focus:outline-none focus:border-signature focus:ring-2 focus:ring-mint/30 transition-all duration-200"
-        aria-label="Email address"
       />
 
       <!-- Sign Up Button -->

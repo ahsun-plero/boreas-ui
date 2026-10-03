@@ -3,10 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boreas: European institutional and retail investors access high conviction themes of the next decade through our true-to-theme ETFs. Explore our investment philosophy and products.">
   <title>Boreas - Investment Philosophy & ETF Products</title>
+  <link rel="canonical" href="https://boreas.example.com/home.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Boreas - Investment Philosophy & ETF Products">
+  <meta property="og:description" content="European institutional and retail investors access high conviction themes of the next decade through true-to-theme ETFs.">
+  <meta property="og:image" content="https://boreas.example.com/images/og-image.jpg">
+  <meta property="og:url" content="https://boreas.example.com/home.html">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white">
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-signature focus:text-white">Skip to main content</a>
   <!-- Top Header - Powered by Lunate -->
   <%- include('../components/top-header') %>
 
@@ -28,6 +41,7 @@
   }) %>
 
   <!-- OUR ETFs Section -->
+  <main id="main-content">
   <section id="etfs" class="bg-bg-light py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
     <div class="max-w-7xl mx-auto">
       <!-- Section Title -->
@@ -81,7 +95,7 @@
   </section>
 
   <!-- The Boreas Way Section -->
-  <section id="boreas-way" class="bg-white py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15">
+  <section id="boreas-way" class="bg-white py-12 md:py-12 lg:py-20 px-4 md:px-8 lg:px-15" data-section="boreas-way">
     <div class="max-w-7xl mx-auto">
       <!-- Section Title -->
       <div class="mb-12">
@@ -196,6 +210,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Newsletter Subscription Section -->
   <%- include('../components/newsletter', {

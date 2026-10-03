@@ -6,27 +6,42 @@
   const href = locals.href || null;
 %>
 
-<%
-  // Wrapper element - use div if no href, a if href provided
-  const containerTag = href ? 'a' : 'div';
-  const containerAttrs = href ? `href="${href}"` : '';
-%>
+<% if (href) { %>
+  <a href="<%= href %>" class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6">
+    <!-- Image Section -->
+    <% if (image) { %>
+      <div class="mb-4 sm:mb-5 md:mb-6">
+        <img src="<%= image %>" alt="<%= title %>" width="64" height="64" class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
+      </div>
+    <% } %>
 
-<<%= containerTag %> <%= containerAttrs %> class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6">
-  <!-- Image Section -->
-  <% if (image) { %>
-    <div class="mb-4 sm:mb-5 md:mb-6">
-      <img src="<%= image %>" alt="<%= title %>" class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-    </div>
-  <% } %>
+    <!-- Title -->
+    <h3 class="text-h5 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
+      <%= title %>
+    </h3>
 
-  <!-- Title -->
-  <h3 class="text-h5 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
-    <%= title %>
-  </h3>
+    <!-- Description -->
+    <p class="text-body text-charcoal/80">
+      <%= description %>
+    </p>
+  </a>
+<% } else { %>
+  <div class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6">
+    <!-- Image Section -->
+    <% if (image) { %>
+      <div class="mb-4 sm:mb-5 md:mb-6">
+        <img src="<%= image %>" alt="<%= title %>" width="64" height="64" class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
+      </div>
+    <% } %>
 
-  <!-- Description -->
-  <p class="text-body text-charcoal/80">
-    <%= description %>
-  </p>
-</<%= containerTag %>>
+    <!-- Title -->
+    <h3 class="text-h5 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
+      <%= title %>
+    </h3>
+
+    <!-- Description -->
+    <p class="text-body text-charcoal/80">
+      <%= description %>
+    </p>
+  </div>
+<% } %>

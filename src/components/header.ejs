@@ -1,4 +1,4 @@
-<header id="header" class="fixed left-0 right-0 z-40 transition-all duration-300 bg-transparent top-7">
+<header id="header" class="fixed left-0 right-0 z-40 transition-all duration-300 bg-signature/70 backdrop-blur-sm top-7">
   <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
     <!-- Logo/Branding -->
     <div class="flex items-center">
@@ -6,21 +6,21 @@
     </div>
 
     <!-- Navigation Menu (Desktop) -->
-    <nav class="hidden lg:flex items-center gap-8">
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
       <a href="#" class="text-white hover:text-white transition-colors font-body text-base font-normal leading-5">Home</a>
 
       <!-- Our ETFs Dropdown -->
-      <div class="relative group">
-        <button class="flex items-center gap-2 text-white hover:text-white transition-colors font-body text-base font-normal leading-5">
+      <div class="relative group" id="desktop-etf-dropdown">
+        <button type="button" class="flex items-center gap-2 text-white hover:text-white transition-colors font-body text-base font-normal leading-5" id="desktop-etf-btn" aria-haspopup="true" aria-expanded="false">
           Our ETFs
-          <img src="images/dropdown-arrow.svg" alt="Dropdown" class="w-4 h-4">
+          <img src="images/dropdown-arrow.svg" alt="" aria-hidden="true" class="w-4 h-4">
         </button>
 
         <!-- Dropdown Menu -->
-        <div class="absolute hidden group-hover:block top-full left-0 mt-2 bg-signature rounded-lg shadow-lg py-2 min-w-max z-50">
-          <a href="#" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 1</a>
-          <a href="#" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 2</a>
-          <a href="#" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 3</a>
+        <div class="absolute hidden group-hover:block group-focus-within:block top-full left-0 mt-2 bg-signature rounded-lg shadow-lg py-2 min-w-max z-50" role="menu" aria-labelledby="desktop-etf-btn">
+          <a href="#" role="menuitem" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 1</a>
+          <a href="#" role="menuitem" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 2</a>
+          <a href="#" role="menuitem" class="block px-4 py-2 text-white hover:bg-signature/80 transition-colors font-body text-base font-normal leading-5">Item 3</a>
         </div>
       </div>
 
@@ -30,12 +30,12 @@
     </nav>
 
     <!-- Desktop CTA Button -->
-    <button class="hidden lg:flex items-center h-12 px-6 bg-gold hover:bg-gold/90 text-signature text-btn font-semibold rounded-lg transition-colors">
+    <button type="button" class="hidden lg:flex items-center h-12 px-6 bg-gold hover:bg-gold/90 text-signature text-btn font-semibold rounded-lg transition-colors">
       Subscribe
     </button>
 
     <!-- Mobile Hamburger Menu -->
-    <button id="hamburger-btn" class="lg:hidden text-white hover:text-gold transition-colors" aria-label="Toggle menu">
+    <button type="button" id="hamburger-btn" class="lg:hidden text-white hover:text-gold transition-colors" aria-label="Toggle menu" aria-expanded="false">
       <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -47,14 +47,14 @@
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden fixed top-mobile-menu left-0 right-0 bg-white shadow-lg z-30 max-h-screen overflow-y-auto">
-    <nav class="flex flex-col">
+    <nav class="flex flex-col" aria-label="Mobile Navigation">
       <a href="#" class="px-4 md:px-8 py-4 text-charcoal text-body font-medium border-b border-gray-200 hover:bg-bg-light transition-colors">Home</a>
 
       <!-- Our ETFs Dropdown in Mobile -->
       <div class="border-b border-gray-200">
-        <button class="w-full px-4 md:px-8 py-4 text-charcoal text-body font-medium hover:bg-bg-light transition-colors flex items-center justify-between" id="mobile-etf-btn">
+        <button type="button" class="w-full px-4 md:px-8 py-4 text-charcoal text-body font-medium hover:bg-bg-light transition-colors flex items-center justify-between" id="mobile-etf-btn" aria-haspopup="true" aria-expanded="false">
           Our ETFs
-          <svg class="mobile-etf-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="mobile-etf-arrow w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </button>
@@ -73,7 +73,7 @@
 
     <!-- Mobile Subscribe Button -->
     <div class="p-4 md:px-8 border-t border-gray-200">
-      <button class="w-full flex items-center justify-center h-12 bg-gold hover:bg-gold/90 text-signature px-6 rounded-lg font-semibold text-btn transition-colors">
+      <button type="button" class="w-full flex items-center justify-center h-12 bg-gold hover:bg-gold/90 text-signature px-6 rounded-lg font-semibold text-btn transition-colors">
         Subscribe
       </button>
     </div>
@@ -96,6 +96,7 @@
       mobileMenu.classList.toggle('hidden');
       hamburgerIcon.classList.toggle('hidden');
       closeIcon.classList.toggle('hidden');
+      hamburgerBtn.setAttribute('aria-expanded', isMenuOpen);
 
       // Apply scrolled background when menu is open
       if (isMenuOpen) {
@@ -118,7 +119,23 @@
       isEtfDropdownOpen = !isEtfDropdownOpen;
       mobileEtfMenu.classList.toggle('hidden');
       mobileEtfArrow.classList.toggle('rotate-180');
+      mobileEtfBtn.setAttribute('aria-expanded', isEtfDropdownOpen);
     });
+
+    // Keyboard navigation for desktop dropdown
+    const desktopEtfBtn = document.getElementById('desktop-etf-btn');
+    if (desktopEtfBtn) {
+      desktopEtfBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+        }
+        if (e.key === 'Escape') {
+          this.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
     // Close menu when clicking a link
     const mobileLinks = mobileMenu.querySelectorAll('a:not(#mobile-etf-btn)');
@@ -137,13 +154,13 @@
       const isScrolled = window.scrollY > 50;
 
       if (isScrolled) {
-        header.classList.remove('bg-transparent');
-        header.classList.add('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
+        header.classList.remove('bg-signature/70');
+        header.classList.add('bg-signature/95', 'shadow-lg');
       } else {
         // Only change to transparent if menu is not open
         if (!isMenuOpen) {
-          header.classList.add('bg-transparent');
-          header.classList.remove('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
+          header.classList.add('bg-signature/70');
+          header.classList.remove('bg-signature/95', 'shadow-lg');
         }
       }
     }
