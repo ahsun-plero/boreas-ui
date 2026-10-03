@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white">
+  <!-- Top Header - Powered by Lunate -->
+  <%- include('../components/top-header') %>
+
+  <!-- Modal Popup -->
+  <%- include('../components/modal', {
+    isOpen: false,
+    modalId: 'boreas-modal'
+  }) %>
+
   <!-- Header Section -->
   <%- include('../components/header') %>
 
@@ -14,7 +23,7 @@
   <%- include('../components/hero', {
     title: 'True-to-Theme ETFs. High Conviction Tailwind Themes.',
     subtitle: 'Boreas provides European institutional and retail investors access to high conviction themes of the next decade.',
-    ctaText: 'Explore Our Products',
+    ctaText: 'Explore ETFs',
     ctaHref: '#etfs'
   }) %>
 
@@ -23,7 +32,7 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Title -->
       <div class="mb-12">
-        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">Our ETFs</h2>
+        <h2 class="text-h4 lg:text-h3 font-bold text-charcoal text-left">Our ETFs</h2>
       </div>
 
       <!-- ETF Cards Grid -->
@@ -76,7 +85,7 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Title -->
       <div class="mb-12">
-        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">The Boreas Way</h2>
+        <h2 class="text-h4 lg:text-h3 font-bold text-charcoal text-left">The Boreas Way</h2>
       </div>
 
       <!-- Boreas Way Cards Grid -->
@@ -121,10 +130,10 @@
 
   <!-- Build on Conviction Section -->
   <%- include('../components/build-on-conviction', {
-    image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db1d?w=800&h=600&fit=crop',
+    image: 'images/build-conviction.png',
     title: 'Build on Conviction',
-    description: 'At Boreas, we believe that great investing begins with conviction. Our research-driven approach combines deep fundamental analysis with a commitment to sustainable, impactful investing. Each of our ETFs represents a carefully curated selection of companies that align with both rigorous investment criteria and our values-based philosophy.',
-    ctaText: 'Learn Our Story',
+    description: 'Behind every Boreas ETF is a team that\'s spent careers inside the world\'s most demanding markets, now backed by the scale and stability of Lunate. We\'re not chasing themes, we\'re building the infrastructure for the decade ahead, one high-conviction fund at a time.',
+    ctaText: 'Meet Our Team',
     ctaHref: '#'
   }) %>
 
@@ -133,59 +142,69 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Title -->
       <div class="mb-12">
-        <h2 class="text-h4 md:text-h3 lg:text-h3 font-bold text-charcoal text-left">Global Insights</h2>
+        <h2 class="text-h4 lg:text-h3 font-bold text-charcoal text-left">Global Insights</h2>
       </div>
 
       <!-- Global Insights Cards Grid -->
       <!--
         Grid Layout:
-        - Mobile: 1 column (all cards full width, stacked)
-        - Tablet: Featured card spans 2 cols (full width), then 2 cards in next row
-        - Desktop: Featured card spans 3 cols (full width), then 2 cards in next row
-        - Gap: 24px on md+
+        - Mobile: 1 column (all cards stacked)
+        - Tablet/Desktop: Featured card full width on top, 2 cards side-by-side below
       -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 gap-6 md:gap-8">
         <!-- Featured Card: Market Updates -->
-        <div class="md:col-span-2 lg:col-span-3">
+        <div>
           <%- include('../components/global-insights-card', {
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
             tagText: 'Market Updates',
             title: 'Global Market Trends Q4 2026',
             date: 'October 2, 2026',
             description: 'Explore the latest developments in global financial markets. Our analysis covers key economic indicators, geopolitical shifts, and emerging investment opportunities that are shaping market performance in Q4 2026.',
-            ctaText: 'Read Full Analysis →',
+            ctaText: 'Read More →',
             ctaHref: '#'
           }) %>
         </div>
 
-        <!-- Card 2: Investment Strategy -->
-        <div>
-          <%- include('../components/global-insights-card', {
-            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=350&fit=crop',
-            tagText: 'Investment Strategy',
-            title: 'ESG Focus in Tech Sector',
-            date: 'September 28, 2026',
-            description: 'Discover how environmental, social, and governance considerations are transforming technology investments and creating new opportunities for sustainable growth.',
-            ctaText: 'Learn More →',
-            ctaHref: '#'
-          }) %>
-        </div>
+        <!-- Bottom Row: 2 Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <!-- Card 2: Investment Strategy -->
+          <div>
+            <%- include('../components/global-insights-card', {
+              image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=350&fit=crop',
+              tagText: 'Investment Strategy',
+              title: 'ESG Focus in Tech Sector',
+              date: 'September 28, 2026',
+              description: 'Discover how environmental, social, and governance considerations are transforming technology investments and creating new opportunities for sustainable growth.',
+              ctaText: 'Read More →',
+              ctaHref: '#'
+            }) %>
+          </div>
 
-        <!-- Card 3: Portfolio News -->
-        <div>
-          <%- include('../components/global-insights-card', {
-            image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db1d?w=600&h=350&fit=crop',
-            tagText: 'Portfolio News',
-            title: 'Q3 Performance Review',
-            date: 'September 25, 2026',
-            description: 'Review the quarterly performance of our ETF portfolio and understand how conviction-based investing continues to deliver value through market cycles.',
-            ctaText: 'View Details →',
-            ctaHref: '#'
-          }) %>
+          <!-- Card 3: Portfolio News -->
+          <div>
+            <%- include('../components/global-insights-card', {
+              image: 'https://images.unsplash.com/photo-1460925895917-adf4e565db1d?w=600&h=350&fit=crop',
+              tagText: 'Portfolio News',
+              title: 'Q3 Performance Review',
+              date: 'September 25, 2026',
+              description: 'Review the quarterly performance of our ETF portfolio and understand how conviction-based investing continues to deliver value through market cycles.',
+              ctaText: 'Read More →',
+              ctaHref: '#'
+            }) %>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Newsletter Subscription Section -->
+  <%- include('../components/newsletter', {
+    title: 'Invest With The Wind At Your Back',
+    subtitle: 'Thematic research, market developments and fund updates on the long-term forces shaping portfolios.',
+    inputPlaceholder: 'Enter Email Address',
+    buttonText: 'Sign Up',
+    disclaimer: 'By signing up, you agree to receive market insights and product updates from Boreas'
+  }) %>
 
   <!-- Footer Section -->
   <%- include('../components/footer') %>

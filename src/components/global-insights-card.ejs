@@ -21,7 +21,7 @@
 
     <!-- Tag Badge -->
     <div class="absolute top-3 sm:top-4 md:top-5 left-3 sm:left-4 md:left-5">
-      <span class="inline-block px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 bg-tint-signature text-signature text-xs sm:text-sm md:text-base font-semibold rounded-full border border-tint-signature">
+      <span class="inline-block px-3 py-2 bg-white text-charcoal text-tag font-normal rounded-lg">
         <%= tagText %>
       </span>
     </div>
@@ -30,24 +30,24 @@
   <!-- Card Content Section -->
   <div class="flex flex-col flex-1 p-3 sm:p-4 md:p-5">
     <!-- Date -->
-    <time class="text-caption-sm text-charcoal/60 font-medium mb-2 sm:mb-3 md:mb-4 font-body">
+    <time class="text-caption-sm text-charcoal/80 mb-2 sm:mb-3 md:mb-4">
       <%= date %>
     </time>
 
     <!-- Title -->
-    <h3 class="text-h4 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
+    <h3 class="text-h5 font-bold text-charcoal mb-2 sm:mb-3 md:mb-4">
       <%= title %>
     </h3>
 
     <!-- Description -->
-    <p class="text-body text-charcoal/75 mb-4 sm:mb-5 md:mb-6 flex-grow">
+    <p class="text-body text-charcoal/80 mb-4 sm:mb-5 md:mb-6 flex-grow">
       <%= description %>
     </p>
 
-    <!-- CTA Link - Mint Accent -->
+    <!-- CTA Link -->
     <a
       href="<%= ctaHref %>"
-      class="inline-flex items-center text-mint hover:text-mint/80 font-semibold text-sm sm:text-base md:text-base hover:underline transition-colors duration-200"
+      class="inline-flex items-center text-signature text-btn font-semibold capitalize transition-colors duration-200 border-b-2 border-signature hover:text-signature/80 pb-1"
       aria-label="<%= ctaText %>"
     >
       <%= ctaText %>

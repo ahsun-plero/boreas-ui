@@ -1,4 +1,4 @@
-<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/0 backdrop-blur-sm">
+<header id="header" class="fixed left-0 right-0 z-40 transition-all duration-300 bg-transparent" style="top: 28px;">
   <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
     <!-- Logo/Branding -->
     <div class="flex items-center gap-2">
@@ -33,11 +33,11 @@
       const isScrolled = window.scrollY > 50;
 
       if (isScrolled) {
-        header.classList.remove('bg-black/0');
-        header.classList.add('bg-signature/95', 'shadow-lg');
+        header.classList.remove('bg-transparent');
+        header.classList.add('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
       } else {
-        header.classList.add('bg-black/0');
-        header.classList.remove('bg-signature/95', 'shadow-lg');
+        header.classList.add('bg-transparent');
+        header.classList.remove('bg-signature/95', 'backdrop-blur-sm', 'shadow-lg');
       }
     }
 

@@ -1,0 +1,177 @@
+<%
+  // Props with defaults
+  const isOpen = locals.isOpen || false;
+  const modalId = locals.modalId || 'boreas-modal';
+  const onClose = locals.onClose || null;
+  const onAccept = locals.onAccept || null;
+%>
+
+<!-- Modal Backdrop & Container -->
+<div
+  id="<%= modalId %>"
+  class="<%= isOpen ? 'fixed' : 'hidden' %> inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 p-4"
+  data-modal-id="<%= modalId %>"
+  data-modal-open="<%= isOpen %>"
+>
+  <!-- Modal Container -->
+  <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-screen overflow-y-auto">
+    <!-- Header with Logo and Close Button -->
+    <div class="flex items-start justify-between pt-6 px-6 md:px-8">
+      <!-- Boreas Logo -->
+      <div class="flex-shrink-0">
+        <img src="images/boreas-footer-logo.png" alt="Boreas Logo" class="h-8 w-auto">
+      </div>
+
+      <!-- Close Button -->
+      <button
+        class="flex-shrink-0 text-charcoal hover:opacity-60 transition-opacity ml-4"
+        aria-label="Close modal"
+        data-modal-close="<%= modalId %>"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="px-6 md:px-8 py-8">
+      <!-- Title -->
+      <h2 class="text-h3 mb-12">Welcome to Boreas</h2>
+
+      <!-- Subtitle -->
+      <p class="text-body text-charcoal/80 mb-8">
+        Boreas is a global investment manager with offices around the world. To help you find content that is suitable for your investment needs, please select your country and investor type.
+      </p>
+
+      <!-- Section 1: Select Country / Region -->
+      <div class="mb-8">
+        <label class="text-h6 block mb-4">Select your country / region</label>
+        <div class="relative">
+          <select class="w-full px-4 py-3 border border-outline rounded text-body font-body text-charcoal appearance-none bg-white cursor-pointer hover:border-charcoal/50 focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors">
+            <option value="global" class="text-charcoal">🌍 Global</option>
+            <option value="us" class="text-charcoal">🇺🇸 United States</option>
+            <option value="uk" class="text-charcoal">🇬🇧 United Kingdom</option>
+            <option value="eu" class="text-charcoal">🇪🇺 European Union</option>
+            <option value="asia" class="text-charcoal">🌏 Asia Pacific</option>
+          </select>
+          <!-- Custom dropdown arrow -->
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-charcoal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Select Investor Type -->
+      <div class="mb-8">
+        <label class="text-h6 block mb-4">Select Investor Type</label>
+        <div class="relative">
+          <select class="w-full px-4 py-3 border border-outline rounded text-body font-body text-charcoal appearance-none bg-white cursor-pointer hover:border-charcoal/50 focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors">
+            <option value="institutional" class="text-charcoal">🏢 Institutional</option>
+            <option value="professional" class="text-charcoal">👔 Professional</option>
+            <option value="retail" class="text-charcoal">👤 Retail</option>
+          </select>
+          <!-- Custom dropdown arrow -->
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-charcoal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Text 1 -->
+      <p class="text-body-sm text-charcoal/70 mb-6">
+        Please confirm the following by clicking 'Accept & Continue'.
+      </p>
+
+      <!-- Info Text 2 -->
+      <p class="text-body-sm text-charcoal/70 mb-12">
+        Please note that all country websites show fund documents. Fund specific information is shown only on country websites where the funds are authorized for distribution to the public.
+      </p>
+
+      <!-- Button Container -->
+      <div class="flex gap-4 sm:flex-row flex-col">
+        <button
+          class="bg-gold hover:bg-gold/90 text-signature font-bold px-8 py-3 rounded text-btn transition-colors flex-1 sm:flex-initial"
+          data-modal-accept="<%= modalId %>"
+        >
+          Accept & Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const modalId = '<%= modalId %>';
+    const modalElement = document.getElementById(modalId);
+    const closeButtons = document.querySelectorAll('[data-modal-close="' + modalId + '"]');
+    const acceptButton = document.querySelector('[data-modal-accept="' + modalId + '"]');
+
+    if (!modalElement) return;
+
+    // Close button handlers
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('fixed');
+        modalElement.dataset.modalOpen = 'false';
+
+        // Dispatch custom event for parent handling
+        const closeEvent = new CustomEvent('modalClose', {
+          detail: { modalId: modalId }
+        });
+        document.dispatchEvent(closeEvent);
+      });
+    });
+
+    // Accept button handler
+    if (acceptButton) {
+      acceptButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Get selected values
+        const countrySelect = modalElement.querySelector('select:nth-of-type(1)');
+        const investorSelect = modalElement.querySelector('select:nth-of-type(2)');
+
+        const selectedCountry = countrySelect ? countrySelect.value : 'global';
+        const selectedInvestor = investorSelect ? investorSelect.value : 'institutional';
+
+        // Dispatch custom event for parent handling
+        const acceptEvent = new CustomEvent('modalAccept', {
+          detail: {
+            modalId: modalId,
+            country: selectedCountry,
+            investorType: selectedInvestor
+          }
+        });
+        document.dispatchEvent(acceptEvent);
+
+        // Close modal
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('fixed');
+        modalElement.dataset.modalOpen = 'false';
+      });
+    }
+
+    // Backdrop click to close (only when clicking directly on backdrop)
+    modalElement.addEventListener('click', function(e) {
+      if (e.target === this) {
+        e.stopPropagation();
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('fixed');
+        modalElement.dataset.modalOpen = 'false';
+
+        const closeEvent = new CustomEvent('modalClose', {
+          detail: { modalId: modalId }
+        });
+        document.dispatchEvent(closeEvent);
+      }
+    });
+  })();
+</script>

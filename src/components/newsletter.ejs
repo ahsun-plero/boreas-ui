@@ -1,0 +1,50 @@
+<%
+  // Newsletter subscription component props with defaults
+  const title = locals.title || 'Invest With The Wind At Your Back';
+  const subtitle = locals.subtitle || 'Thematic research, market developments and fund updates on the long-term forces shaping portfolios.';
+  const inputPlaceholder = locals.inputPlaceholder || 'Enter Email Address';
+  const buttonText = locals.buttonText || 'Sign Up';
+  const disclaimer = locals.disclaimer || 'By signing up, you agree to receive market insights and product updates from Boreas';
+  const formAction = locals.formAction || '#';
+%>
+
+<section class="w-full bg-bg-light py-16 md:py-24 lg:py-32 px-4 md:px-8">
+  <div class="max-w-2xl mx-auto">
+    <!-- Title -->
+    <h2 class="text-h4 text-charcoal font-bold text-center mb-4 md:mb-6">
+      <%= title %>
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-body text-charcoal/80 text-center mb-10 md:mb-12">
+      <%= subtitle %>
+    </p>
+
+    <!-- Newsletter Form -->
+    <form action="<%= formAction %>" method="POST" class="flex flex-col sm:flex-col md:flex-row gap-4">
+      <!-- Email Input Field -->
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="<%= inputPlaceholder %>"
+        class="w-full sm:w-full md:flex-1 h-12 px-4 md:px-6 text-body text-charcoal placeholder-charcoal/70 bg-white border border-outline rounded-lg focus:outline-none focus:border-signature focus:ring-2 focus:ring-mint/30 transition-all duration-200"
+        aria-label="Email address"
+      />
+
+      <!-- Sign Up Button -->
+      <button
+        type="submit"
+        class="w-full sm:w-full md:w-auto h-12 px-8 bg-gold text-signature text-btn font-bold rounded-lg hover:bg-gold/90 active:bg-gold/80 transition-all duration-200 flex items-center justify-center whitespace-nowrap"
+        aria-label="<%= buttonText %>"
+      >
+        <%= buttonText %>
+      </button>
+    </form>
+
+    <!-- Disclaimer Text -->
+    <p class="text-caption-sm text-charcoal/80 text-center mt-6 md:mt-8">
+      <%= disclaimer %>
+    </p>
+  </div>
+</section>

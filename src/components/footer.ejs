@@ -1,29 +1,72 @@
-<footer class="bg-gray-900 text-gray-300 py-12">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<footer class="text-white py-12 md:py-16" style="background-color: #2C292A;">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
+      <!-- Left: Logo & Tagline -->
       <div>
-        <h4 class="text-white font-bold mb-4">About Boreas</h4>
-        <p class="text-sm">Premium WordPress theme with reusable components built with Tailwind CSS.</p>
+        <img src="images/boreas-footer-logo.png" alt="Boreas Logo" class="h-12 mb-4">
+        <p class="text-body text-white mt-6" style="line-height: 22px;">Pioneering the intersection of algorithmic precision and institutional investment strategies.</p>
       </div>
+
+      <!-- Middle: Company Links -->
       <div>
-        <h4 class="text-white font-bold mb-4">Quick Links</h4>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-white transition">Home</a></li>
-          <li><a href="#" class="hover:text-white transition">About</a></li>
-          <li><a href="#" class="hover:text-white transition">Contact</a></li>
+        <h3 class="text-h6 text-white mb-4 uppercase">Company</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">About Boreas</a></li>
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">Our Approach</a></li>
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">Contact Us</a></li>
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">FAQ</a></li>
         </ul>
       </div>
+
+      <!-- Right: News & Insights -->
       <div>
-        <h4 class="text-white font-bold mb-4">Follow</h4>
-        <ul class="text-sm space-y-2">
-          <li><a href="#" class="hover:text-white transition">Twitter</a></li>
-          <li><a href="#" class="hover:text-white transition">GitHub</a></li>
-          <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
+        <h3 class="text-h6 text-white mb-4 uppercase">News & Insights</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">Insights</a></li>
+          <li><a href="#" class="text-body text-white hover:text-white/80 transition-colors" style="line-height: 22px;">Press</a></li>
         </ul>
       </div>
     </div>
-    <div class="border-t border-gray-700 pt-8 text-center text-sm">
-      <p>&copy; 2026 Boreas. All rights reserved.</p>
+
+    <!-- Bottom: Divider & Legal -->
+    <div class="border-t border-white/10 pt-8">
+      <!-- Top Row: Social Icons & Policy Links -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 lg:mb-0">
+        <!-- Social Icons -->
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-white hover:text-mint transition-colors" aria-label="Email">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" fill="none" stroke-width="1.5"/>
+              <path d="M20 6L12 11L4 6" stroke="currentColor" fill="none" stroke-width="1.5"/>
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-mint transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Policy Links -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-body-sm text-white/70">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms & Conditions</a>
+          <a href="#" class="hover:text-white transition-colors">Imprint</a>
+          <a href="#" class="hover:text-white transition-colors">Disclaimer</a>
+        </div>
+
+        <!-- Copyright (visible on lg+ with other elements) -->
+        <div class="hidden lg:block text-body-sm text-white/70">
+          &copy; Boreas 2026. All rights reserved.
+        </div>
+      </div>
+
+      <!-- Bottom Row: Copyright (visible on lg and smaller) -->
+      <div class="lg:hidden text-center text-body-sm text-white/70 pt-6 border-t border-white/10">
+        &copy; Boreas 2026. All rights reserved.
+      </div>
     </div>
   </div>
 </footer>
