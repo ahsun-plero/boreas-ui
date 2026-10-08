@@ -55,7 +55,7 @@ module.exports = {
       inset: {
         '7xs': '0.5rem',  // 8px
         'header': '1.75rem',  // 28px for main header offset below top header
-        'mobile-menu': '4rem',  // Position mobile menu below both headers (64px)
+        'mobile-menu': '5.75rem',  // Position mobile menu below both headers (92px: 28px top-header + 64px header height)
       },
       borderRadius: {
         'xs': '0.25rem',  // 4px
