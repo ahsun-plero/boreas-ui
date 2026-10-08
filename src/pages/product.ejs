@@ -99,8 +99,8 @@
     <section id="strategy" class="bg-bg-light py-12 lg:py-20 px-4 md:px-8 lg:px-15">
       <div class="max-w-7xl mx-auto">
         <h2 class="sr-only">Investment Strategy</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-          <!-- Left Column: Investment Strategy Card -->
+        <div class="flex flex-col gap-6 md:gap-8 lg:gap-12">
+          <!-- Investment Strategy Card (Full Width) -->
           <%- include('../components/info-card', {
             title: 'Investment Strategy',
             variant: 'default',
@@ -113,37 +113,35 @@
             ]
           }) %>
 
-          <!-- Right Column: Why Invest Card + Risk Note -->
-          <div class="flex flex-col gap-6">
-            <%- include('../components/info-card', {
-              title: 'Why Invest?',
-              variant: 'tint',
-              content: [
-                {text: 'The global energy transition creates long-term growth opportunities for companies leading the shift to renewable energy.'},
-                {text: 'Investors gain exposure to established energy companies diversifying into renewables and pure-play renewable energy firms.'},
-                {text: 'The ETF is designed to capture the margin expansion and market share gains as the world transitions away from fossil fuels.'},
-                {text: 'True-to-theme approach ensures portfolio companies are genuinely connected to the energy transition narrative.'}
-              ]
-            }) %>
+          <!-- Why Invest Card (Full Width) -->
+          <%- include('../components/info-card', {
+            title: 'Why Invest?',
+            variant: 'tint',
+            content: [
+              {text: 'The global energy transition creates long-term growth opportunities for companies leading the shift to renewable energy.'},
+              {text: 'Investors gain exposure to established energy companies diversifying into renewables and pure-play renewable energy firms.'},
+              {text: 'The ETF is designed to capture the margin expansion and market share gains as the world transitions away from fossil fuels.'},
+              {text: 'True-to-theme approach ensures portfolio companies are genuinely connected to the energy transition narrative.'}
+            ]
+          }) %>
 
-            <!-- Risk Note (Optional) -->
-            <div class="bg-white border-l-4 border-signature p-6 rounded-lg shadow-sm">
-              <h4 class="text-h6 font-bold text-charcoal mb-3">Key Risk Factors</h4>
-              <ul class="space-y-2 text-body text-charcoal/80">
-                <li class="flex items-start gap-2">
-                  <span class="text-signature mt-1 flex-shrink-0">•</span>
-                  <span>Sector concentration risk in energy transition companies</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-signature mt-1 flex-shrink-0">•</span>
-                  <span>Government policy changes affecting renewable energy incentives</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-signature mt-1 flex-shrink-0">•</span>
-                  <span>Technology disruption and market adoption risks</span>
-                </li>
-              </ul>
-            </div>
+          <!-- Key Risk Factors (Full Width) -->
+          <div class="bg-white border-l-4 border-signature p-6 rounded-lg shadow-sm">
+            <h4 class="text-h6 font-bold text-charcoal mb-3">Key Risk Factors</h4>
+            <ul class="space-y-2 text-body text-charcoal/80">
+              <li class="flex items-start gap-2">
+                <span class="text-signature mt-1 flex-shrink-0">•</span>
+                <span>Sector concentration risk in energy transition companies</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-signature mt-1 flex-shrink-0">•</span>
+                <span>Government policy changes affecting renewable energy incentives</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-signature mt-1 flex-shrink-0">•</span>
+                <span>Technology disruption and market adoption risks</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -158,38 +156,112 @@
           title: 'ETF Overview'
         }) %>
 
-        <!-- Two-Column Key-Value Lists -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mt-12">
-          <!-- Key Information -->
-          <div class="bg-gray-50 rounded-lg">
-            <%- include('../components/key-value-list', {
-              title: 'Key Information',
-              accentHeading: true,
-              rows: [
-                {label: 'ISIN', value: 'IE000ABC123XYZ'},
-                {label: 'Fund Size (AUM)', value: '$850,000,000'},
-                {label: 'Inception Date', value: 'March 1, 2026'},
-                {label: 'Expense Ratio', value: '0.49%'},
-                {label: 'Benchmark', value: 'Boreas Energy Transition Index'},
-                {label: 'Rebalancing Frequency', value: 'Quarterly'}
-              ]
-            }) %>
-          </div>
+        <!-- Key Information (2-Column Layout Within Card) -->
+        <div class="mt-12">
+          <h3 class="text-h5 font-bold text-charcoal mb-6 pb-4 border-b-2 border-mint">
+            Key Information
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6" style="column-gap: 48px;">
+            <!-- Left Column -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">TER</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">AUM</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">INCEPTION DATE</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">INDEX</span>
+                <span class="text-body text-charcoal">Physical</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">INCOME TREATMENT</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">DISTRIBUTION FREQUENCY</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">REBALANCE</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">BASE CURRENCY</span>
+                <span class="text-body text-charcoal">USD</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-caption-sm text-charcoal/70 font-medium">DOMICILE</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+            </div>
 
-          <!-- Investor Information -->
-          <div class="bg-gray-50 rounded-lg">
-            <%- include('../components/key-value-list', {
-              title: 'Investor Information',
-              accentHeading: true,
-              rows: [
-                {label: 'Fund Manager', value: 'Boreas Investment Management'},
-                {label: 'Custodian', value: 'Lunate Financial Services'},
-                {label: 'Number of Holdings', value: '25'},
-                {label: 'Base Currency', value: 'EUR'},
-                {label: 'Distribution Policy', value: 'Annual (December)'},
-                {label: 'Minimum Investment', value: 'No minimum'}
-              ]
-            }) %>
+            <!-- Right Column -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">PRODUCT STRUCTURE</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">SFDR</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">SHARES OUTSTANDING</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">NUMBER OF HOLDINGS</span>
+                <span class="text-body text-charcoal font-semibold">10</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">ISIN</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">BLOOMBERG TICKER</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">INDEX TICKER</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+                <span class="text-caption-sm text-charcoal/70 font-medium">PORTFOLIO MANAGER</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-caption-sm text-charcoal/70 font-medium">CUSTODIAN</span>
+                <span class="text-body text-charcoal">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investor Information (Full Width, Single Column) -->
+        <div class="mt-8">
+          <h3 class="text-h5 font-bold text-charcoal mb-6 pb-4 border-b-2 border-mint">
+            Investor Information - <Country Name>
+          </h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+              <span class="text-caption-sm text-charcoal/70 font-medium">ISA ELIGIBILITY</span>
+              <span class="text-body text-charcoal">-</span>
+            </div>
+            <div class="flex justify-between items-start border-b border-gray-200 pb-3">
+              <span class="text-caption-sm text-charcoal/70 font-medium">SIPP AVAILABLE</span>
+              <span class="text-body text-charcoal">-</span>
+            </div>
+            <div class="flex justify-between items-start">
+              <span class="text-caption-sm text-charcoal/70 font-medium">UK REPORTING STATUS</span>
+              <span class="text-body text-charcoal">-</span>
+            </div>
           </div>
         </div>
       </div>

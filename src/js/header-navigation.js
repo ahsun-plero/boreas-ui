@@ -5,7 +5,6 @@
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const closeIcon = document.getElementById('close-icon');
   const mobileMenu = document.getElementById('mobile-menu');
-  let scrollTimeout;
   let isMenuOpen = false;
 
   // Hamburger menu toggle
@@ -83,10 +82,7 @@
     }
   }
 
-  window.addEventListener('scroll', function() {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(updateHeaderOnScroll, 10);
-  }, { passive: true });
+  window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
 
   // Initial check
   updateHeaderOnScroll();

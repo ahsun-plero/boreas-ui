@@ -1,7 +1,6 @@
 // Top Header - Modal Trigger and Scroll Background
 (function() {
   const topHeader = document.getElementById('top-header');
-  let scrollTimeout;
 
   function updateTopHeaderOnScroll() {
     const isScrolled = window.scrollY > 50;
@@ -15,10 +14,7 @@
     }
   }
 
-  window.addEventListener('scroll', function() {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(updateTopHeaderOnScroll, 10);
-  }, { passive: true });
+  window.addEventListener('scroll', updateTopHeaderOnScroll, { passive: true });
 
   // Initial check
   updateTopHeaderOnScroll();
