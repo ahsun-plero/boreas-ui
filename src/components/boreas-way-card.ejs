@@ -7,7 +7,7 @@
 %>
 
 <% if (href) { %>
-  <a href="<%= href %>" class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6">
+  <a href="<%= href %>" class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6 min-h-48 flex flex-col">
     <!-- Image Section -->
     <% if (image) { %>
       <div class="mb-4 sm:mb-5 md:mb-6">
@@ -26,7 +26,7 @@
     </p>
   </a>
 <% } else { %>
-  <div class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6">
+  <div class="block border-l-4 border-mint bg-white hover:shadow-md transition-shadow duration-300 p-4 sm:p-5 md:p-6 min-h-48 flex flex-col">
     <!-- Image Section -->
     <% if (image) { %>
       <div class="mb-4 sm:mb-5 md:mb-6">
