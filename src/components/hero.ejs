@@ -8,10 +8,10 @@
 <section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center bg-hero">
   <!-- Background overlay applied via gradient -->
 
-  <div class="relative max-w-7xl mx-auto px-4 md:px-8 w-full">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 w-full">
     <div class="max-w-2xl">
       <!-- Title - H1 Style -->
-      <h1 class="text-h3 md:text-h2 lg:text-h1 text-white font-bold leading-tight mb-6 md:mb-8">
+      <h1 class="text-h3 md:text-h2 lg:text-h1 text-white font-bold leading-tight mb-4">
         True-to-Theme ETFs.<br>
         High Conviction Tailwind Themes.
       </h1>
@@ -29,5 +29,17 @@
         <%= ctaText %>
       </a>
     </div>
+  </div>
+
+  <!-- Carousel Indicators (Pagination Dots) -->
+  <div class="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-3" aria-label="Hero slide indicators">
+    <!-- Dot 1 (Active) -->
+    <div class="w-12 h-1.5 bg-mint rounded-full transition-all duration-300" aria-current="true"></div>
+
+    <!-- Dot 2 (Inactive) -->
+    <div class="w-12 h-1.5 bg-white/80 rounded-full transition-all duration-300"></div>
+
+    <!-- Dot 3 (Inactive) -->
+    <div class="w-12 h-1.5 bg-white/80 rounded-full transition-all duration-300"></div>
   </div>
 </section>
