@@ -78,30 +78,6 @@
           </div>
         <% } %>
 
-        <!-- Download Buttons Section -->
-        <% if (downloadButtons.length > 0) { %>
-          <div class="pt-12">
-            <div class="flex flex-wrap gap-3">
-              <% downloadButtons.forEach((button) => { %>
-                <a
-                  href="<%= button.href %>"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center h-12 px-6 border-2 border-white text-white rounded-[24px] text-btn capitalize hover:bg-white/10 transition-all duration-200"
-                  title="<%= button.label %>"
-                >
-                  <% if (button.icon) { %>
-                    <!-- Download icon SVG -->
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                    </svg>
-                  <% } %>
-                  <span><%= button.label %></span>
-                </a>
-              <% }) %>
-            </div>
-          </div>
-        <% } %>
       </div>
 
       <!-- RIGHT COLUMN: Price Card Only (1 column) -->
@@ -169,6 +145,31 @@
         </div>
       </div>
     </div>
+
+    <!-- Download Buttons Section (Below Grid on Mobile, Aligned Left on Desktop) -->
+    <% if (downloadButtons.length > 0) { %>
+      <div class="pt-12 w-full">
+        <div class="flex flex-wrap gap-3">
+          <% downloadButtons.forEach((button) => { %>
+            <a
+              href="<%= button.href %>"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center h-12 px-6 border-2 border-white text-white rounded-[24px] text-btn capitalize hover:bg-white/10 transition-all duration-200"
+              title="<%= button.label %>"
+            >
+              <% if (button.icon) { %>
+                <!-- Download icon SVG -->
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              <% } %>
+              <span><%= button.label %></span>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    <% } %>
 
   </div>
 </section>

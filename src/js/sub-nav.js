@@ -61,29 +61,14 @@
         'font-semibold',
         'border-signature',
         'border-transparent',
-        'text-gray-600',
-        'bg-gray-100',
-        'bg-tint-signature'
+        'border-b-2',
+        'text-gray-600'
       );
 
       if (isActive) {
-        tab.classList.add('text-signature', 'font-semibold');
-
-        if (isMobileTab) {
-          // SM: pill-style active state - filled pill with tint background
-          tab.classList.add('bg-tint-signature');
-        } else if (isDesktopTab) {
-          // MD/LG: underline-style active state
-          tab.classList.add('border-signature');
-        }
+        tab.classList.add('text-signature', 'font-semibold', 'border-b-2', 'border-signature');
       } else {
-        if (isMobileTab) {
-          // SM: pill-style inactive state
-          tab.classList.add('text-gray-600', 'bg-gray-100');
-        } else if (isDesktopTab) {
-          // MD/LG: underline-style inactive state
-          tab.classList.add('text-gray-600', 'border-transparent');
-        }
+        tab.classList.add('text-gray-600', 'border-b-2', 'border-transparent');
       }
     });
   }
