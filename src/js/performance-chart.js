@@ -141,14 +141,14 @@
           `.range-pill[data-chart-id="${chartId}"]`
         );
         siblingPills.forEach(sibling => {
-          sibling.classList.remove('bg-signature', 'text-white');
-          sibling.classList.add('bg-gray-100', 'text-charcoal', 'hover:bg-gray-200');
+          sibling.classList.remove('bg-white');
+          sibling.classList.add('bg-tint-signature', 'hover:bg-tint-signature/80');
           sibling.setAttribute('aria-pressed', 'false');
         });
 
         // Mark this pill as active
-        this.classList.remove('bg-gray-100', 'text-charcoal', 'hover:bg-gray-200');
-        this.classList.add('bg-signature', 'text-white');
+        this.classList.remove('bg-tint-signature', 'hover:bg-tint-signature/80');
+        this.classList.add('bg-white');
         this.setAttribute('aria-pressed', 'true');
 
         // Fetch or load new data for the selected range

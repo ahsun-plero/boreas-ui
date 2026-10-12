@@ -6,6 +6,7 @@
   const maxVisibleRows = locals.maxVisibleRows || null;
   const footerAction = locals.footerAction || null;
   const caption = locals.caption || null;
+  const noBorder = locals.noBorder || false;
 
   // Generate unique table ID for showing/hiding rows
   const tableId = 'table-' + Math.random().toString(36).substr(2, 9);
@@ -29,7 +30,7 @@
   };
 %>
 
-<div class="overflow-x-auto">
+<div class="overflow-x-auto <%= !noBorder ? 'rounded-lg border border-gray-200' : '' %>">
   <table class="w-full min-w-full" id="<%= tableId %>">
     <% if (caption) { %>
       <caption class="sr-only"><%= caption %></caption>
@@ -49,10 +50,16 @@
     <tbody>
       <% visibleRows.forEach((row, index) => { %>
         <tr class="<%= index % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
-          <% columns.forEach((column) => { %>
-            <td class="px-4 py-3 text-body text-charcoal <%= getAlignClass(column.align) %>">
-              <%= row[column.key] %>
-            </td>
+          <% columns.forEach((column, colIndex) => { %>
+            <% if (colIndex === 0) { %>
+              <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
+                <%= row[column.key] %>
+              </td>
+            <% } else { %>
+              <td class="px-4 py-4 text-body text-charcoal/80 leading-6 <%= getAlignClass(column.align) %>">
+                <%= row[column.key] %>
+              </td>
+            <% } %>
           <% }); %>
         </tr>
       <% }); %>
@@ -60,10 +67,16 @@
       <!-- Hidden rows (revealed by Show More button) -->
       <% hiddenRows.forEach((row, index) => { %>
         <tr class="hidden data-table-hidden <%= (index + maxVisibleRows) % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
-          <% columns.forEach((column) => { %>
-            <td class="px-4 py-3 text-body text-charcoal <%= getAlignClass(column.align) %>">
-              <%= row[column.key] %>
-            </td>
+          <% columns.forEach((column, colIndex) => { %>
+            <% if (colIndex === 0) { %>
+              <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
+                <%= row[column.key] %>
+              </td>
+            <% } else { %>
+              <td class="px-4 py-4 text-body text-charcoal/80 leading-6 <%= getAlignClass(column.align) %>">
+                <%= row[column.key] %>
+              </td>
+            <% } %>
           <% }); %>
         </tr>
       <% }); %>
@@ -73,25 +86,16 @@
 
 <!-- Show More Button or Footer Action -->
 <% if (showMore || footerAction) { %>
-  <div class="mt-6 flex justify-center">
-    <% if (showMore) { %>
+  <% if (showMore) { %>
+    <div class="flex justify-center bg-tint-signature rounded-b-lg py-4">
       <button
-        class="px-6 py-3 bg-signature text-white text-btn font-semibold rounded-xs hover:bg-charcoal transition-colors duration-200 data-table-show-more"
+        class="px-6 py-2 text-signature text-btn font-medium hover:text-signature/80 transition-colors duration-200 data-table-show-more"
         data-table-id="<%= tableId %>"
       >
-        Show More
+        <%= footerAction ? footerAction.label : 'Show More' %>
       </button>
-    <% } else if (footerAction) { %>
-      <a
-        href="<%= footerAction.href %>"
-        class="px-6 py-3 bg-signature text-white text-btn font-semibold rounded-xs hover:bg-charcoal transition-colors duration-200 inline-block"
-      >
-        <%= footerAction.label %>
-      </a>
-    <% } %>
-  </div>
+    </div>
 
-  <% if (showMore) { %>
     <script>
       (function() {
         const button = document.querySelector('[data-table-id="<%= tableId %>"]');
@@ -105,5 +109,14 @@
         }
       })();
     </script>
+  <% } else if (footerAction) { %>
+    <div class="flex justify-center bg-tint-signature rounded-b-lg py-4">
+      <a
+        href="<%= footerAction.href %>"
+        class="px-6 py-2 text-signature text-btn font-medium hover:text-signature/80 transition-colors duration-200 inline-block"
+      >
+        <%= footerAction.label %>
+      </a>
+    </div>
   <% } %>
 <% } %>

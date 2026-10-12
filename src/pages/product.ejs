@@ -99,17 +99,16 @@
     <section id="strategy" class="bg-bg-light py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-8">
         <h2 class="sr-only">Investment Strategy</h2>
-        <div class="flex flex-col gap-6 md:gap-8 lg:gap-12">
+        <div class="flex flex-col gap-6">
           <!-- Investment Strategy Card (Full Width) -->
           <%- include('../components/info-card', {
             title: 'Investment Strategy',
             variant: 'default',
+            description: 'The fund tracks the S&P AI Infrastructure Index, utilizing a full replication strategy. Components are selected based on their fundamental exposure to AI data centers, power generation, and specialized cooling technologies.',
             content: [
-              {text: 'Research-driven stock selection focusing on energy transition leaders'},
-              {text: 'Deliberately researched exposure, delivered through a rules-based index'},
-              {text: 'Companies with competitive advantages in renewable energy and sustainability'},
-              {text: 'Concentrated portfolio of 25 high-conviction holdings'},
-              {text: 'Quarterly rebalancing based on proprietary research framework'}
+              {text: 'Quarterly Rebalancing'},
+              {text: 'Strict ESG Liquidity Screen'},
+              {text: 'Pure-play Pure-exposure Methodology'}
             ]
           }) %>
 
@@ -118,30 +117,17 @@
             title: 'Why Invest?',
             variant: 'tint',
             content: [
-              {text: 'The global energy transition creates long-term growth opportunities for companies leading the shift to renewable energy.'},
-              {text: 'Investors gain exposure to established energy companies diversifying into renewables and pure-play renewable energy firms.'},
-              {text: 'The ETF is designed to capture the margin expansion and market share gains as the world transitions away from fossil fuels.'},
-              {text: 'True-to-theme approach ensures portfolio companies are genuinely connected to the energy transition narrative.'}
+              {text: 'The fund gives investors targeted exposure to quantum computing, a technology capable of solving problems beyond classical supercomputers, spanning materials science, chemicals, pharmaceuticals, encryption, security, and AI.'},
+              {text: 'The underlying index uses Solactive\'s ARTIS natural-language-processing tool to identify and rank companies most exposed to the value drivers of quantum computing technology'}
             ]
           }) %>
 
-          <!-- Key Risk Factors (Full Width) -->
-          <div class="bg-white border-l-4 border-signature p-6 rounded-lg shadow-sm">
-            <h4 class="text-h6 font-bold text-charcoal mb-3">Key Risk Factors</h4>
-            <ul class="space-y-2 text-body text-charcoal/80">
-              <li class="flex items-start gap-2">
-                <span class="text-signature mt-1 flex-shrink-0">•</span>
-                <span>Sector concentration risk in energy transition companies</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-signature mt-1 flex-shrink-0">•</span>
-                <span>Government policy changes affecting renewable energy incentives</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-signature mt-1 flex-shrink-0">•</span>
-                <span>Technology disruption and market adoption risks</span>
-              </li>
-            </ul>
+          <!-- Main Risk Factors (Full Width) -->
+          <div class="rounded-lg p-6">
+            <h4 class="text-h6 font-bold text-charcoal mb-3">Main Risk Factors</h4>
+            <p class="text-body text-charcoal/80">
+              High sensitivity to regulatory changes in the tech sector.
+            </p>
           </div>
         </div>
       </div>
@@ -166,39 +152,39 @@
             <div class="space-y-4">
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">TER</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">AUM</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">INCEPTION DATE</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">INDEX</span>
-                <span class="text-body text-charcoal">Physical</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">Physical</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">INCOME TREATMENT</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">DISTRIBUTION FREQUENCY</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">REBALANCE</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">BASE CURRENCY</span>
-                <span class="text-body text-charcoal">USD</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">USD</span>
               </div>
               <div class="flex justify-between items-start">
                 <span class="text-caption-sm text-charcoal/70 font-medium">DOMICILE</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
             </div>
 
@@ -206,39 +192,39 @@
             <div class="space-y-4">
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">PRODUCT STRUCTURE</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">SFDR</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">SHARES OUTSTANDING</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">NUMBER OF HOLDINGS</span>
-                <span class="text-body text-charcoal font-semibold">10</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px] font-semibold">10</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">ISIN</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">BLOOMBERG TICKER</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">INDEX TICKER</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start border-b border-gray-200 pb-3">
                 <span class="text-caption-sm text-charcoal/70 font-medium">PORTFOLIO MANAGER</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
               <div class="flex justify-between items-start">
                 <span class="text-caption-sm text-charcoal/70 font-medium">CUSTODIAN</span>
-                <span class="text-body text-charcoal">-</span>
+                <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
               </div>
             </div>
           </div>
@@ -252,15 +238,15 @@
           <div class="space-y-4">
             <div class="flex justify-between items-start border-b border-gray-200 pb-3">
               <span class="text-caption-sm text-charcoal/70 font-medium">ISA ELIGIBILITY</span>
-              <span class="text-body text-charcoal">-</span>
+              <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
             </div>
             <div class="flex justify-between items-start border-b border-gray-200 pb-3">
               <span class="text-caption-sm text-charcoal/70 font-medium">SIPP AVAILABLE</span>
-              <span class="text-body text-charcoal">-</span>
+              <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
             </div>
             <div class="flex justify-between items-start">
               <span class="text-caption-sm text-charcoal/70 font-medium">UK REPORTING STATUS</span>
-              <span class="text-body text-charcoal">-</span>
+              <span class="text-body text-charcoal/80 leading-6 tracking-[1px]">-</span>
             </div>
           </div>
         </div>
@@ -316,67 +302,90 @@
           title: 'Performance'
         }) %>
 
-        <!-- Performance Tabs -->
-        <div class="mt-12">
+        <!-- Performance Tabs and Table Container -->
+        <div class="mt-12 rounded-lg border border-gray-200 overflow-hidden">
           <!-- Tab Buttons -->
-          <div class="flex gap-3 mb-8 flex-wrap" role="tablist">
-            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-signature text-white" data-tab="avg-annual" aria-pressed="true" role="tab">Average Annual</button>
-            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-gray-100 text-charcoal hover:text-signature" data-tab="cumulative" aria-pressed="false" role="tab">Cumulative</button>
-            <button class="px-4 py-2 rounded-full text-body font-medium transition-all duration-200 bg-gray-100 text-charcoal hover:text-signature" data-tab="calendar" aria-pressed="false" role="tab">Calendar Year</button>
+          <div class="flex gap-0 flex-wrap border-b border-gray-200" role="tablist">
+            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-signature transition-all duration-200 perf-tab-active" data-tab="avg-annual" aria-pressed="true" role="tab">AVERAGE ANNUAL</button>
+            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-transparent hover:border-signature transition-all duration-200" data-tab="cumulative" aria-pressed="false" role="tab">CUMULATIVE</button>
+            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-transparent hover:border-signature transition-all duration-200" data-tab="calendar" aria-pressed="false" role="tab">CALENDAR YEAR</button>
           </div>
 
           <!-- Average Annual Returns -->
           <div id="avg-annual" class="tab-content">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Average Annual Returns - Period, Fund Return, and Benchmark Return',
+              caption: 'POWR ETF Average Annual Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
               columns: [
-                {key: 'period', label: 'Period', align: 'left'},
-                {key: 'return', label: 'Return', align: 'right'},
-                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+                {key: 'name', label: 'NAME', align: 'left'},
+                {key: 'ytd', label: 'YTD', align: 'right'},
+                {key: 'm1', label: '1M', align: 'right'},
+                {key: 'm3', label: '3M', align: 'right'},
+                {key: 'm6', label: '6M', align: 'right'},
+                {key: 'y1', label: '1Y', align: 'right'},
+                {key: 'y3', label: '3Y', align: 'right'},
+                {key: 'y5', label: '5Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
               ],
               rows: [
-                {period: 'Year-to-Date (2026)', return: '+12.3%', benchmark: '+8.5%'},
-                {period: '1 Year', return: '+12.3%', benchmark: '+8.5%'},
-                {period: 'Since Inception', return: '+15.2%', benchmark: '+10.1%'}
+                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
               ],
-              headerStyle: 'tint'
+              headerStyle: 'tint',
+              noBorder: true
             }) %>
           </div>
 
           <!-- Cumulative Returns -->
           <div id="cumulative" class="tab-content hidden">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Cumulative Returns - Period, Fund Return, and Benchmark Return',
+              caption: 'POWR ETF Cumulative Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
               columns: [
-                {key: 'period', label: 'Period', align: 'left'},
-                {key: 'return', label: 'Return', align: 'right'},
-                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+                {key: 'name', label: 'NAME', align: 'left'},
+                {key: 'ytd', label: 'YTD', align: 'right'},
+                {key: 'm1', label: '1M', align: 'right'},
+                {key: 'm3', label: '3M', align: 'right'},
+                {key: 'm6', label: '6M', align: 'right'},
+                {key: 'y1', label: '1Y', align: 'right'},
+                {key: 'y3', label: '3Y', align: 'right'},
+                {key: 'y5', label: '5Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
               ],
               rows: [
-                {period: '1 Month', return: '+2.1%', benchmark: '+1.8%'},
-                {period: '3 Months', return: '+5.4%', benchmark: '+3.9%'},
-                {period: '6 Months', return: '+8.7%', benchmark: '+6.2%'},
-                {period: '1 Year', return: '+12.3%', benchmark: '+8.5%'}
+                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
               ],
-              headerStyle: 'tint'
+              headerStyle: 'tint',
+              noBorder: true
             }) %>
           </div>
 
           <!-- Calendar Year Returns -->
           <div id="calendar" class="tab-content hidden">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Calendar Year Returns - Year, Fund Return, and Benchmark Return',
+              caption: 'POWR ETF Calendar Year Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
               columns: [
-                {key: 'year', label: 'Year', align: 'left'},
-                {key: 'return', label: 'Return', align: 'right'},
-                {key: 'benchmark', label: 'Benchmark', align: 'right'}
+                {key: 'name', label: 'NAME', align: 'left'},
+                {key: 'ytd', label: 'YTD', align: 'right'},
+                {key: 'm1', label: '1M', align: 'right'},
+                {key: 'm3', label: '3M', align: 'right'},
+                {key: 'm6', label: '6M', align: 'right'},
+                {key: 'y1', label: '1Y', align: 'right'},
+                {key: 'y3', label: '3Y', align: 'right'},
+                {key: 'y5', label: '5Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
               ],
               rows: [
-                {year: '2026 (YTD)', return: '+12.3%', benchmark: '+8.5%'},
-                {year: '2025', return: '+18.5%', benchmark: '+12.3%'},
-                {year: '2024', return: '+22.1%', benchmark: '+15.8%'}
+                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
               ],
-              headerStyle: 'tint'
+              headerStyle: 'tint',
+              noBorder: true
             }) %>
           </div>
         </div>
@@ -389,12 +398,12 @@
               document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
               document.getElementById(tabId).classList.remove('hidden');
               document.querySelectorAll('[data-tab]').forEach(b => {
-                b.classList.remove('bg-signature', 'text-white');
-                b.classList.add('bg-gray-100', 'text-charcoal');
+                b.classList.remove('border-signature', 'perf-tab-active');
+                b.classList.add('border-transparent');
                 b.setAttribute('aria-pressed', 'false');
               });
-              this.classList.remove('bg-gray-100', 'text-charcoal');
-              this.classList.add('bg-signature', 'text-white');
+              this.classList.remove('border-transparent');
+              this.classList.add('border-signature', 'perf-tab-active');
               this.setAttribute('aria-pressed', 'true');
             });
           });
@@ -404,27 +413,45 @@
         <div class="mt-12">
           <%- include('../components/performance-chart', {
             title: 'Growth of a Hypothetical $10,000',
+            subtitle: 'Comparative analysis vs S&P Global Infrastructure Benchmark',
             ranges: [
               {label: '1M', value: '1m'},
               {label: '3M', value: '3m'},
               {label: '6M', value: '6m'},
+              {label: 'YTD', value: 'ytd'},
               {label: '1Y', value: '1y'},
-              {label: 'Inception', value: 'inception'}
+              {label: '3Y', value: '3y'},
+              {label: '5Y', value: '5y'},
+              {label: 'INCEPTION', value: 'inception'}
             ],
             data: {
-              labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
               datasets: [
                 {
-                  label: 'POWR',
-                  data: [10000, 10150, 10320, 10520, 10680, 10890, 11120, 11250],
-                  borderColor: '#312454',
-                  backgroundColor: 'rgba(49, 36, 84, 0.1)',
+                  label: 'BOREAS POWR ($10,520)',
+                  data: [10000, 10050, 10100, 10200, 10280, 10370, 10380, 10400, 10420, 10380, 10480, 10520],
+                  borderColor: '#7FE3D8',
+                  backgroundColor: 'rgba(127, 227, 216, 0.1)',
                   fill: true,
-                  tension: 0.4
+                  tension: 0.4,
+                  borderWidth: 2
+                },
+                {
+                  label: 'Benchmark ($10,050)',
+                  data: [10000, 10020, 10040, 10080, 10120, 10150, 10170, 10180, 10190, 10170, 10210, 10220],
+                  borderColor: '#CCCCCC',
+                  backgroundColor: 'rgba(204, 204, 204, 0.05)',
+                  fill: true,
+                  tension: 0.4,
+                  borderWidth: 2,
+                  borderDash: [5, 5]
                 }
               ]
             },
-            legendItems: [{label: 'POWR', color: '#312454'}],
+            legendItems: [
+              {label: 'BOREAS POWR ($10,520)', color: '#7FE3D8'},
+              {label: 'Benchmark ($10,050)', color: '#CCCCCC'}
+            ],
             chartId: 'powrPerformanceChart'
           }) %>
         </div>
@@ -443,38 +470,32 @@
         <!-- Exchange Data Table -->
         <div class="mt-12 bg-white rounded-lg overflow-hidden">
           <%- include('../components/data-table', {
-            caption: 'POWR ETF Exchange Listings - Exchange, Ticker, ISIN, and Status',
+            caption: 'POWR ETF Exchange Listings - Exchange, Ticker, Currency, SEDOL, ISIN, Bloomberg INAV, Listing Date',
             columns: [
-              {key: 'exchange', label: 'Exchange', align: 'left'},
-              {key: 'ticker', label: 'Ticker', align: 'left'},
+              {key: 'exchange', label: 'EXCHANGE', align: 'left'},
+              {key: 'ticker', label: 'TICKER', align: 'left'},
+              {key: 'currency', label: 'CURRENCY', align: 'left'},
+              {key: 'sedol', label: 'SEDOL', align: 'left'},
               {key: 'isin', label: 'ISIN', align: 'left'},
-              {key: 'status', label: 'Status', align: 'center'}
+              {key: 'bloomberg', label: 'BLOOMBERG INAV', align: 'left'},
+              {key: 'listingDate', label: 'LISTING DATE', align: 'left'}
             ],
             rows: [
-              {exchange: 'Euronext Dublin', ticker: 'POWR ID', isin: 'IE000ABC123XYZ', status: 'Active'},
-              {exchange: 'Xetra (Germany)', ticker: 'POW GY', isin: 'IE000ABC123XYZ', status: 'Active'},
-              {exchange: 'SIX (Switzerland)', ticker: 'POWR SW', isin: 'IE000ABC123XYZ', status: 'Active'},
-              {exchange: 'Borsa Italiana (Italy)', ticker: 'POWR IM', isin: 'IE000ABC123XYZ', status: 'Active'},
-              {exchange: 'Euronext Paris', ticker: 'POWR FP', isin: 'IE000ABC123XYZ', status: 'Active'}
+              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', isin: '-', bloomberg: '-', listingDate: '01-01-2022'}
             ],
             headerStyle: 'tint'
           }) %>
         </div>
 
-        <!-- Available Countries -->
+        <!-- Available Countries (Passported) -->
         <div class="mt-12">
-          <h3 class="text-h5 font-bold text-charcoal mb-6">Available Countries</h3>
+          <p class="text-body font-medium text-charcoal mb-6">AVAILABLE COUNTRIES (PASSPORTED)</p>
           <div class="flex flex-wrap gap-3">
             <%- include('../components/tag-chip', {label: 'Germany', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Ireland', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Italy', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'United Kingdom', variant: 'outline'}) %>
             <%- include('../components/tag-chip', {label: 'France', variant: 'outline'}) %>
+            <%- include('../components/tag-chip', {label: 'Italy', variant: 'outline'}) %>
             <%- include('../components/tag-chip', {label: 'Switzerland', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Spain', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Netherlands', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Belgium', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Luxembourg', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Austria', variant: 'outline'}) %>
           </div>
         </div>
       </div>
@@ -494,27 +515,30 @@
           <%- include('../components/document-list', {
             groups: [
               {
-                title: 'Regulatory Documents',
+                title: 'Regulatory Documents (PDF)',
                 items: [
-                  {label: 'Prospectus (PDF)', href: '#'},
-                  {label: 'KIID (PDF)', href: '#'},
-                  {label: 'Annual Report (PDF)', href: '#'}
+                  {label: 'Prospectus', href: '#'},
+                  {label: 'Supplement', href: '#'},
+                  {label: 'KID Document', href: '#'},
+                  {label: 'Country Supplement', href: '#'},
+                  {label: 'EMT', href: '#'},
+                  {label: 'EPT', href: '#'}
                 ]
               },
               {
-                title: 'Marketing Documents',
+                title: 'Marketing Documents (PDF)',
                 items: [
-                  {label: 'Factsheet (PDF)', href: '#'},
-                  {label: 'Product Overview (PDF)', href: '#'},
-                  {label: 'One-Pager (PDF)', href: '#'}
+                  {label: 'Fact Sheet', href: '#'},
+                  {label: '2 Pager', href: '#'},
+                  {label: 'Index Methodology Document', href: '#'}
                 ]
               },
               {
-                title: 'Data & Research',
+                title: 'Data (CSV)',
                 items: [
-                  {label: 'Holdings List (CSV)', href: '#'},
-                  {label: 'Index Methodology (PDF)', href: '#'},
-                  {label: 'Research Paper (PDF)', href: '#'}
+                  {label: 'Holdings', href: '#'},
+                  {label: 'Performance History', href: '#'},
+                  {label: 'NAV History', href: '#'}
                 ]
               }
             ]

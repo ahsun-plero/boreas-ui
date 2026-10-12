@@ -4,7 +4,7 @@
 
 <nav
   id="sub-nav"
-  class="sticky top-24 z-30 bg-white border-b border-gray-200 transition-shadow duration-300"
+  class="sticky top-24 z-30 bg-white border-b border-gray-200 transition-shadow duration-300 h-[60px] flex items-center"
   role="navigation"
   aria-label="Page sections"
 >
@@ -15,7 +15,7 @@
         <a
           href="<%= tab.href %>"
           data-section-id="<%= tab.id %>"
-          class="sub-nav-tab sub-nav-tab-sm px-4 py-2 rounded-full text-body text-gray-600 bg-gray-100 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+          class="sub-nav-tab sub-nav-tab-sm px-4 py-2 rounded-[4px] text-body text-gray-600 bg-gray-100 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
           data-tab-id="<%= tab.id %>"
         >
           <%= tab.label %>
@@ -24,15 +24,15 @@
     </div>
   </div>
 
-  <!-- MD/LG: Full-width underline-style tabs -->
-  <div class="hidden md:flex md:justify-center">
+  <!-- MD/LG: Full-width tab-style (no underline) -->
+  <div class="hidden md:flex md:justify-center w-full">
     <div class="max-w-7xl w-full px-4 md:px-8 lg:px-15">
-      <div class="flex items-center justify-center gap-8 py-4">
+      <div class="flex items-center justify-center gap-8">
         <% tabs.forEach(tab => { %>
           <a
             href="<%= tab.href %>"
             data-section-id="<%= tab.id %>"
-            class="sub-nav-tab sub-nav-tab-md text-body text-gray-600 hover:text-charcoal pb-4 border-b-2 border-transparent transition-all duration-200 whitespace-nowrap"
+            class="sub-nav-tab sub-nav-tab-md text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
             data-tab-id="<%= tab.id %>"
           >
             <%= tab.label %>

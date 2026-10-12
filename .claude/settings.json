@@ -6,7 +6,9 @@
       "Bash(find ~/.claude -name \"*.md\" -type f | head -20)",
       "Bash(ls -la ~/.claude/agents 2>/dev/null || echo \"No agents directory found\")",
       "Bash(open http://localhost:8000/home.html)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(cat)",
+      "Bash(bash /tmp/detailed-lit-check.sh)"
     ]
   }
 }

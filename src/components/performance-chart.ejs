@@ -1,46 +1,50 @@
 <%
   // Props with defaults
   const title = locals.title || 'Growth of a Hypothetical $10,000';
+  const subtitle = locals.subtitle || '';
   const ranges = locals.ranges || [];
   const data = locals.data || { labels: [], datasets: [] };
   const legendItems = locals.legendItems || [];
   const chartId = locals.chartId || 'performanceChart';
 %>
 
-<div class="bg-white p-6 rounded-lg shadow-md">
-  <!-- Title -->
-  <h3 class="text-h5 font-bold text-charcoal mb-6">
-    <%= title %>
-  </h3>
+<div class="bg-white p-6 rounded-lg border border-gray-200">
+  <!-- Header Section: Title/Subtitle on Left, Range Buttons on Right -->
+  <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-8 gap-6">
+    <!-- Title and Subtitle -->
+    <div>
+      <h3 class="text-h5 font-bold text-charcoal mb-2">
+        <%= title %>
+      </h3>
+      <% if (subtitle) { %>
+        <p class="text-body-sm text-charcoal/60">
+          <%= subtitle %>
+        </p>
+      <% } %>
+    </div>
 
-  <!-- Range Selector Pills -->
-  <div class="flex flex-wrap gap-3 mb-8">
-    <% ranges.forEach((range, index) => { %>
-      <button
-        class="range-pill text-body-sm font-medium px-4 py-2 rounded-full transition-all duration-200 <%= index === 0 ? 'bg-signature text-white' : 'bg-gray-100 text-charcoal hover:bg-gray-200' %>"
-        data-range="<%= range.value %>"
-        data-chart-id="<%= chartId %>"
-        aria-pressed="<%= index === 0 ? 'true' : 'false' %>"
-      >
-        <%= range.label %>
-      </button>
-    <% }); %>
-  </div>
-
-  <!-- Chart Container -->
-  <div class="relative mb-6">
-    <div class="h-48 sm:h-60 md:h-80 w-full" style="aspect-ratio: 16/9;">
-      <canvas id="<%= chartId %>" class="w-full"></canvas>
+    <!-- Range Selector Pills -->
+    <div class="flex flex-wrap gap-0 bg-tint-signature rounded-[4px] p-1">
+      <% ranges.forEach((range, index) => { %>
+        <button
+          class="range-pill text-caption-sm font-medium px-4 py-2 rounded-[4px] transition-all duration-200 <%= index === 0 ? 'bg-white text-charcoal' : 'bg-tint-signature text-charcoal hover:bg-tint-signature/80' %>"
+          data-range="<%= range.value %>"
+          data-chart-id="<%= chartId %>"
+          aria-pressed="<%= index === 0 ? 'true' : 'false' %>"
+        >
+          <%= range.label %>
+        </button>
+      <% }); %>
     </div>
   </div>
 
-  <!-- Legend -->
+  <!-- Legend (Top Right, inline with header on larger screens) -->
   <% if (legendItems && legendItems.length > 0) { %>
-    <div class="flex flex-wrap gap-6 justify-center md:justify-start">
+    <div class="flex flex-wrap gap-6 mb-8 md:absolute md:top-6 md:right-6">
       <% legendItems.forEach(item => { %>
         <div class="flex items-center gap-2">
           <div
-            class="w-3 h-3 rounded-sm"
+            class="w-3 h-3 rounded-full"
             style="background-color: <%= item.color %>"
             aria-hidden="true"
           ></div>
@@ -51,6 +55,13 @@
       <% }); %>
     </div>
   <% } %>
+
+  <!-- Chart Container -->
+  <div class="relative mt-8">
+    <div class="h-48 sm:h-60 md:h-80 w-full" style="aspect-ratio: 16/9;">
+      <canvas id="<%= chartId %>" class="w-full"></canvas>
+    </div>
+  </div>
 </div>
 
 <!-- Chart.js Library from CDN (with defer for performance) -->
