@@ -5,24 +5,34 @@
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const closeIcon = document.getElementById('close-icon');
   const mobileMenu = document.getElementById('mobile-menu');
+  const topHeader = document.getElementById('top-header');
+  const overlay = document.getElementById('mobile-menu-overlay');
   let isMenuOpen = false;
 
-  // Hamburger menu toggle
-  hamburgerBtn.addEventListener('click', function() {
-    isMenuOpen = !isMenuOpen;
-    mobileMenu.classList.toggle('hidden');
-    hamburgerIcon.classList.toggle('hidden');
-    closeIcon.classList.toggle('hidden');
-    hamburgerBtn.setAttribute('aria-expanded', isMenuOpen);
+  function setMobileMenuOpen(open) {
+    isMenuOpen = open;
+    mobileMenu.classList.toggle('hidden', !open);
+    overlay.classList.toggle('hidden', !open);
+    hamburgerIcon.classList.toggle('hidden', open);
+    closeIcon.classList.toggle('hidden', !open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+    topHeader.classList.toggle('bg-white/20', !open);
+    topHeader.classList.toggle('bg-signature/95', open);
 
-    // Apply scrolled background when menu is open
-    if (isMenuOpen) {
-      header.classList.remove('bg-signature/70');
+    if (open) {
+      header.classList.remove('bg-transparent');
       header.classList.add('bg-signature/95', 'shadow-lg');
     } else {
-      // Restore scroll state
       updateHeaderOnScroll();
     }
+  }
+
+  hamburgerBtn.addEventListener('click', function() {
+    setMobileMenuOpen(!isMenuOpen);
+  });
+
+  overlay.addEventListener('click', function() {
+    setMobileMenuOpen(false);
   });
 
   // Mobile ETFs dropdown toggle
@@ -58,12 +68,7 @@
   const mobileLinks = mobileMenu.querySelectorAll('a:not(#mobile-etf-btn)');
   mobileLinks.forEach(link => {
     link.addEventListener('click', function() {
-      isMenuOpen = false;
-      mobileMenu.classList.add('hidden');
-      hamburgerIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
-      // Restore scroll state
-      updateHeaderOnScroll();
+      setMobileMenuOpen(false);
     });
   });
 
