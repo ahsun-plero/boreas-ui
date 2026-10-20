@@ -2,11 +2,23 @@
   // Props with defaults
   const isOpen = locals.isOpen || false;
   const modalId = locals.modalId || 'boreas-modal';
-  const onClose = locals.onClose || null;
-  const onAccept = locals.onAccept || null;
+
+  const chevronPath = 'M6 9l6 6 6-6';
+
+  const countryOptions = [
+    {value: 'global', label: 'Global', icon: 'images/global-icon-charcoal.svg'},
+    {value: 'us', label: 'United States of America', icon: 'images/flag-us.svg'},
+    {value: 'uk', label: 'United Kingdom', icon: 'images/flag-uk.svg'}
+  ];
+
+  const investorOptions = [
+    {value: 'institutional', label: 'Institutional', icon: 'images/institutional-icon-charcoal.svg'},
+    {value: 'professional', label: 'Professional', icon: 'images/user-icon-charcoal.svg'},
+    {value: 'retail', label: 'Retail', icon: 'images/user-icon-charcoal.svg'}
+  ];
 %>
 
-<!-- Modal Backdrop & Container -->
+<!-- Compliance Modal (centered card on mobile, bottom sheet from sm) -->
 <div
   id="<%= modalId %>"
   role="dialog"
@@ -16,94 +28,82 @@
   data-modal-id="<%= modalId %>"
   data-modal-open="<%= isOpen %>"
 >
-  <!-- Modal Container -->
-  <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-screen overflow-y-auto">
-    <!-- Header with Logo and Close Button -->
-    <div class="flex items-start justify-between pt-6 px-6 md:px-8">
-      <!-- Boreas Logo -->
-      <div class="flex-shrink-0">
-        <img src="images/boreas-footer-logo.png" alt="Boreas Logo" class="h-8 w-auto">
-      </div>
+  <div class="bg-white rounded-lg shadow-2xl w-full max-w-md sm:max-w-2xl max-h-[calc(100vh-2rem)] overflow-y-auto">
+    <div class="px-6 md:px-8 pt-6 pb-8">
+      <img src="images/boreas-logo-signature.svg" alt="Boreas" class="h-8 w-auto mb-12">
 
-      <!-- Close Button -->
-      <button
-        type="button"
-        class="flex-shrink-0 text-charcoal hover:opacity-60 transition-opacity ml-4"
-        aria-label="Close modal"
-        data-modal-close="<%= modalId %>"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
+      <h2 id="modal-title" class="text-h4 text-charcoal mb-2">Welcome to Boreas</h2>
 
-    <!-- Modal Content -->
-    <div class="px-6 md:px-8 py-8">
-      <!-- Title -->
-      <h2 id="modal-title" class="text-h3 mb-12">Welcome to Boreas</h2>
-
-      <!-- Subtitle -->
-      <p class="text-body text-charcoal/80 mb-8">
+      <p class="text-body text-charcoal/70 mb-8">
         Boreas is a global investment manager with offices around the world. To help you find content that is suitable for your investment needs, please select your country and investor type.
       </p>
 
-      <!-- Section 1: Select Country / Region -->
-      <div class="mb-8">
-        <label for="country-select" class="text-h6 block mb-4">Select your country / region</label>
-        <div class="relative">
-          <select id="country-select" class="w-full px-4 py-3 border border-outline rounded-xs text-body font-body text-charcoal appearance-none bg-white cursor-pointer hover:border-charcoal/50 focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors">
-            <option value="global" class="text-charcoal">🌍 Global</option>
-            <option value="us" class="text-charcoal">🇺🇸 United States</option>
-            <option value="uk" class="text-charcoal">🇬🇧 United Kingdom</option>
-            <option value="eu" class="text-charcoal">🇪🇺 European Union</option>
-            <option value="asia" class="text-charcoal">🌏 Asia Pacific</option>
-          </select>
-          <!-- Custom dropdown arrow -->
-          <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-charcoal">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      <!-- Country / Region -->
+      <div class="mb-4" data-dropdown="country">
+        <p id="country-label" class="text-btn text-ink mb-2">Select your country / region</p>
+        <div class="border border-stroke rounded-xs bg-white">
+          <button type="button" class="w-full h-12 px-4 flex items-center gap-3 text-body text-charcoal text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-mint" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="country-label" data-dropdown-trigger>
+            <img src="<%= countryOptions[0].icon %>" alt="" aria-hidden="true" class="w-5 h-5" data-dropdown-icon>
+            <span data-dropdown-label><%= countryOptions[0].label %></span>
+            <svg class="ml-auto w-6 h-6 text-charcoal transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-dropdown-chevron>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<%= chevronPath %>"></path>
             </svg>
-          </div>
+          </button>
+          <ul role="listbox" aria-labelledby="country-label" class="hidden border-t border-stroke divide-y divide-stroke" data-dropdown-list>
+            <% countryOptions.forEach(opt => { %>
+              <li role="option" tabindex="0" aria-selected="false" data-value="<%= opt.value %>" data-label="<%= opt.label %>" data-icon="<%= opt.icon %>" class="h-12 px-4 flex items-center gap-3 text-body text-charcoal cursor-pointer hover:bg-bg-light focus:outline-none focus-visible:bg-bg-light">
+                <img src="<%= opt.icon %>" alt="" aria-hidden="true" class="w-5 h-5">
+                <span><%= opt.label %></span>
+              </li>
+            <% }) %>
+          </ul>
         </div>
       </div>
 
-      <!-- Section 2: Select Investor Type -->
-      <div class="mb-8">
-        <label for="investor-type-select" class="text-h6 block mb-4">Select Investor Type</label>
-        <div class="relative">
-          <select id="investor-type-select" class="w-full px-4 py-3 border border-outline rounded-xs text-body font-body text-charcoal appearance-none bg-white cursor-pointer hover:border-charcoal/50 focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors">
-            <option value="institutional" class="text-charcoal">🏢 Institutional</option>
-            <option value="professional" class="text-charcoal">👔 Professional</option>
-            <option value="retail" class="text-charcoal">👤 Retail</option>
-          </select>
-          <!-- Custom dropdown arrow -->
-          <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-charcoal">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      <!-- Investor Type -->
+      <div class="mb-8" data-dropdown="investor">
+        <p id="investor-label" class="text-btn text-ink mb-2">Select your investor type</p>
+        <div class="border border-stroke rounded-xs bg-white">
+          <button type="button" class="w-full h-12 px-4 flex items-center gap-3 text-body text-charcoal text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-mint" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="investor-label" data-dropdown-trigger>
+            <img src="<%= investorOptions[0].icon %>" alt="" aria-hidden="true" class="w-5 h-5" data-dropdown-icon>
+            <span data-dropdown-label><%= investorOptions[0].label %></span>
+            <svg class="ml-auto w-6 h-6 text-charcoal transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-dropdown-chevron>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<%= chevronPath %>"></path>
             </svg>
-          </div>
+          </button>
+          <ul role="listbox" aria-labelledby="investor-label" class="hidden border-t border-stroke divide-y divide-stroke" data-dropdown-list>
+            <% investorOptions.forEach(opt => { %>
+              <li role="option" tabindex="0" aria-selected="false" data-value="<%= opt.value %>" data-label="<%= opt.label %>" data-icon="<%= opt.icon %>" class="h-12 px-4 flex items-center gap-3 text-body text-charcoal cursor-pointer hover:bg-bg-light focus:outline-none focus-visible:bg-bg-light">
+                <img src="<%= opt.icon %>" alt="" aria-hidden="true" class="w-5 h-5">
+                <span><%= opt.label %></span>
+              </li>
+            <% }) %>
+          </ul>
         </div>
       </div>
 
-      <!-- Info Text 1 -->
-      <p class="text-body-sm text-charcoal/70 mb-6">
-        Please confirm the following by clicking 'Accept & Continue'.
+      <p class="text-body text-charcoal/80 mb-6">
+        Please confirm the following by clicking 'Accept &amp; Continue'.
       </p>
 
-      <!-- Info Text 2 -->
-      <p class="text-body-sm text-charcoal/70 mb-12">
+      <p class="text-body text-charcoal/80 mb-8">
         Please note that all country websites show fund documents. Fund specific information is shown only on country websites where the funds are authorized for distribution to the public.
       </p>
 
-      <!-- Button Container -->
-      <div class="flex gap-4 sm:flex-row flex-col">
+      <div class="flex flex-wrap gap-4">
         <button
           type="button"
-          class="bg-gold hover:bg-gold/90 text-signature font-bold h-12 px-8 rounded-xs text-btn transition-colors flex-1 sm:flex-initial flex items-center justify-center"
+          class="bg-gold hover:bg-gold/90 text-charcoal font-bold h-12 px-6 rounded-xs text-btn capitalize transition-colors"
           data-modal-accept="<%= modalId %>"
         >
-          Accept & Continue
+          Accept &amp; Continue
+        </button>
+        <button
+          type="button"
+          class="bg-white border-2 border-signature text-signature font-bold h-12 px-6 rounded-xs text-btn capitalize hover:bg-signature hover:text-white transition-colors"
+          data-modal-decline="<%= modalId %>"
+        >
+          No Thanks
         </button>
       </div>
     </div>
@@ -114,69 +114,97 @@
   (function() {
     const modalId = '<%= modalId %>';
     const modalElement = document.getElementById(modalId);
-    const closeButtons = document.querySelectorAll('[data-modal-close="' + modalId + '"]');
-    const acceptButton = document.querySelector('[data-modal-accept="' + modalId + '"]');
-
     if (!modalElement) return;
 
-    // Close button handlers
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        modalElement.classList.add('hidden');
-        modalElement.classList.remove('fixed');
-        modalElement.dataset.modalOpen = 'false';
+    const acceptButton = document.querySelector('[data-modal-accept="' + modalId + '"]');
+    const declineButton = document.querySelector('[data-modal-decline="' + modalId + '"]');
+    const dropdowns = {};
 
-        // Dispatch custom event for parent handling
-        const closeEvent = new CustomEvent('modalClose', {
-          detail: { modalId: modalId }
+    function setOpen(open) {
+      modalElement.classList.toggle('hidden', !open);
+      modalElement.classList.toggle('fixed', open);
+      modalElement.dataset.modalOpen = String(open);
+    }
+
+    function closeModal(eventName, detail) {
+      setOpen(false);
+      document.dispatchEvent(new CustomEvent(eventName, { detail: Object.assign({ modalId: modalId }, detail) }));
+    }
+
+    function initDropdown(root) {
+      const trigger = root.querySelector('[data-dropdown-trigger]');
+      const list = root.querySelector('[data-dropdown-list]');
+      const chevron = root.querySelector('[data-dropdown-chevron]');
+      const label = root.querySelector('[data-dropdown-label]');
+      const icon = root.querySelector('[data-dropdown-icon]');
+      const options = Array.from(list.querySelectorAll('[role="option"]'));
+      const state = { value: options[0].dataset.value };
+      dropdowns[root.dataset.dropdown] = state;
+
+      function render() {
+        const selected = options.find(o => o.dataset.value === state.value);
+        label.textContent = selected.dataset.label;
+        icon.src = selected.dataset.icon;
+        options.forEach(o => {
+          o.classList.toggle('hidden', o === selected);
+          o.setAttribute('aria-selected', String(o === selected));
         });
-        document.dispatchEvent(closeEvent);
-      });
-    });
+      }
 
-    // Accept button handler
+      function setExpanded(expanded) {
+        list.classList.toggle('hidden', !expanded);
+        chevron.classList.toggle('rotate-180', expanded);
+        trigger.setAttribute('aria-expanded', String(expanded));
+      }
+
+      function choose(option) {
+        state.value = option.dataset.value;
+        render();
+        setExpanded(false);
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', function() {
+        setExpanded(list.classList.contains('hidden'));
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => choose(option));
+        option.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            choose(option);
+          }
+        });
+      });
+
+      root.addEventListener('keydown', e => {
+        if (e.key === 'Escape') setExpanded(false);
+      });
+
+      render();
+    }
+
+    document.querySelectorAll('[data-dropdown]').forEach(initDropdown);
+
     if (acceptButton) {
       acceptButton.addEventListener('click', function(e) {
         e.preventDefault();
-
-        // Get selected values
-        const countrySelect = modalElement.querySelector('select:nth-of-type(1)');
-        const investorSelect = modalElement.querySelector('select:nth-of-type(2)');
-
-        const selectedCountry = countrySelect ? countrySelect.value : 'global';
-        const selectedInvestor = investorSelect ? investorSelect.value : 'institutional';
-
-        // Dispatch custom event for parent handling
-        const acceptEvent = new CustomEvent('modalAccept', {
-          detail: {
-            modalId: modalId,
-            country: selectedCountry,
-            investorType: selectedInvestor
-          }
+        closeModal('modalAccept', {
+          country: dropdowns.country.value,
+          investorType: dropdowns.investor.value
         });
-        document.dispatchEvent(acceptEvent);
-
-        // Close modal
-        modalElement.classList.add('hidden');
-        modalElement.classList.remove('fixed');
-        modalElement.dataset.modalOpen = 'false';
       });
     }
 
-    // Backdrop click to close (only when clicking directly on backdrop)
-    modalElement.addEventListener('click', function(e) {
-      if (e.target === this) {
-        e.stopPropagation();
-        modalElement.classList.add('hidden');
-        modalElement.classList.remove('fixed');
-        modalElement.dataset.modalOpen = 'false';
+    if (declineButton) {
+      declineButton.addEventListener('click', function() {
+        closeModal('modalClose', { reason: 'decline' });
+      });
+    }
 
-        const closeEvent = new CustomEvent('modalClose', {
-          detail: { modalId: modalId }
-        });
-        document.dispatchEvent(closeEvent);
-      }
+    modalElement.addEventListener('click', function(e) {
+      if (e.target === modalElement) closeModal('modalClose', { reason: 'backdrop' });
     });
   })();
 </script>

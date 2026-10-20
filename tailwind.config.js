@@ -40,6 +40,7 @@ module.exports = {
         'mint': '#7FE3D8',           // Accent, Active Nav, Highlights
         'tint-signature': '#EDE6FE', // Table headers, Cards
         'bg-light': '#F3F9FE',       // Alternate section backgrounds
+        'ink': '#231F20',            // Compliance modal field labels
         'outline': '#A1A1A1',        // Input field outlines
         'stroke': '#A1A1A1'          // Card outlines
       },
