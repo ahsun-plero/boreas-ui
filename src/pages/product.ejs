@@ -305,10 +305,10 @@
         <!-- Performance Tabs and Table Container -->
         <div class="mt-8 rounded-lg border border-gray-200 overflow-hidden">
           <!-- Tab Buttons -->
-          <div class="flex gap-0 flex-wrap bg-white border-b border-gray-200" role="tablist">
-            <button class="px-4 py-3 text-body-sm font-bold text-charcoal border-b-2 border-mint transition-all duration-200" data-tab="avg-annual" aria-pressed="true" role="tab">AVERAGE ANNUAL</button>
-            <button class="px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="cumulative" aria-pressed="false" role="tab">CUMULATIVE</button>
-            <button class="px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="calendar" aria-pressed="false" role="tab">CALENDAR YEAR</button>
+          <div class="flex gap-0 overflow-x-auto bg-white border-b border-gray-200" role="tablist">
+            <button class="shrink-0 whitespace-nowrap px-4 py-3 text-body-sm font-bold text-charcoal border-b-2 border-mint transition-all duration-200" data-tab="avg-annual" aria-pressed="true" role="tab">AVERAGE ANNUAL</button>
+            <button class="shrink-0 whitespace-nowrap px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="cumulative" aria-pressed="false" role="tab">CUMULATIVE</button>
+            <button class="shrink-0 whitespace-nowrap px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="calendar" aria-pressed="false" role="tab">CALENDAR YEAR</button>
           </div>
 
           <!-- Average Annual Returns -->
@@ -586,7 +586,7 @@
   <%- include('../components/footer') %>
 
   <!-- 13. Disclaimer Section -->
-  <section class="bg-white py-12 lg:py-20">
+  <section class="bg-white pt-12 lg:pt-20 pb-20">
     <div class="w-full">
       <h2 class="sr-only">Disclaimer</h2>
       <%- include('../components/disclaimer', {

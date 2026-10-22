@@ -39,7 +39,7 @@
     <thead>
       <tr class="h-12 <%= headerStyle === 'tint' ? 'bg-tint-signature' : 'bg-white' %> border-b border-gray-200">
         <% columns.forEach((column) => { %>
-          <th class="px-4 py-3 text-table-header text-charcoal font-medium <%= getAlignClass(column.align) %>">
+          <th class="whitespace-nowrap px-4 py-3 text-table-header text-charcoal font-medium <%= getAlignClass(column.align) %>">
             <%= column.label %>
           </th>
         <% }); %>
@@ -52,7 +52,7 @@
         <tr class="bg-white <%= !showMore && index === visibleRows.length - 1 ? '' : 'border-b border-gray-200' %> hover:bg-gray-100 transition-colors duration-200">
           <% columns.forEach((column, colIndex) => { %>
             <% if (colIndex === 0) { %>
-              <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
+              <td class="whitespace-nowrap px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
                 <%= row[column.key] %>
               </td>
             <% } else { %>
@@ -69,7 +69,7 @@
         <tr class="hidden data-table-hidden bg-white <%= index === hiddenRows.length - 1 ? '' : 'border-b border-gray-200' %> hover:bg-gray-100 transition-colors duration-200">
           <% columns.forEach((column, colIndex) => { %>
             <% if (colIndex === 0) { %>
-              <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
+              <td class="whitespace-nowrap px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
                 <%= row[column.key] %>
               </td>
             <% } else { %>
