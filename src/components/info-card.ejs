@@ -9,13 +9,12 @@
   const isDefaultVariant = variant === 'default';
   const isTintVariant = variant === 'tint';
 
-  // Background and title color classes
   const bgClass = isTintVariant ? 'bg-tint-signature' : 'bg-white';
   const titleColorClass = isTintVariant ? 'text-signature' : 'text-charcoal';
   const contentColorClass = isTintVariant ? 'text-charcoal' : 'text-charcoal';
 %>
 
-<div class="<%= bgClass %> rounded-lg p-6">
+<div class="<%= bgClass %> rounded-[12px] border border-card-border p-6">
   <!-- Card Title -->
   <h3 class="text-h5 font-bold <%= titleColorClass %> mb-4">
     <%= title %>

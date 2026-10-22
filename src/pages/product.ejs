@@ -96,7 +96,7 @@
   <main id="main-content">
 
     <!-- 5. Investment Strategy Section -->
-    <section id="strategy" class="bg-bg-light py-12 lg:py-20">
+    <section id="strategy" class="bg-white py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">Investment Strategy</h2>
         <div class="flex flex-col gap-6">
@@ -123,7 +123,7 @@
           }) %>
 
           <!-- Main Risk Factors (Full Width) -->
-          <div class="rounded-lg p-6">
+          <div class="rounded-lg py-6">
             <h4 class="text-h6 font-bold text-charcoal mb-3">Main Risk Factors</h4>
             <p class="text-body text-charcoal/80">
               High sensitivity to regulatory changes in the tech sector.
@@ -134,7 +134,7 @@
     </section>
 
     <!-- 6. ETF Overview Section -->
-    <section id="overview" class="bg-white py-12 lg:py-20">
+    <section id="overview" class="bg-bg-light py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">ETF Overview</h2>
         <!-- Section Header -->
@@ -254,7 +254,7 @@
     </section>
 
     <!-- 7. Holdings Section -->
-    <section id="holdings" class="bg-bg-light py-12 lg:py-20">
+    <section id="holdings" class="bg-white py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">Holdings</h2>
         <!-- Section Header with Action -->
@@ -294,7 +294,7 @@
     </section>
 
     <!-- 8. Performance Section -->
-    <section id="performance" class="bg-white py-12 lg:py-20">
+    <section id="performance" class="bg-bg-light py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">Performance</h2>
         <!-- Section Header -->
@@ -305,32 +305,29 @@
         <!-- Performance Tabs and Table Container -->
         <div class="mt-12 rounded-lg border border-gray-200 overflow-hidden">
           <!-- Tab Buttons -->
-          <div class="flex gap-0 flex-wrap border-b border-gray-200" role="tablist">
-            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-signature transition-all duration-200 perf-tab-active" data-tab="avg-annual" aria-pressed="true" role="tab">AVERAGE ANNUAL</button>
-            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-transparent hover:border-signature transition-all duration-200" data-tab="cumulative" aria-pressed="false" role="tab">CUMULATIVE</button>
-            <button class="px-4 py-3 text-body font-medium text-charcoal/80 border-b-2 border-transparent hover:border-signature transition-all duration-200" data-tab="calendar" aria-pressed="false" role="tab">CALENDAR YEAR</button>
+          <div class="flex gap-0 flex-wrap bg-white border-b border-gray-200" role="tablist">
+            <button class="px-4 py-3 text-body-sm font-bold text-charcoal border-b-2 border-mint transition-all duration-200" data-tab="avg-annual" aria-pressed="true" role="tab">AVERAGE ANNUAL</button>
+            <button class="px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="cumulative" aria-pressed="false" role="tab">CUMULATIVE</button>
+            <button class="px-4 py-3 text-body-sm font-medium text-charcoal border-b-2 border-transparent hover:border-mint transition-all duration-200" data-tab="calendar" aria-pressed="false" role="tab">CALENDAR YEAR</button>
           </div>
 
           <!-- Average Annual Returns -->
           <div id="avg-annual" class="tab-content">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Average Annual Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
+              caption: 'POWR ETF Average Annual Returns - Name, 1Y, 3Y, 5Y, 10Y, Since Inception',
               columns: [
                 {key: 'name', label: 'NAME', align: 'left'},
-                {key: 'ytd', label: 'YTD', align: 'right'},
-                {key: 'm1', label: '1M', align: 'right'},
-                {key: 'm3', label: '3M', align: 'right'},
-                {key: 'm6', label: '6M', align: 'right'},
                 {key: 'y1', label: '1Y', align: 'right'},
                 {key: 'y3', label: '3Y', align: 'right'},
                 {key: 'y5', label: '5Y', align: 'right'},
-                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
+                {key: 'y10', label: '10Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'left'}
               ],
               rows: [
-                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
+                {name: 'Total Return (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'}
               ],
               headerStyle: 'tint',
               noBorder: true
@@ -340,23 +337,20 @@
           <!-- Cumulative Returns -->
           <div id="cumulative" class="tab-content hidden">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Cumulative Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
+              caption: 'POWR ETF Cumulative Returns - Name, 1Y, 3Y, 5Y, 10Y, Since Inception',
               columns: [
                 {key: 'name', label: 'NAME', align: 'left'},
-                {key: 'ytd', label: 'YTD', align: 'right'},
-                {key: 'm1', label: '1M', align: 'right'},
-                {key: 'm3', label: '3M', align: 'right'},
-                {key: 'm6', label: '6M', align: 'right'},
                 {key: 'y1', label: '1Y', align: 'right'},
                 {key: 'y3', label: '3Y', align: 'right'},
                 {key: 'y5', label: '5Y', align: 'right'},
-                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
+                {key: 'y10', label: '10Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'left'}
               ],
               rows: [
-                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
+                {name: 'Total Return (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'}
               ],
               headerStyle: 'tint',
               noBorder: true
@@ -366,23 +360,20 @@
           <!-- Calendar Year Returns -->
           <div id="calendar" class="tab-content hidden">
             <%- include('../components/data-table', {
-              caption: 'POWR ETF Calendar Year Returns - Metric, YTD, 1M, 3M, 6M, 1Y, 3Y, 5Y, Since Inception',
+              caption: 'POWR ETF Calendar Year Returns - Name, 1Y, 3Y, 5Y, 10Y, Since Inception',
               columns: [
                 {key: 'name', label: 'NAME', align: 'left'},
-                {key: 'ytd', label: 'YTD', align: 'right'},
-                {key: 'm1', label: '1M', align: 'right'},
-                {key: 'm3', label: '3M', align: 'right'},
-                {key: 'm6', label: '6M', align: 'right'},
                 {key: 'y1', label: '1Y', align: 'right'},
                 {key: 'y3', label: '3Y', align: 'right'},
                 {key: 'y5', label: '5Y', align: 'right'},
-                {key: 'inception', label: 'SINCE INCEPTION', align: 'right'}
+                {key: 'y10', label: '10Y', align: 'right'},
+                {key: 'inception', label: 'SINCE INCEPTION', align: 'left'}
               ],
               rows: [
-                {name: 'Total Return (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'Market Price (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Pre-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'},
-                {name: 'After Tax Post-Liq. (%)', ytd: '+12.4%', m1: '+2.1%', m3: '+5.8%', m6: '+10.2%', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', inception: '+24.5%'}
+                {name: 'Total Return (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'Market Price (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Pre-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'},
+                {name: 'After Tax Post-Liq. (%)', y1: '+21.0%', y3: '+21.0%', y5: '+21.0%', y10: '+21.0%', inception: '+24.5%'}
               ],
               headerStyle: 'tint',
               noBorder: true
@@ -398,12 +389,12 @@
               document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
               document.getElementById(tabId).classList.remove('hidden');
               document.querySelectorAll('[data-tab]').forEach(b => {
-                b.classList.remove('border-signature', 'perf-tab-active');
+                b.classList.remove('border-mint', 'font-bold');
                 b.classList.add('border-transparent');
                 b.setAttribute('aria-pressed', 'false');
               });
               this.classList.remove('border-transparent');
-              this.classList.add('border-signature', 'perf-tab-active');
+              this.classList.add('border-mint', 'font-bold');
               this.setAttribute('aria-pressed', 'true');
             });
           });
@@ -422,7 +413,7 @@
               {label: '1Y', value: '1y'},
               {label: '3Y', value: '3y'},
               {label: '5Y', value: '5y'},
-              {label: 'INCEPTION', value: 'inception'}
+              {label: 'All', value: 'inception'}
             ],
             data: {
               labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -450,7 +441,7 @@
             },
             legendItems: [
               {label: 'BOREAS POWR ($10,520)', color: '#7FE3D8'},
-              {label: 'Benchmark ($10,050)', color: '#CCCCCC'}
+              {label: 'Benchmark ($10,050)', color: '#CCCCCC', dashed: true}
             ],
             chartId: 'powrPerformanceChart'
           }) %>
@@ -459,7 +450,7 @@
     </section>
 
     <!-- 9. Exchange Listings Section -->
-    <section id="exchanges" class="bg-bg-light py-12 lg:py-20">
+    <section id="exchanges" class="bg-white py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">Exchange Listings</h2>
         <!-- Section Header -->
@@ -494,21 +485,47 @@
           }) %>
         </div>
 
-        <!-- Available Countries (Passported) -->
-        <div class="mt-12">
-          <p class="text-body font-medium text-charcoal mb-6">AVAILABLE COUNTRIES (PASSPORTED)</p>
-          <div class="flex flex-wrap gap-3">
-            <%- include('../components/tag-chip', {label: 'Germany', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'United Kingdom', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'France', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Italy', variant: 'outline'}) %>
-            <%- include('../components/tag-chip', {label: 'Switzerland', variant: 'outline'}) %>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- 10. Literature Section -->
+    <!-- 10. Registered Countries Section -->
+    <section id="registered" class="bg-bg-light py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <h2 class="sr-only">Registered Countries</h2>
+        <%- include('../components/section-header', {
+          title: 'Registered Countries'
+        }) %>
+
+        <ul class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
+          <li class="flex items-center gap-3">
+            <img src="images/flag-fr.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">France</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <img src="images/flag-de.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">Germany</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <img src="images/flag-it.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">Italy</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <img src="images/flag-ch.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">Switzerland</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <img src="images/flag-uk.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">United Kingdom</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <img src="images/flag-uk.svg" alt="" aria-hidden="true" class="w-6 h-4" width="24" height="16">
+            <span class="text-body text-charcoal/80">United Kingdom</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 11. Literature Section -->
     <section id="literature" class="bg-white py-12 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="sr-only">Literature</h2>

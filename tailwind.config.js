@@ -42,7 +42,8 @@ module.exports = {
         'bg-light': '#F3F9FE',       // Alternate section backgrounds
         'ink': '#231F20',            // Compliance modal field labels
         'outline': '#A1A1A1',        // Input field outlines
-        'stroke': '#A1A1A1'          // Card outlines
+        'stroke': '#A1A1A1',         // Card outlines
+        'card-border': '#EAE9EE'     // Investment strategy card borders
       },
       fontFamily: {
         sans: ['Familjen Grotesk', 'system-ui', 'sans-serif'],

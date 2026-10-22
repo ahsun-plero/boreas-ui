@@ -10,7 +10,7 @@
 
 <div class="bg-white p-6 rounded-lg border border-gray-200">
   <!-- Header Section: Title/Subtitle on Left, Range Buttons on Right -->
-  <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-8 gap-6">
+  <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8 gap-6">
     <!-- Title and Subtitle -->
     <div>
       <h3 class="text-h5 font-bold text-charcoal mb-2">
@@ -24,7 +24,7 @@
     </div>
 
     <!-- Range Selector Pills -->
-    <div class="flex flex-wrap gap-0 bg-tint-signature rounded-[4px] p-1">
+    <div class="self-end lg:self-auto flex flex-wrap gap-0 bg-tint-signature rounded-[4px] p-1">
       <% ranges.forEach((range, index) => { %>
         <button
           class="range-pill text-caption-sm font-medium px-4 py-2 rounded-[4px] transition-all duration-200 <%= index === 0 ? 'bg-white text-charcoal' : 'bg-tint-signature text-charcoal hover:bg-tint-signature/80' %>"
@@ -40,19 +40,24 @@
 
   <!-- Legend (Top Right, inline with header on larger screens) -->
   <% if (legendItems && legendItems.length > 0) { %>
-    <div class="flex flex-wrap gap-6 mb-8 md:absolute md:top-6 md:right-6">
-      <% legendItems.forEach(item => { %>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-3 h-3 rounded-full"
-            style="background-color: <%= item.color %>"
-            aria-hidden="true"
-          ></div>
-          <span class="text-body-sm text-charcoal">
-            <%= item.label %>
-          </span>
-        </div>
-      <% }); %>
+    <div class="flex justify-end mb-6">
+      <div class="inline-flex flex-col gap-3 p-4 rounded-[12px] bg-white border border-card-border shadow-sm">
+        <% legendItems.forEach(item => { %>
+          <div class="flex items-center gap-3">
+            <% if (item.dashed) { %>
+              <span class="w-3.5 h-3.5 rounded-full border-2 border-dashed border-charcoal/50" aria-hidden="true"></span>
+              <span class="text-caption-sm font-normal text-charcoal/80">
+                <%= item.label %>
+              </span>
+            <% } else { %>
+              <span class="w-3.5 h-3.5 rounded-full" style="background-color: <%= item.color %>" aria-hidden="true"></span>
+              <span class="text-caption-sm font-medium text-charcoal">
+                <%= item.label %>
+              </span>
+            <% } %>
+          </div>
+        <% }); %>
+      </div>
     </div>
   <% } %>
 
