@@ -1,3 +1,7 @@
+<%
+  const activeItem = locals.activeItem || 'Home';
+%>
+
 <div id="mobile-menu-overlay" class="hidden lg:hidden fixed inset-0 top-mobile-menu bg-charcoal/60 z-30" aria-hidden="true"></div>
 
 <header id="header" class="fixed left-0 right-0 z-40 transition-all duration-300 bg-transparent top-7">
@@ -9,11 +13,11 @@
 
     <!-- Navigation Menu (Desktop) -->
     <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
-      <a href="#" class="text-mint font-bold transition-colors font-body text-base leading-5">Home</a>
+      <a href="#" class="<%= activeItem === 'Home' ? 'text-mint font-bold' : 'text-white font-normal' %> transition-colors font-body text-base leading-5">Home</a>
 
       <!-- Our ETFs Dropdown -->
       <div class="relative group" id="desktop-etf-dropdown">
-        <button type="button" class="flex items-center gap-2 text-white hover:text-white transition-colors font-body text-base font-normal leading-5" id="desktop-etf-btn" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="flex items-center gap-2 <%= activeItem === 'Our ETFs' ? 'text-mint font-bold' : 'text-white font-normal' %> hover:text-white transition-colors font-body text-base leading-5" id="desktop-etf-btn" aria-haspopup="true" aria-expanded="false">
           Our ETFs
           <img src="images/dropdown-arrow.svg" alt="" aria-hidden="true" class="w-4 h-4" width="16" height="16">
         </button>
