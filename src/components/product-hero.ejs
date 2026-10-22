@@ -18,10 +18,10 @@
   <div class="max-w-7xl mx-auto px-4 md:px-8 w-full py-16 lg:py-20 lg:px-15 xl:px-15">
 
     <!-- Main Content Grid: Left Column (ALL Content) + Right Column (Price Card) -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start mt-[60px]">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_440px] gap-12 items-start mt-[60px]">
 
       <!-- LEFT COLUMN: All Content (2 columns) -->
-      <div class="flex flex-col justify-start lg:col-span-2">
+      <div class="flex flex-col justify-start">
 
         <!-- Breadcrumb Navigation -->
         <% if (breadcrumbs.length > 0) { %>
@@ -29,7 +29,7 @@
             <div class="flex items-center gap-2 text-body text-white leading-6">
               <% breadcrumbs.forEach((crumb, index) => { %>
                 <% if (index > 0) { %>
-                  <span class="text-white/70">></span>
+                  <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path></svg>
                 <% } %>
                 <a
                   href="<%= crumb.href %>"
@@ -43,28 +43,28 @@
 
         <!-- Ticker as Large Title -->
         <% if (ticker) { %>
-          <h1 class="text-h1 font-bold text-white mb-3 leading-tight">
+          <h1 class="text-h3 md:text-h2 lg:text-h1 font-bold text-white mb-4 leading-tight">
             <%= ticker %>
           </h1>
         <% } %>
 
         <!-- Subtitle (S&P data style) -->
         <% if (subtitle) { %>
-          <h2 class="text-subtitle text-white font-medium mb-4 leading-none">
+          <h2 class="text-subtitle text-white font-medium mb-2 leading-none">
             <%= subtitle %>
           </h2>
         <% } %>
 
         <!-- Description (Unlocking institutions style) -->
         <% if (title) { %>
-          <p class="text-body text-white mb-8 leading-6 max-w-xl font-normal">
+          <p class="text-body text-white mb-12 leading-6 max-w-xl font-normal">
             <%= title %>
           </p>
         <% } %>
 
         <!-- Stats Section -->
         <% if (stats.length > 0) { %>
-          <div class="grid grid-cols-3 gap-6 mb-8">
+          <div class="grid grid-cols-3 gap-6">
             <% stats.forEach((stat) => { %>
               <div>
                 <p class="text-table-header text-white mb-3">
@@ -81,64 +81,57 @@
       </div>
 
       <!-- RIGHT COLUMN: Price Card Only (1 column) -->
-      <div class="flex flex-col justify-start items-start lg:col-span-1">
-        <div class="bg-white rounded-2xl p-8 w-full shadow-xl">
-          <!-- NAV Header with Change -->
-          <div class="flex items-start justify-between mb-6">
-            <div>
-              <p class="text-caption-sm text-charcoal/80 mb-1 font-medium leading-[1.2] tracking-[0.6px]">NAV</p>
-              <p class="text-h4 font-bold text-charcoal leading-none">
-                <%= priceCard.nav || '$0.00' %>
+      <div class="flex flex-col justify-start items-start">
+        <div class="bg-white rounded-2xl p-6 w-full min-w-[440px] shadow-xl">
+          <!-- NAV label and as-of date -->
+          <div class="flex justify-between items-start gap-4">
+            <p class="text-caption-sm font-medium text-charcoal/80 leading-[1.2] tracking-[0.6px]">NAV</p>
+            <% if (priceCard.asOfDate) { %>
+              <p class="text-caption-sm font-normal text-charcoal/80 leading-[1.2] tracking-[0.6px] text-right">
+                *Data as of <%= priceCard.asOfDate %>.
               </p>
-            </div>
+            <% } %>
+          </div>
 
-            <!-- Change Indicator (Right aligned) -->
+          <!-- NAV value and daily change -->
+          <div class="flex justify-between items-end mt-2">
+            <p class="text-h4 text-charcoal leading-[normal]">
+              <%= priceCard.nav || '$0.00' %>
+            </p>
             <% if (priceCard.changePercent !== undefined) { %>
-              <div class="text-right">
-                <p class="font-['Familjen_Grotesk'] text-base font-semibold leading-[1.375] <%= isPositiveChange ? 'text-[#397D11]' : 'text-red-600' %>">
-                  <%= isPositiveChange ? '↑' : '↓' %> <%= priceCard.changePercent || '0%' %> (1D)
-                </p>
-              </div>
+              <p class="text-h6 <%= isPositiveChange ? 'text-[#397D11]' : 'text-red-600' %>">
+                <%= isPositiveChange ? '↑' : '↓' %> <%= priceCard.changePercent || '0%' %> (1D)
+              </p>
             <% } %>
           </div>
 
           <!-- Divider -->
           <div class="border-t border-gray-200 my-6"></div>
 
-          <!-- AUM and YTD Return Row -->
-          <div class="grid grid-cols-2 gap-8 mb-6">
-            <!-- AUM -->
-            <% if (priceCard.aum) { %>
-              <div>
-                <p class="text-caption-sm text-charcoal/80 mb-2 font-medium leading-[1.2] tracking-[0.6px]">AUM</p>
-                <p class="font-['Familjen_Grotesk'] text-base font-semibold text-charcoal leading-[1.375]">
-                  <%= priceCard.aum %>
-                </p>
-              </div>
-            <% } %>
-
-            <!-- YTD Return -->
-            <% if (priceCard.ytdReturn) { %>
-              <div class="text-right">
-                <p class="text-caption-sm text-charcoal/80 mb-2 font-medium leading-[1.2] tracking-[0.6px]">YTD Return</p>
-                <p class="font-['Familjen_Grotesk'] text-base font-semibold text-[#397D11] leading-[1.375]">
-                  <%= priceCard.ytdReturn %>
-                </p>
-              </div>
-            <% } %>
+          <!-- AUM and YTD Return labels -->
+          <div class="flex justify-between items-start">
+            <p class="text-caption-sm font-medium text-charcoal/80 leading-[1.2] tracking-[0.6px]">AUM</p>
+            <p class="text-caption-sm font-medium text-charcoal/80 leading-[1.2] tracking-[0.6px] text-right">YTD Return</p>
           </div>
 
-          <!-- As Of Date -->
-          <% if (priceCard.asOfDate) { %>
-            <p class="text-caption-sm text-charcoal/80 mb-8 font-normal leading-[1.2] tracking-[0.6px]">
-              *Data as of <%= priceCard.asOfDate %>.
-            </p>
-          <% } %>
+          <!-- AUM and YTD Return values -->
+          <div class="flex justify-between items-start mt-2">
+            <% if (priceCard.aum) { %>
+              <p class="font-['Familjen_Grotesk'] text-base font-semibold text-charcoal leading-[22px]">
+                <%= priceCard.aum %>
+              </p>
+            <% } %>
+            <% if (priceCard.ytdReturn) { %>
+              <p class="font-['Familjen_Grotesk'] text-base font-semibold text-[#397D11] leading-[22px] text-right">
+                <%= priceCard.ytdReturn %>
+              </p>
+            <% } %>
+          </div>
 
           <!-- CTA Button -->
           <button
             type="button"
-            class="w-full h-12 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold/90 transition-all duration-200"
+            class="w-full h-12 mt-8 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold/90 transition-all duration-200"
           >
             <%= ctaText %>
           </button>
@@ -155,16 +148,15 @@
               href="<%= button.href %>"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center h-12 px-6 border-2 border-white text-white rounded-[24px] text-btn capitalize hover:bg-white/10 transition-all duration-200"
+              class="inline-flex items-center justify-center h-8 px-4 border-2 border-white text-white rounded-[24px] text-btn capitalize hover:bg-white/10 transition-all duration-200"
               title="<%= button.label %>"
             >
+              <span><%= button.label %></span>
               <% if (button.icon) { %>
-                <!-- Download icon SVG -->
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
               <% } %>
-              <span><%= button.label %></span>
             </a>
           <% }) %>
         </div>

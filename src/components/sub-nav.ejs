@@ -4,18 +4,18 @@
 
 <nav
   id="sub-nav"
-  class="sticky top-24 z-30 bg-white border-b border-gray-200 transition-shadow duration-300 h-[60px] flex items-center"
+  class="sticky top-24 z-30 bg-subnav-bg border-b border-card-border transition-shadow duration-300 h-[60px] flex items-center"
   role="navigation"
   aria-label="Page sections"
 >
   <!-- SM: Horizontally scrollable underline-style tabs (same as desktop) -->
-  <div class="sm:flex md:hidden overflow-x-auto">
-    <div class="flex gap-0 px-4 min-w-max">
+  <div class="sm:flex md:hidden overflow-x-auto h-full">
+    <div class="flex h-full gap-8 px-4 min-w-max">
       <% tabs.forEach(tab => { %>
         <a
           href="<%= tab.href %>"
           data-section-id="<%= tab.id %>"
-          class="sub-nav-tab sub-nav-tab-sm px-4 py-3 text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+          class="sub-nav-tab sub-nav-tab-sm inline-flex items-center h-full text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
           data-tab-id="<%= tab.id %>"
         >
           <%= tab.label %>
@@ -25,14 +25,14 @@
   </div>
 
   <!-- MD/LG: Full-width tab-style (no underline) -->
-  <div class="hidden md:flex md:justify-center w-full">
-    <div class="max-w-7xl w-full px-4 md:px-8 lg:px-15 xl:px-15">
-      <div class="flex items-center justify-center gap-8">
+  <div class="hidden md:flex md:justify-start w-full h-full">
+    <div class="max-w-7xl w-full px-4 md:px-8 lg:px-15 xl:px-15 h-full">
+      <div class="flex items-stretch justify-start gap-8 h-full">
         <% tabs.forEach(tab => { %>
           <a
             href="<%= tab.href %>"
             data-section-id="<%= tab.id %>"
-            class="sub-nav-tab sub-nav-tab-md text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+            class="sub-nav-tab sub-nav-tab-md inline-flex items-center h-full text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
             data-tab-id="<%= tab.id %>"
           >
             <%= tab.label %>

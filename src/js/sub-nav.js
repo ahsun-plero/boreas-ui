@@ -59,16 +59,16 @@
       tab.classList.remove(
         'text-signature',
         'font-semibold',
-        'border-signature',
+        'border-mint',
         'border-transparent',
-        'border-b-2',
+        'border-b-4',
         'text-gray-600'
       );
 
       if (isActive) {
-        tab.classList.add('text-signature', 'font-semibold', 'border-b-2', 'border-signature');
+        tab.classList.add('text-signature', 'font-semibold', 'border-b-4', 'border-mint');
       } else {
-        tab.classList.add('text-gray-600', 'border-b-2', 'border-transparent');
+        tab.classList.add('text-gray-600', 'border-b-4', 'border-transparent');
       }
     });
   }
