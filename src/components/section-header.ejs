@@ -3,7 +3,7 @@
   const action = locals.action || null;
 %>
 
-<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div class="flex flex-row items-center justify-between gap-4">
   <!-- Title -->
   <h2 class="text-h4 text-charcoal font-bold">
     <%= title %>
@@ -13,14 +13,14 @@
   <% if (action) { %>
     <a
       href="<%= action.href || '#' %>"
-      class="inline-flex items-center gap-2 h-12 px-6 bg-white border border-charcoal/20 text-charcoal text-body font-semibold rounded-[4px] hover:bg-charcoal/5 transition-all duration-200"
+      class="inline-flex items-center gap-2 text-signature text-btn font-bold capitalize border-b-2 border-signature hover:text-signature/80 transition-colors duration-200 w-fit"
     >
+      <span><%= action.label %></span>
       <% if (action.icon === 'download') { %>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         </svg>
       <% } %>
-      <span><%= action.label %></span>
     </a>
   <% } %>
 </div>

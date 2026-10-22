@@ -264,26 +264,26 @@
         }) %>
 
         <!-- Holdings Data Table -->
-        <div class="mt-12 bg-white rounded-lg overflow-hidden">
+        <div class="mt-12">
           <%- include('../components/data-table', {
-            caption: 'POWR ETF Holdings - Company, Sector, Weight, and Country',
+            caption: 'POWR ETF Holdings - Company, Ticker, Currency, and Weight %',
             columns: [
               {key: 'company', label: 'Company', align: 'left'},
-              {key: 'sector', label: 'Sector', align: 'left'},
-              {key: 'weight', label: 'Weight', align: 'right'},
-              {key: 'country', label: 'Country', align: 'left'}
+              {key: 'ticker', label: 'Ticker', align: 'left'},
+              {key: 'currency', label: 'Currency', align: 'left'},
+              {key: 'weight', label: 'Weight %', align: 'right'}
             ],
             rows: [
-              {company: 'Tesla Inc.', sector: 'Automotive', weight: '5.2%', country: 'United States'},
-              {company: 'NextEra Energy', sector: 'Utilities', weight: '4.8%', country: 'United States'},
-              {company: 'Siemens Gamesa', sector: 'Wind Energy', weight: '4.5%', country: 'Spain'},
-              {company: 'Vestas Wind Systems', sector: 'Wind Energy', weight: '4.2%', country: 'Denmark'},
-              {company: 'Brookfield Renewable', sector: 'Renewable Power', weight: '3.9%', country: 'Canada'},
-              {company: 'Plug Power Inc.', sector: 'Hydrogen', weight: '3.7%', country: 'United States'},
-              {company: 'Orsted A/S', sector: 'Wind Energy', weight: '3.5%', country: 'Denmark'},
-              {company: 'EQT Corp', sector: 'Natural Gas', weight: '3.3%', country: 'United States'},
-              {company: 'Sunrun Inc.', sector: 'Solar', weight: '3.1%', country: 'United States'},
-              {company: 'Canadian Solar', sector: 'Solar', weight: '2.9%', country: 'Canada'}
+              {company: 'NVIDIA Corp.', ticker: 'NVDA', currency: 'USD', weight: '8.42%'},
+              {company: 'Vertiv Holdings Co.', ticker: 'VRT', currency: 'USD', weight: '8.42%'},
+              {company: 'Eaton Corp.', ticker: 'ETN', currency: 'USD', weight: '8.42%'},
+              {company: 'Equinix Inc.', ticker: 'EQIX', currency: 'USD', weight: '8.42%'},
+              {company: 'Schneider Electric', ticker: 'SU.FP', currency: 'USD', weight: '8.42%'},
+              {company: 'NVIDIA Corp.', ticker: 'NVDA', currency: 'USD', weight: '8.42%'},
+              {company: 'Vertiv Holdings Co.', ticker: 'VRT', currency: 'USD', weight: '8.42%'},
+              {company: 'Eaton Corp.', ticker: 'ETN', currency: 'USD', weight: '8.42%'},
+              {company: 'Equinix Inc.', ticker: 'EQIX', currency: 'USD', weight: '8.42%'},
+              {company: 'Schneider Electric', ticker: 'SU.FP', currency: 'USD', weight: '8.42%'}
             ],
             headerStyle: 'tint',
             maxVisibleRows: 10,

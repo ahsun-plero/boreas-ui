@@ -30,7 +30,7 @@
   };
 %>
 
-<div class="overflow-x-auto <%= !noBorder ? 'rounded-lg border border-gray-200' : '' %>">
+<div class="overflow-x-auto <%= noBorder ? '' : (footerAction || showMore ? 'rounded-t-lg border border-gray-200' : 'rounded-lg border border-gray-200') %>">
   <table class="w-full min-w-full" id="<%= tableId %>">
     <% if (caption) { %>
       <caption class="sr-only"><%= caption %></caption>
@@ -49,7 +49,7 @@
     <!-- Table Body -->
     <tbody>
       <% visibleRows.forEach((row, index) => { %>
-        <tr class="<%= index % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+        <tr class="bg-white border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
           <% columns.forEach((column, colIndex) => { %>
             <% if (colIndex === 0) { %>
               <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
@@ -66,7 +66,7 @@
 
       <!-- Hidden rows (revealed by Show More button) -->
       <% hiddenRows.forEach((row, index) => { %>
-        <tr class="hidden data-table-hidden <%= (index + maxVisibleRows) % 2 === 0 ? 'bg-white' : 'bg-gray-50' %> border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+        <tr class="hidden data-table-hidden bg-white border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200">
           <% columns.forEach((column, colIndex) => { %>
             <% if (colIndex === 0) { %>
               <td class="px-4 py-4 text-body font-bold text-charcoal <%= getAlignClass(column.align) %>">
@@ -87,7 +87,7 @@
 <!-- Show More Button or Footer Action -->
 <% if (showMore || footerAction) { %>
   <% if (showMore) { %>
-    <div class="flex justify-center bg-tint-signature rounded-b-lg py-4">
+    <div class="flex justify-center items-center h-12 bg-tint-signature rounded-b-lg">
       <button
         class="px-6 py-2 text-signature text-btn font-medium hover:text-signature/80 transition-colors duration-200 data-table-show-more"
         data-table-id="<%= tableId %>"
@@ -110,12 +110,15 @@
       })();
     </script>
   <% } else if (footerAction) { %>
-    <div class="flex justify-center bg-tint-signature rounded-b-lg py-4">
+    <div class="flex justify-center items-center h-12 bg-tint-signature rounded-b-lg">
       <a
         href="<%= footerAction.href %>"
-        class="px-6 py-2 text-signature text-btn font-medium hover:text-signature/80 transition-colors duration-200 inline-block"
+        class="inline-flex items-center gap-2 px-6 text-signature text-btn font-medium hover:text-signature/80 transition-colors duration-200"
       >
         <%= footerAction.label %>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6"></path>
+        </svg>
       </a>
     </div>
   <% } %>
