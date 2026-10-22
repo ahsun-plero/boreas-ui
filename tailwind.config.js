@@ -65,8 +65,8 @@ module.exports = {
         'hero-gradient': `linear-gradient(256deg, rgba(49, 36, 84, 0.65) -6.6%, rgba(49, 36, 84, 0.65) 29.85%, rgba(49, 36, 84, 0.32) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%)`,
       },
       fontSize: {
-        // Fluid: 48px at 375px viewport, 72px at 1024px, clamped outside that range
-        'fluid-display': ['clamp(3rem, 2.1333rem + 3.698vw, 4.5rem)', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
+        // Fluid: 42px at 768px viewport, 70px at 1280px; sized so the hero title fits on one line
+        'fluid-hero': ['clamp(2.625rem, 5.469vw, 4.375rem)', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
         // Fluid: 32px at 375px viewport, 48px at 1024px, clamped outside that range
         'fluid-section': ['clamp(2rem, 1.4222rem + 2.4653vw, 3rem)', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
         'h1': ['72px', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],

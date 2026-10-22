@@ -4,13 +4,14 @@
   const ctaText = locals.ctaText || 'Explore ETFs';
   const ctaHref = locals.ctaHref || '#etfs';
   const titleClass = locals.titleClass || 'text-h3 md:text-h2 lg:text-h1';
+  const containerClass = locals.containerClass || 'max-w-2xl';
 %>
 
 <section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center bg-hero">
   <!-- Background overlay applied via gradient -->
 
   <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15 w-full">
-    <div class="max-w-2xl">
+    <div class="<%= containerClass %>">
       <!-- Title - H1 Style -->
       <h1 class="<%= titleClass %> text-white font-bold leading-tight mb-4">
         True-to-Theme ETFs.<br>
