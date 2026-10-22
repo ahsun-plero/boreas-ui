@@ -467,23 +467,30 @@
           title: 'Exchange Listings'
         }) %>
 
-        <!-- Exchange Data Table -->
-        <div class="mt-12 bg-white rounded-lg overflow-hidden">
-          <%- include('../components/data-table', {
-            caption: 'POWR ETF Exchange Listings - Exchange, Ticker, Currency, SEDOL, ISIN, Bloomberg INAV, Listing Date',
-            columns: [
-              {key: 'exchange', label: 'EXCHANGE', align: 'left'},
-              {key: 'ticker', label: 'TICKER', align: 'left'},
-              {key: 'currency', label: 'CURRENCY', align: 'left'},
-              {key: 'sedol', label: 'SEDOL', align: 'left'},
-              {key: 'isin', label: 'ISIN', align: 'left'},
-              {key: 'bloomberg', label: 'BLOOMBERG INAV', align: 'left'},
-              {key: 'listingDate', label: 'LISTING DATE', align: 'left'}
-            ],
+        <!-- Share Class Accordion -->
+        <div class="mt-12 flex flex-col gap-6">
+          <%- include('../components/share-class-accordion', {
+            title: 'UAE Share Class',
+            isDefault: true,
+            open: true,
+            isin: 'ISIN: 123456',
+            currency: 'Share Class Currency: AED',
             rows: [
-              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', isin: '-', bloomberg: '-', listingDate: '01-01-2022'}
-            ],
-            headerStyle: 'tint'
+              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2022'},
+              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2022'},
+              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2022'},
+              {exchange: '<Exchange Name>', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2022'}
+            ]
+          }) %>
+          <%- include('../components/share-class-accordion', {
+            title: 'European Share Class',
+            open: false,
+            isin: 'ISIN: 123456',
+            currency: 'Share Class Currency: USD',
+            rows: [
+              {exchange: 'Xetra', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2020'},
+              {exchange: 'Xetra', ticker: 'POWR', currency: 'USD', sedol: '-', listingDate: '01-01-2020'}
+            ]
           }) %>
         </div>
 
