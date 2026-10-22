@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the full lineup of Boreas thematic ETFs built with conviction and engineered around long-term trends.">
+  <title>Our ETFs | Boreas</title>
+  <link rel="canonical" href="https://boreas.example.com/etfs.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
+  <meta property="og:title" content="Our ETFs | Boreas">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-signature focus:text-white">Skip to main content</a>
+
+  <%- include('../components/top-header') %>
+
+  <%- include('../components/modal', {
+    isOpen: false,
+    modalId: 'boreas-modal'
+  }) %>
+
+  <%- include('../components/header', {
+    activeItem: 'Our ETFs'
+  }) %>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="relative text-white bg-hero pt-40 pb-16 lg:pt-48 lg:pb-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15 w-full">
+        <nav class="mb-6" aria-label="Breadcrumb">
+          <div class="flex items-center gap-2 text-body text-white leading-6">
+            <a href="/" class="font-normal hover:text-mint transition-colors">Home</a>
+            <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path>
+            </svg>
+            <span class="font-bold">Our ETFs</span>
+          </div>
+        </nav>
+
+        <h1 class="text-h3 md:text-h2 lg:text-h1 font-bold text-white leading-tight mb-4">Our ETFs</h1>
+
+        <p class="text-body text-white max-w-2xl">
+          True-to-theme ETFs built with conviction — explore our full lineup of thematic exposures, each engineered around a genuine long-term trend.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters and Table -->
+    <section class="bg-white py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <h2 class="text-h5 font-bold text-charcoal mb-6">Filters</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 mb-12">
+          <% [
+            {id: 'filter-fund', label: 'Fund Name', placeholder: 'Select Fund Name', options: ['S&P AI Data, Power & Infrastructure', 'Solactive Quantum Computing', 'S&P Absolute Luxury']},
+            {id: 'filter-currency', label: 'Trading Currency', placeholder: 'Select Trading Currency', options: ['USD', 'AED']},
+            {id: 'filter-distribution', label: 'Distribution Type', placeholder: 'Select Distribution Type', options: ['Accumulating', 'Distributing']},
+            {id: 'filter-exchange', label: 'Exchange', placeholder: 'Select Exchange', options: ['Xetra']}
+          ].forEach((filter) => { %>
+            <div>
+              <label for="<%= filter.id %>" class="block text-btn text-charcoal mb-2"><%= filter.label %></label>
+              <div class="relative">
+                <select id="<%= filter.id %>" class="w-full h-12 pl-4 pr-12 border border-outline rounded-xs bg-white text-body text-charcoal appearance-none cursor-pointer focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors duration-200">
+                  <option value="" disabled selected><%= filter.placeholder %></option>
+                  <% filter.options.forEach((option) => { %>
+                    <option value="<%= option %>"><%= option %></option>
+                  <% }) %>
+                </select>
+                <svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6"></path>
+                </svg>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+
+        <%- include('../components/fund-table', {
+          rows: [
+            {name: 'S&P AI Data, Power & Infrastructure', ticker: 'POWR', baseCurrency: 'USD', tradingCurrency: 'USD', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'},
+            {name: 'S&P AI Data, Power & Infrastructure', ticker: 'AIPOWR', baseCurrency: 'AED', tradingCurrency: 'AED', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'},
+            {name: 'Solactive Quantum Computing', ticker: 'QQCC', baseCurrency: 'USD', tradingCurrency: 'USD', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'},
+            {name: 'Solactive Quantum Computing', ticker: 'QUANTM', baseCurrency: 'AED', tradingCurrency: 'USD', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'},
+            {name: 'S&P Absolute Luxury', ticker: 'LUXY', baseCurrency: 'USD', tradingCurrency: 'USD', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'},
+            {name: 'S&P Absolute Luxury', ticker: 'LUXURY', baseCurrency: 'AED', tradingCurrency: 'USD', exchange: 'Xetra', distributionType: 'Accumulating', expenseRatio: '0.50%', ytd: '+ 1.00%', asOfDate: '01/01/2026', factsheetHref: '#', prospectusHref: '#'}
+          ]
+        }) %>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../components/newsletter', {
+    title: 'Invest With The Wind At Your Back',
+    subtitle: 'Thematic research, market developments and fund updates on the long-term forces shaping portfolios.',
+    inputPlaceholder: 'Enter Email Address',
+    buttonText: 'Sign Up',
+    disclaimer: 'By signing up, you agree to receive market insights and product updates from Boreas'
+  }) %>
+
+  <%- include('../components/footer') %>
+</body>
+</html>

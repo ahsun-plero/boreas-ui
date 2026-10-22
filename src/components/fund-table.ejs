@@ -1,0 +1,114 @@
+<%
+  // Props with defaults
+  const rows = locals.rows || [];
+%>
+
+<!-- Desktop / Tablet: table (scrolls horizontally when columns do not fit) -->
+<div class="hidden sm:block overflow-x-auto rounded-lg border border-gray-200">
+  <table class="w-full min-w-[60rem]">
+    <thead>
+      <tr class="h-12 bg-tint-signature">
+        <th scope="col" class="px-4 text-left text-table-header text-charcoal font-medium">Fund Name</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Ticker</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Base Currency</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Trading Currency</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Exchange</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Distribution Type</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Management Expense Ratio</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">YTD Return</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">As of Date</th>
+        <th scope="col" class="px-4 text-center text-table-header text-charcoal font-medium">Documents</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rows.forEach((row, index) => { %>
+        <% const divider = index < rows.length - 1 ? 'border-b border-gray-200' : ''; %>
+        <tr class="bg-white hover:bg-gray-100 transition-colors duration-200">
+          <td class="px-4 py-4 text-left text-body-sm font-bold text-charcoal <%= divider %>"><%= row.name %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.ticker %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.baseCurrency %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.tradingCurrency %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.exchange %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.distributionType %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.expenseRatio %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.ytd %></td>
+          <td class="px-4 py-4 text-center text-body-sm text-charcoal/80 <%= divider %>"><%= row.asOfDate %></td>
+          <td class="px-4 py-4 text-center <%= divider %>">
+            <div class="inline-flex flex-col items-start gap-2">
+              <a href="<%= row.factsheetHref %>" class="inline-flex items-center gap-1 text-body-sm text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+                Factsheet
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              </a>
+              <a href="<%= row.prospectusHref %>" class="inline-flex items-center gap-1 text-body-sm text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+                Prospectus
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              </a>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<!-- Mobile: cards -->
+<ul class="sm:hidden flex flex-col gap-6">
+  <% rows.forEach((row) => { %>
+    <li class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+      <div class="bg-tint-signature p-6">
+        <p class="text-subtitle font-bold text-charcoal"><%= row.name %></p>
+        <p class="text-body text-charcoal/80 mt-2"><%= row.ticker %></p>
+      </div>
+
+      <div class="p-6 grid grid-cols-2 gap-x-4 gap-y-4">
+        <div>
+          <p class="text-body font-bold text-charcoal">Base Currency</p>
+          <p class="text-body text-charcoal/80"><%= row.baseCurrency %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">Trading Currency</p>
+          <p class="text-body text-charcoal/80"><%= row.tradingCurrency %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">Exchange</p>
+          <p class="text-body text-charcoal/80"><%= row.exchange %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">Distribution Type</p>
+          <p class="text-body text-charcoal/80"><%= row.distributionType %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">Management Expense Ratio</p>
+          <p class="text-body text-charcoal/80"><%= row.expenseRatio %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">YTD Return</p>
+          <p class="text-body text-charcoal/80"><%= row.ytd %></p>
+        </div>
+        <div>
+          <p class="text-body font-bold text-charcoal">As of Date</p>
+          <p class="text-body text-charcoal/80"><%= row.asOfDate %></p>
+        </div>
+      </div>
+
+      <div class="px-6 pb-6 flex flex-wrap gap-x-6 gap-y-2">
+        <a href="<%= row.factsheetHref %>" class="inline-flex items-center gap-1 text-body-sm text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+          Factsheet
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+        </a>
+        <a href="<%= row.prospectusHref %>" class="inline-flex items-center gap-1 text-body-sm text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+          Prospectus
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+        </a>
+      </div>
+    </li>
+  <% }) %>
+</ul>
