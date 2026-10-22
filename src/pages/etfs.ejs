@@ -64,9 +64,9 @@
             {id: 'filter-exchange', label: 'Exchange', placeholder: 'Select Exchange', options: ['Xetra']}
           ].forEach((filter) => { %>
             <div>
-              <label for="<%= filter.id %>" class="block text-btn text-charcoal mb-2"><%= filter.label %></label>
+              <label for="<%= filter.id %>" class="block text-btn text-ink mb-2"><%= filter.label %></label>
               <div class="relative">
-                <select id="<%= filter.id %>" class="w-full h-12 pl-4 pr-12 border border-outline rounded-xs bg-white text-body text-charcoal appearance-none cursor-pointer focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors duration-200">
+                <select id="<%= filter.id %>" class="w-full h-12 pl-4 pr-12 border border-outline rounded-xs bg-white text-body font-normal leading-[normal] text-charcoal appearance-none cursor-pointer focus:outline-none focus:border-charcoal focus:ring-1 focus:ring-mint transition-colors duration-200">
                   <option value="" disabled selected><%= filter.placeholder %></option>
                   <% filter.options.forEach((option) => { %>
                     <option value="<%= option %>"><%= option %></option>
