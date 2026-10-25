@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Answers to common questions about Boreas, our ETFs, eligibility, investing and fund documents.">
+  <title>FAQ | Boreas</title>
+  <link rel="canonical" href="https://boreas.example.com/faq.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
+  <meta property="og:title" content="FAQ | Boreas">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-signature focus:text-white">Skip to main content</a>
+
+  <%- include('../components/top-header') %>
+
+  <%- include('../components/modal', {
+    isOpen: false,
+    modalId: 'boreas-modal'
+  }) %>
+
+  <%- include('../components/header') %>
+
+  <main id="main-content">
+    <%- include('../components/page-hero', {
+      breadcrumbs: [
+        {label: 'Home', href: '/'},
+        {label: 'FAQ', href: '#'}
+      ],
+      title: 'FAQ',
+      description: 'Everything you need to know about our funds, eligibility, and how to get started.'
+    }) %>
+
+    <section class="bg-white py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <div class="flex flex-col gap-6">
+          <div>
+            <h2 class="font-body text-title-body text-charcoal">About Boreas & Our ETFs</h2>
+            <div class="mt-8">
+              <%- include('../components/faq-accordion', {
+                items: [
+                  {question: 'What is Boreas?', answer: 'Boreas provides European institutional and retail investors access to high-conviction thematic ETFs, covering trends like AI infrastructure, quantum computing, and absolute luxury. Boreas is associated with Lunate.', open: true},
+                  {question: 'How many ETFs does Boreas offer?', answer: 'Answer to be confirmed.'},
+                  {question: 'How often is fund data updated?', answer: 'Answer to be confirmed.'}
+                ]
+              }) %>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-body text-title-body text-charcoal">Investing & Eligibility</h2>
+            <div class="mt-8">
+              <%- include('../components/faq-accordion', {
+                items: [
+                  {question: 'Who can invest in Boreas ETFs?', answer: 'Answer to be confirmed.'},
+                  {question: 'Which countries are Boreas ETFs available in?', answer: 'Answer to be confirmed.'},
+                  {question: 'How do I buy a Boreas ETF?', answer: 'Answer to be confirmed.'}
+                ]
+              }) %>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-body text-title-body text-charcoal">Fund Documents & Data</h2>
+            <div class="mt-8">
+              <%- include('../components/faq-accordion', {
+                items: [
+                  {question: 'Can I download historical performance or holdings data?', answer: 'Answer to be confirmed.'},
+                  {question: 'How is performance calculated?', answer: 'Answer to be confirmed.'}
+                ]
+              }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../components/newsletter', {
+    title: 'Invest With The Wind At Your Back',
+    subtitle: 'Thematic research, market developments and fund updates on the long-term forces shaping portfolios.',
+    inputPlaceholder: 'Enter Email Address',
+    buttonText: 'Sign Up',
+    disclaimer: 'By signing up, you agree to receive market insights and product updates from Boreas'
+  }) %>
+
+  <%- include('../components/footer') %>
+</body>
+</html>

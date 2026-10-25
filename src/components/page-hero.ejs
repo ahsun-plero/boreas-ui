@@ -1,0 +1,35 @@
+<%
+  // Props with defaults
+  const breadcrumbs = locals.breadcrumbs || [];
+  const title = locals.title || '';
+  const description = locals.description || '';
+%>
+
+<section class="relative text-white bg-hero pt-40 pb-16 lg:pt-48 lg:pb-20">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15 w-full">
+    <% if (breadcrumbs.length > 0) { %>
+      <nav class="mb-6" aria-label="Breadcrumb">
+        <div class="flex items-center gap-2 text-body text-white leading-6">
+          <% breadcrumbs.forEach((crumb, index) => { %>
+            <% if (index > 0) { %>
+              <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path>
+              </svg>
+            <% } %>
+            <% if (index === breadcrumbs.length - 1) { %>
+              <span class="font-bold"><%= crumb.label %></span>
+            <% } else { %>
+              <a href="<%= crumb.href %>" class="font-normal hover:text-mint transition-colors"><%= crumb.label %></a>
+            <% } %>
+          <% }) %>
+        </div>
+      </nav>
+    <% } %>
+
+    <h1 class="text-h3 md:text-h2 lg:text-h1 font-bold text-white leading-tight mb-4"><%= title %></h1>
+
+    <% if (description) { %>
+      <p class="text-body text-white max-w-2xl"><%= description %></p>
+    <% } %>
+  </div>
+</section>

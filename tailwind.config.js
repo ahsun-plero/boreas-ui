@@ -71,6 +71,7 @@ module.exports = {
         'fluid-hero': ['clamp(2.625rem, 5.469vw, 4.375rem)', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
         // Fluid: 32px at 375px viewport, 48px at 1024px, clamped outside that range
         'fluid-section': ['clamp(2rem, 1.4222rem + 2.4653vw, 3rem)', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
+        'title-body': ['32px', { lineHeight: 'normal', fontWeight: '700', fontFamily: 'Roboto' }],
         'h1': ['72px', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
         'h2': ['60px', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],
         'h3': ['48px', { lineHeight: 'auto', fontWeight: '700', fontFamily: 'Familjen Grotesk' }],

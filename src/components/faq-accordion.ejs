@@ -1,0 +1,20 @@
+<%
+  // Props with defaults
+  const items = locals.items || [];
+%>
+
+<div class="flex flex-col gap-4">
+  <% items.forEach((item) => { %>
+    <details class="group bg-white open:bg-tint-signature border border-gray-200 rounded-[12px] overflow-hidden" <%= item.open ? 'open' : '' %>>
+      <summary class="list-none cursor-pointer [&::-webkit-details-marker]:hidden flex items-center justify-between gap-4 p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-mint">
+        <span class="font-display text-h6 text-charcoal"><%= item.question %></span>
+        <svg class="shrink-0 w-6 h-6 text-charcoal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6"></path>
+        </svg>
+      </summary>
+      <div class="px-6 pb-6 -mt-2">
+        <p class="text-body text-charcoal/80"><%= item.answer %></p>
+      </div>
+    </details>
+  <% }) %>
+</div>
