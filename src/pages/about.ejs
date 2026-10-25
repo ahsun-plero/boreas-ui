@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boreas was founded on a simple belief: thematic investing deserves more rigour than it typically gets. Meet the team behind Boreas.">
+  <title>About Us | Boreas</title>
+  <link rel="canonical" href="https://boreas.example.com/about.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
+  <meta property="og:title" content="About Us | Boreas">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-signature focus:text-white">Skip to main content</a>
+
+  <%- include('../components/top-header') %>
+
+  <%- include('../components/modal', {
+    isOpen: false,
+    modalId: 'boreas-modal'
+  }) %>
+
+  <%- include('../components/header') %>
+
+  <main id="main-content">
+    <%- include('../components/page-hero', {
+      breadcrumbs: [
+        {label: 'Home', href: '/'},
+        {label: 'About Us', href: '#'}
+      ],
+      title: 'About Us',
+      description: 'The team, philosophy, and financial backing behind Boreas, built to bring<br>genuine conviction to thematic investing.'
+    }) %>
+
+    <!-- Our Vision -->
+    <section class="bg-bg-light py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            <h2 class="font-display text-h4 text-charcoal mb-4">Our Vision</h2>
+            <div class="flex flex-col gap-6 text-body text-charcoal/80">
+              <p>Boreas was founded on a simple belief: thematic investing deserves more rigor than it typically gets. Too many thematic ETFs chase headlines rather than genuine, durable trends — we built Boreas to do the opposite.</p>
+              <p>Backed by Lunate and operated by Northwind, our team brings deep experience in index design, financial engineering, and institutional asset management to every fund we build. Each Boreas ETF is constructed around a long-term structural shift — not a passing narrative — because we believe that's the only way thematic investing earns a place in a serious portfolio.</p>
+              <p>We're building for the investor who wants exposure to the future without compromising on discipline.</p>
+            </div>
+          </div>
+          <img src="images/about-vision.png" alt="Vision blocks spelling the word vision" width="1272" height="920" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover rounded-[12px] shadow-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="bg-white py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <h2 class="font-display text-h4 text-charcoal mb-8">Our Team</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          <% [
+            {name: 'Geir Espeskog', role: 'Chief Executive Officer', image: 'images/about-team-geir.png'},
+            {name: 'Viktor Ostebo', role: 'Global Head of Distribution', image: 'images/about-team-viktor.png'},
+            {name: 'Christopher Vaas', role: 'Chief Product Officer', image: 'images/about-team-christopher.png'}
+          ].forEach((member) => { %>
+            <div class="bg-tint-signature rounded-[12px] overflow-hidden">
+              <img src="<%= member.image %>" alt="<%= member.name %>" width="822" height="880" loading="lazy" decoding="async" class="w-full aspect-square object-cover">
+
+              <div class="p-6">
+                <h3 class="text-h5 text-charcoal"><%= member.name %></h3>
+                <p class="text-body text-charcoal/80 mt-2"><%= member.role %></p>
+
+                <div class="flex items-center gap-4 mt-4">
+                  <a href="#" aria-label="Email <%= member.name %>" class="text-charcoal hover:text-signature transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="5" width="18" height="14" rx="2" stroke-width="1.5"></rect>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7l9 6 9-6"></path>
+                    </svg>
+                  </a>
+                  <a href="#" aria-label="LinkedIn profile of <%= member.name %>" class="text-charcoal hover:text-signature transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                    </svg>
+                  </a>
+                </div>
+
+                <details class="group mt-4">
+                  <summary class="list-none cursor-pointer [&::-webkit-details-marker]:hidden inline-flex items-center gap-2 text-btn font-bold text-charcoal hover:text-signature transition-colors duration-200">
+                    <span class="group-open:hidden">Show Bio</span>
+                    <span class="hidden group-open:inline">Hide Bio</span>
+                    <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6"></path>
+                    </svg>
+                  </summary>
+                  <p class="text-body text-charcoal/80 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </details>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Partner -->
+    <section class="bg-bg-light py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            <h2 class="font-display text-h4 text-charcoal mb-4">Our Partner</h2>
+            <div class="flex flex-col gap-6 text-body text-charcoal/80">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <img src="images/about-partner.png" alt="Two people shaking hands" width="1272" height="920" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover rounded-[12px] shadow-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Lunate By The Numbers -->
+    <section class="bg-white py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
+        <h2 class="font-display text-h4 text-charcoal mb-8">Lunate By The Numbers</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <% [
+            {label: 'Founded In', value: '2024', caption: '2+ years of ETF excellence'},
+            {label: 'Assets Under Management', value: '$115B', caption: 'As of 08/31/2026'},
+            {label: 'Number of ETFs', value: '22', caption: 'As of 08/31/2026'},
+            {label: 'Number of Employees', value: '250', caption: 'As of 08/31/2026'}
+          ].forEach((stat) => { %>
+            <div class="bg-tint-signature rounded-[12px] p-6">
+              <p class="text-table-header"><%= stat.label %></p>
+              <p class="font-display text-h1 text-charcoal mt-4"><%= stat.value %></p>
+              <p class="text-caption-sm font-normal text-charcoal/80 leading-[1.1] mt-2"><%= stat.caption %></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../components/newsletter', {
+    title: 'Invest With The Wind At Your Back',
+    subtitle: 'Thematic research, market developments and fund updates on the long-term forces shaping portfolios.',
+    inputPlaceholder: 'Enter Email Address',
+    buttonText: 'Sign Up',
+    disclaimer: 'By signing up, you agree to receive market insights and product updates from Boreas'
+  }) %>
+
+  <%- include('../components/footer') %>
+</body>
+</html>
