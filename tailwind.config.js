@@ -37,6 +37,7 @@ module.exports = {
         'signature': '#312454',      // Sticky Navigation
         'charcoal': '#2C292A',       // Footer, Headings, Body text
         'gold': '#FFB300',           // Buttons Only
+        'gold-hover': '#E6A100',     // Gold button hover (10% black overlay)
         'mint': '#7FE3D8',           // Accent, Active Nav, Highlights
         'tint-signature': '#EDE6FE', // Table headers, Cards
         'bg-light': '#F3F9FE',       // Alternate section backgrounds

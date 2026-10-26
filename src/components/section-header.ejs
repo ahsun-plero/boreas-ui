@@ -13,7 +13,7 @@
   <% if (action) { %>
     <a
       href="<%= action.href || '#' %>"
-      class="inline-flex items-center gap-2 text-signature text-btn font-bold capitalize border-b-2 border-signature hover:text-signature/80 transition-colors duration-200 w-fit"
+      class="inline-flex items-center gap-2 text-signature text-btn font-bold capitalize border-b-2 border-signature hover:border-b-4 hover:text-signature/80 transition-colors duration-200 w-fit"
     >
       <span><%= action.label %></span>
       <% if (action.icon === 'download') { %>
