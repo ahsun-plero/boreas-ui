@@ -14,8 +14,8 @@
   const isPositiveChange = priceCard.change && parseFloat(priceCard.change) >= 0;
 %>
 
-<section class="relative text-white min-h-screen bg-hero flex items-center">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 w-full py-16 lg:py-20 lg:px-15 xl:px-15">
+<section class="relative text-white bg-hero flex items-center">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 w-full py-12 lg:py-20 lg:px-15 xl:px-15">
 
     <!-- Main Content Grid: Left Column (ALL Content) + Right Column (Price Card) -->
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_440px] gap-12 items-start mt-[60px]">
@@ -94,7 +94,7 @@
           </div>
 
           <!-- NAV value and daily change -->
-          <div class="flex justify-between items-end mt-2">
+          <div class="flex justify-between items-end mt-1">
             <p class="text-h4 text-charcoal leading-[normal]">
               <%= priceCard.nav || '$0.00' %>
             </p>
@@ -106,7 +106,7 @@
           </div>
 
           <!-- Divider -->
-          <div class="border-t border-gray-200 my-6"></div>
+          <div class="border-t border-gray-200 mt-4 mb-4"></div>
 
           <!-- AUM and YTD Return labels -->
           <div class="flex justify-between items-start">
@@ -115,7 +115,7 @@
           </div>
 
           <!-- AUM and YTD Return values -->
-          <div class="flex justify-between items-start mt-2">
+          <div class="flex justify-between items-start mt-1">
             <% if (priceCard.aum) { %>
               <p class="font-['Familjen_Grotesk'] text-base font-semibold text-charcoal leading-[22px]">
                 <%= priceCard.aum %>
@@ -131,7 +131,7 @@
           <!-- CTA Button -->
           <button
             type="button"
-            class="w-full h-12 mt-8 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold/90 transition-all duration-200"
+            class="w-full h-12 mt-6 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold/90 transition-all duration-200"
           >
             <%= ctaText %>
           </button>
