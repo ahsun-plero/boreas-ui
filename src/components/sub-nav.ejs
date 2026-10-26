@@ -11,11 +11,11 @@
   <!-- SM: Horizontally scrollable underline-style tabs (same as desktop) -->
   <div class="sm:flex md:hidden overflow-x-auto h-full">
     <div class="flex h-full gap-8 px-4 min-w-max">
-      <% tabs.forEach(tab => { %>
+      <% tabs.forEach((tab, index) => { %>
         <a
           href="<%= tab.href %>"
           data-section-id="<%= tab.id %>"
-          class="sub-nav-tab sub-nav-tab-sm inline-flex items-center h-full text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+          class="sub-nav-tab sub-nav-tab-sm inline-flex items-center h-full px-6 text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap <%= index === 0 ? 'max-[768.01px]:pl-0' : '' %>"
           data-tab-id="<%= tab.id %>"
         >
           <%= tab.label %>
@@ -28,11 +28,11 @@
   <div class="hidden md:flex md:justify-start w-full h-full">
     <div class="max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-15 xl:px-15 h-full">
       <div class="flex items-stretch justify-start gap-8 h-full">
-        <% tabs.forEach(tab => { %>
+        <% tabs.forEach((tab, index) => { %>
           <a
             href="<%= tab.href %>"
             data-section-id="<%= tab.id %>"
-            class="sub-nav-tab sub-nav-tab-md inline-flex items-center h-full text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap"
+            class="sub-nav-tab sub-nav-tab-md inline-flex items-center h-full px-6 text-body text-charcoal/80 hover:text-charcoal transition-all duration-200 whitespace-nowrap <%= index === 0 ? 'max-[768.01px]:pl-0' : '' %>"
             data-tab-id="<%= tab.id %>"
           >
             <%= tab.label %>
