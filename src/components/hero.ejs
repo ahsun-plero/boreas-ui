@@ -7,26 +7,26 @@
   const containerClass = locals.containerClass || 'max-w-2xl';
 %>
 
-<section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center bg-hero">
+<section class="relative text-white py-20 md:py-32 lg:py-48 min-h-screen flex items-center bg-hero [@media(orientation:landscape)_and_(max-height:500px)]:!items-start [@media(orientation:landscape)_and_(max-height:500px)]:!py-6 [@media(orientation:landscape)_and_(max-height:500px)]:!pt-28">
   <!-- Background overlay applied via gradient -->
 
   <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15 w-full">
     <div class="<%= containerClass %>">
       <!-- Title - H1 Style -->
-      <h1 class="<%= titleClass %> text-white font-bold leading-tight mb-4">
+      <h1 class="<%= titleClass %> [@media(orientation:landscape)_and_(max-height:500px)]:!text-h4 text-white font-bold leading-tight mb-4 [@media(orientation:landscape)_and_(max-height:500px)]:!mb-2">
         True-to-Theme ETFs.<br>
         High Conviction Tailwind Themes.
       </h1>
 
       <!-- Subtitle - Body Style -->
-      <p class="text-body text-white mb-10 md:mb-12">
+      <p class="text-body text-white mb-10 md:mb-12 [@media(orientation:landscape)_and_(max-height:500px)]:!text-body-sm [@media(orientation:landscape)_and_(max-height:500px)]:!mb-4">
         <%= subtitle %>
       </p>
 
       <!-- CTA Button -->
       <a
         href="<%= ctaHref %>"
-        class="inline-flex items-center h-12 px-8 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold-hover transition-all duration-200"
+        class="inline-flex items-center h-12 px-8 bg-gold text-signature text-btn font-semibold rounded-xs hover:bg-gold-hover transition-all duration-200 [@media(orientation:landscape)_and_(max-height:500px)]:!h-10"
       >
         <%= ctaText %>
       </a>
@@ -34,7 +34,7 @@
   </div>
 
   <!-- Carousel Indicators (Pagination Dots) -->
-  <div class="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-3" aria-label="Hero slide indicators">
+  <div class="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:!bottom-3" aria-label="Hero slide indicators">
     <!-- Dot 1 (Active) -->
     <div class="w-12 h-1.5 bg-mint rounded-full transition-all duration-300" aria-current="true"></div>
 
