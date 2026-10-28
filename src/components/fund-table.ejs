@@ -7,24 +7,24 @@
 <div class="hidden sm:block overflow-x-auto rounded-lg border border-gray-200">
   <table class="w-full min-w-[60rem]">
     <thead>
-      <tr class="h-12 bg-tint-signature">
-        <th scope="col" class="px-4 text-left text-caption-sm tracking-[1px] text-charcoal font-medium">Fund Name</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Ticker</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Base Currency</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Trading Currency</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Exchange</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Distribution Type</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Management Expense Ratio</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">YTD Return</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">As of Date</th>
-        <th scope="col" class="px-4 text-center text-caption-sm tracking-[1px] text-charcoal font-medium">Documents</th>
+      <tr class="bg-tint-signature">
+        <th scope="col" class="sticky left-0 z-10 min-w-[140px] w-[140px] bg-tint-signature px-4 py-3 text-left text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Fund Name</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Ticker</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Base Currency</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Trading Currency</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Exchange</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Distribution Type</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Management Expense Ratio</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">YTD Return</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">As of Date</th>
+        <th scope="col" class="px-4 py-3 text-center text-caption-sm leading-[18px] tracking-[1px] text-charcoal font-medium">Documents</th>
       </tr>
     </thead>
     <tbody>
       <% rows.forEach((row, index) => { %>
         <% const divider = index < rows.length - 1 ? 'border-b border-gray-200' : ''; %>
         <tr class="bg-white hover:bg-gray-100 transition-colors duration-200">
-          <td class="px-4 py-4 text-left text-caption-sm font-bold leading-[1.5] text-charcoal <%= divider %>"><%= row.name %></td>
+          <td class="sticky left-0 z-10 min-w-[140px] w-[140px] bg-white px-4 py-4 text-left text-caption-sm font-bold leading-[1.5] text-charcoal <%= divider %>"><%= row.name %></td>
           <td class="px-4 py-4 text-center text-caption-sm font-normal text-charcoal <%= divider %>"><%= row.ticker %></td>
           <td class="px-4 py-4 text-center text-caption-sm font-normal text-charcoal <%= divider %>"><%= row.baseCurrency %></td>
           <td class="px-4 py-4 text-center text-caption-sm font-normal text-charcoal <%= divider %>"><%= row.tradingCurrency %></td>
@@ -35,13 +35,13 @@
           <td class="px-4 py-4 text-center text-caption-sm font-normal text-charcoal <%= divider %>"><%= row.asOfDate %></td>
           <td class="px-4 py-4 text-center <%= divider %>">
             <div class="inline-flex flex-col items-start gap-2">
-              <a href="<%= row.factsheetHref %>" class="inline-flex items-center gap-1 text-caption-sm font-normal text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+              <a href="<%= row.factsheetHref %>" class="inline-flex w-fit items-center gap-1 pb-0.5 border-b border-signature text-caption-sm font-normal text-signature hover:text-signature/80 transition-colors duration-200">
                 Factsheet
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
               </a>
-              <a href="<%= row.prospectusHref %>" class="inline-flex items-center gap-1 text-caption-sm font-normal text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+              <a href="<%= row.prospectusHref %>" class="inline-flex w-fit items-center gap-1 pb-0.5 border-b border-signature text-caption-sm font-normal text-signature hover:text-signature/80 transition-colors duration-200">
                 Prospectus
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -96,13 +96,13 @@
       </div>
 
       <div class="border-t border-gray-200 px-6 py-4 grid grid-cols-2 gap-x-4">
-        <a href="<%= row.factsheetHref %>" class="inline-flex items-center gap-1 text-caption-sm font-normal text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+        <a href="<%= row.factsheetHref %>" class="inline-flex w-fit items-center gap-1 pb-0.5 border-b border-signature text-caption-sm font-normal text-signature hover:text-signature/80 transition-colors duration-200">
           Factsheet
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
         </a>
-        <a href="<%= row.prospectusHref %>" class="inline-flex items-center gap-1 text-caption-sm font-normal text-signature underline underline-offset-4 hover:text-signature/80 transition-colors duration-200">
+        <a href="<%= row.prospectusHref %>" class="inline-flex w-fit items-center gap-1 pb-0.5 border-b border-signature text-caption-sm font-normal text-signature hover:text-signature/80 transition-colors duration-200">
           Prospectus
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
