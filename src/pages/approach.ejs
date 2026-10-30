@@ -42,7 +42,7 @@
       <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-15 xl:px-15">
         <h2 class="font-display text-h4 text-charcoal mb-8">The Boreas Way</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 min-[1025px]:grid-cols-3 gap-6">
           <%- include('../components/boreas-way-card', {
             image: 'images/frame.svg',
             title: 'Active Design, Index Delivery',
@@ -74,7 +74,7 @@
           {title: '3. Security', items: ['Maecenas quis elementum neque. Vivamus fringilla sollicitudin neque', 'Vivamus fringilla sollicitudin neque, ut imperdiet neque bibendum at', 'Aliquam dictum fermentum eros at ullamcorper']}
         ].forEach((category) => { %>
           <div class="mb-12 last:mb-0">
-            <h3 class="font-display text-h4 text-charcoal mb-4"><%= category.title %></h3>
+            <h3 class="font-display text-h5 text-charcoal mb-4"><%= category.title %></h3>
             <p class="text-body text-charcoal/80 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim vel nibh ultricies tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque magna nec nunc interdum congue. Vestibulum rutrum sagittis pulvinar. In rutrum enim sed volutpat pharetra. Maecenas quis elementum neque. Vivamus fringilla sollicitudin neque, ut imperdiet neque bibendum at. Curabitur aliquet suscipit auctor. Nulla tempus mi ipsum, ut pellentesque justo dictum vel. Donec faucibus tristique rhoncus. Aliquam dictum fermentum eros at ullamcorper. Curabitur ullamcorper sollicitudin hendrerit. Vestibulum ut consequat massa, vitae convallis nunc.</p>
             <ul class="flex flex-col gap-2">
               <% category.items.forEach((item) => { %>
